@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "candidate": "spec/drafts/native-1.1/FORMAT-1.1-candidate.md",
+  "candidate_sha256": "7851213ac7649ee79eaa8487b66750026f11f58eb7a6690e734b79f949ae7228",
+  "published": "spec/FORMAT-1.1.md",
+  "published_sha256": "868821c2af8baf92ea9a68d55f43a0491b97e71027e02f3cd4f2d8c2c5373c69",
+  "change": "Opening status paragraph only; technical body unchanged",
+  "acceptance_sha256": "84147366e8534197fa1063db769b0060e3966aebfdc4f35757906bf342248c6b"
+}

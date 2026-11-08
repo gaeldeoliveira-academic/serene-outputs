@@ -1,0 +1,17 @@
+# Preserve checksum-pinned inputs byte-for-byte; keep normal text diffs.
+/fixtures_custom/** -text
+/fixtures_extensions_draft/** -text
+/spec/** -text
+/tools/conformance/custom_author.py -text
+/tools/conformance/extensions_draft/*.py -text
+/docs/codec_extensions_snapshot.json -text
+/include/serene/outputs/types.hpp -text
+/include/serene/outputs/sha256.hpp -text
+/include/serene/outputs/codec.hpp -text
+/src/sha256.cpp -text
+/src/codec.cpp -text
+/third_party/crypto_algorithms/sha256.h -text
+/third_party/crypto_algorithms/sha256.c -text
+/third_party/crypto_algorithms/README.md -text
+/third_party/licenses/ZFP-LICENSE -text
+/include/serene/outputs/profile.hpp -text

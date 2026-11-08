@@ -1,0 +1,41 @@
+{
+  "snapshot_kind": "serene-outputs-codec-source/1",
+  "api_version": 1,
+  "source_files": {
+    "include/serene/outputs/types.hpp": "fc2fe3674493e68bac6f414af17acfa19ae73d8b4e0519ac47e3068df138a3b1",
+    "include/serene/outputs/sha256.hpp": "c5e5ac0b2d76ce293904710553f98ecffbcdd3c287f0be4af9633b8982e80895",
+    "include/serene/outputs/codec.hpp": "4919ef5a3f677098f1814c33e07b6b1e80807e5eb80dbe136d64ff99b1b409a0",
+    "src/sha256.cpp": "f226eb9c2db86914a2d60b58fdd9be3d6dd05dbc0f4a378132f788190058459b",
+    "src/codec.cpp": "5dec43b37a31b8b40d2763f46c0fb817a6775c56aa5134e5148e38bd24fdd454",
+    "third_party/crypto_algorithms/sha256.h": "a946e621775fd8251624e77d19f25407c4b6074ab780027e5797b77c7acf79b5",
+    "third_party/crypto_algorithms/sha256.c": "c6320687e8e17486b09929a29da61c9e3a3f9a2903d03b825cfb08be20717885",
+    "third_party/crypto_algorithms/README.md": "e3e04bbc27f68266c02af3a3ef6cb5e1bd217a3c92f2893b66d9f2220f732460",
+    "third_party/licenses/ZFP-LICENSE": "3a5eb0afef5c157575ec0cf4207fa8f1007d88aeb79fc59127c38cfbf1a30e2c"
+  },
+  "zfp": {
+    "revision": "f40868a6a1c190c802e7d8b5987064f044bf7812",
+    "archive_sha256": "599802776f2427df2d3dbd655f4443e146ebeedcf50d06c6a8ce26784263884b",
+    "version": "1.0.1",
+    "codec": 5,
+    "cmake": {
+      "ZFP_BIT_STREAM_WORD_SIZE": "64",
+      "ZFP_ROUNDING_MODE": "ZFP_ROUND_NEVER",
+      "ZFP_WITH_OPENMP": "OFF",
+      "ZFP_WITH_CUDA": "OFF",
+      "ZFP_WITH_DAZ": "OFF",
+      "ZFP_WITH_TIGHT_ERROR": "OFF",
+      "ZFP_WITH_BIT_STREAM_STRIDED": "OFF",
+      "BUILD_SHARED_LIBS": "OFF",
+      "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+    }
+  },
+  "cpp": "23",
+  "headers": "include/",
+  "private_include": "third_party/crypto_algorithms",
+  "c_sources": [
+    "third_party/crypto_algorithms/sha256.c"
+  ],
+  "dependencies": "Codec only needs pinned ZFP and included SHA source; neither model.cpp/nlohmann nor HDF5",
+  "qualification": "Windows MSVC /MD Release; model+codec CTests2/2 passed; independent176values/56frames and20000headerfuzz cases, repeated C++ allocation checks. Installed consumer final receipt pending.",
+  "content_identity_sha256": "3a4f8d17348199ec708f706ecf540e0fa6fb23917f1b59a2aae08fe21a88df9d"
+}

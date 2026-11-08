@@ -1,0 +1,21 @@
+{
+  "file": "empty_selection.serene",
+  "runs": [
+    {
+      "run_id": "run/α",
+      "kind": 0,
+      "metadata_section": 16,
+      "shape": [
+        0,
+        0
+      ],
+      "axis": [],
+      "identity_axis": [],
+      "bits_hex": [],
+      "sidecar": "empty_selection.r000000",
+      "frames": [],
+      "run_outcome": 0,
+      "numerical_status": 1
+    }
+  ]
+}

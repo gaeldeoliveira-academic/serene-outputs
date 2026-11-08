@@ -1,0 +1,11 @@
+{
+  "file": "unavailable_catalog.serene",
+  "runs": [
+    {
+      "run_id": "run/α",
+      "kind": 0,
+      "catalog_state": "unavailable",
+      "metadata_section": 8
+    }
+  ]
+}

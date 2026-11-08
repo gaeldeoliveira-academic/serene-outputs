@@ -1,0 +1,41 @@
+{
+  "schema": "serene-outputs-dependencies/2",
+  "mode": "pinned source archives + vendored private headers",
+  "dependencies": [
+    {
+      "name": "zfp",
+      "version": "1.0.1",
+      "revision": "f40868a6a1c190c802e7d8b5987064f044bf7812",
+      "archive_sha256": "599802776f2427df2d3dbd655f4443e146ebeedcf50d06c6a8ce26784263884b",
+      "source": "https://github.com/LLNL/zfp",
+      "license": "BSD-3-Clause",
+      "license_file": "third_party/licenses/ZFP-LICENSE",
+      "profile": "serial LE64 ROUND_NEVER; OpenMP/CUDA/DAZ/tight-error/strided off; /MD(/MDd) Windows"
+    },
+    {
+      "name": "nlohmann_json",
+      "version": "3.12.0",
+      "source": "https://github.com/nlohmann/json/releases/tag/v3.12.0",
+      "local_source": "serene-dom/third_party/nlohmann_json exact bytes",
+      "files": {
+        "third_party/nlohmann_json/include/nlohmann/json.hpp": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63",
+        "third_party/nlohmann_json/LICENSE.MIT": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "B-Con crypto-algorithms sha256",
+      "revision": "cfbde48414baacf51fc7c74f275190881f037d32",
+      "source": "https://github.com/B-Con/crypto-algorithms",
+      "license": "public domain; upstream README retained",
+      "upstream_sha256_c": "4cbc93d30c28cee2a056d6f52cbce6e66ff9450f1d712ee4f59761b9b4486fad",
+      "patch": "Cast input bytes to WORD before shifts in sha256_transform to avoid signed integer-promotion overflow; no algorithm change.",
+      "files": {
+        "third_party/crypto_algorithms/sha256.c": "c6320687e8e17486b09929a29da61c9e3a3f9a2903d03b825cfb08be20717885",
+        "third_party/crypto_algorithms/sha256.h": "a946e621775fd8251624e77d19f25407c4b6074ab780027e5797b77c7acf79b5",
+        "third_party/crypto_algorithms/README.md": "e3e04bbc27f68266c02af3a3ef6cb5e1bd217a3c92f2893b66d9f2220f732460"
+      }
+    }
+  ],
+  "container": "Serene custom native container1.0; no container runtime dependency"
+}

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.28)
+project(InstalledDocumentPreflight LANGUAGES CXX)
+find_package(SereneOutputs 0.2.2 EXACT CONFIG REQUIRED COMPONENTS archive)
+add_executable(installed_document_preflight main.cpp)
+target_link_libraries(installed_document_preflight PRIVATE serene::outputs_archive)
+set_target_properties(installed_document_preflight PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+enable_testing()
+add_test(NAME installed_document_preflight COMMAND installed_document_preflight)

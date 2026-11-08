@@ -1,0 +1,25 @@
+{
+  "file": "no_committed_samples.serene",
+  "runs": [
+    {
+      "run_id": "run/α",
+      "kind": 0,
+      "metadata_section": 16,
+      "shape": [
+        3,
+        0
+      ],
+      "axis": [],
+      "identity_axis": [],
+      "bits_hex": [
+        [],
+        [],
+        []
+      ],
+      "sidecar": "no_committed_samples.r000000",
+      "frames": [],
+      "run_outcome": 2,
+      "numerical_status": 2
+    }
+  ]
+}

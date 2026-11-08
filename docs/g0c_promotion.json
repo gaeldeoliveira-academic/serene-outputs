@@ -1,0 +1,31 @@
+{
+  "schema": "serene-outputs-g0c-editorial-promotion/1",
+  "utc": "2026-11-08T05:11:39.022767+00:00",
+  "old": {
+    "review_spec": "a0eae980237707fb296829a7347bff214debb175d7be95f579f44be0705487cb",
+    "hdf5_spec": "ea598cdf51a3013417b80bcc4312fc294f72b70aadff66ab59ba8d17520b14ee",
+    "manifest": "1654ef76cb49b6f9ea8f6ea53da0c23209c541015da79e51a6ff182867922720",
+    "author": "1855c5d94f35694861a0a778ceb3d8a2569a8e83b97374c2710b0635ad985b6a"
+  },
+  "new": {
+    "authoritative_spec": "c1316162ef5532e8f626f6ce129b52af776cb3c1695a4f8e5d44b636c5a8950b",
+    "manifest": "f06e8cfdfb31c549bc4820418c330a9ebb8be877b43c3bf27b1d9379b5f85d13",
+    "author": "a4a7b15451168fd112b17740db0f6d609107fca46348cb3369b0d349380c9678"
+  },
+  "unchanged": {
+    "fixture_artifact_count": 185,
+    "positive_count": 13,
+    "negative_count": 81,
+    "files_map_sha256": "91dc268f60b5b95f8f0400326c35a765a2b41ee1933053b5ba3d11864ddb1353"
+  },
+  "changes": [
+    "Normative title/status and interface heading only; exact reviewed byte contract unchanged",
+    "Independent author spec identity path changed from review candidate to authoritative FORMAT.md; no numerical/envelope authoring code changed",
+    "Manifest spec/author identity fields updated; all185 artifact bytes and their identities unchanged"
+  ],
+  "validation": "Rehashed all185 artifacts and compared complete old/new files maps; no repeated numerical test solely for editorial promotion",
+  "historical_cpp_receipt": {
+    "path": "build/g0c-cpp-evidence.json",
+    "sha256": "2e031b7e2ab26241caa9c106cd7b94e37690eff4609723a413be722a9cb7ad21"
+  }
+}

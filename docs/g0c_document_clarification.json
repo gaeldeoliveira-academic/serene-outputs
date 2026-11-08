@@ -1,0 +1,21 @@
+{
+  "schema": "serene-outputs-g0c-document-clarification/1",
+  "utc": "2026-11-08T05:13:30.152124+00:00",
+  "old": {
+    "spec": "c1316162ef5532e8f626f6ce129b52af776cb3c1695a4f8e5d44b636c5a8950b",
+    "manifest": "f06e8cfdfb31c549bc4820418c330a9ebb8be877b43c3bf27b1d9379b5f85d13"
+  },
+  "new": {
+    "spec": "1ac724b78d1b61fc289dd68489a181dbd92bd9f8f08d1684c5b27aa8503ff66c",
+    "manifest": "910ab1b766e79e015a78d4060db31d84b2b59eb265c904d1b7361493a7ddbf7a"
+  },
+  "inserted_text": "Their parsed string values must contain valid Unicode scalar values, but are not identifier metadata: escaped U+0000 is permitted, and the metadata1 MiB per-string/no-NUL rules do not apply. Their separate finite local document parsing and admission limits still apply; unescaped control bytes remain invalid JSON.",
+  "reason": "Coordinator clarifies original authored JSON values are not identifier metadata; valid escaped NUL is allowed under separate document limits",
+  "unchanged_artifacts": 185,
+  "files_map_sha256": "91dc268f60b5b95f8f0400326c35a765a2b41ee1933053b5ba3d11864ddb1353",
+  "qualification": "Existing185 artifacts and all exact numerical decodes unchanged; no repeated decode solely for prose identity. Dedicated original-document escaped-NUL versus metadata/request rejection tests required during production N04/N06.",
+  "prior_promotion": {
+    "path": "docs/g0c_promotion.json",
+    "sha256": "2999d14babdd8fbdd10d1fa6e15dfc4b312816754bd5afeefcea49611c726268"
+  }
+}

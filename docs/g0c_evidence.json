@@ -1,0 +1,49 @@
+{
+  "schema": "serene-outputs-g0c-owner-evidence/1",
+  "utc": "2026-11-08T05:13:30.167014+00:00",
+  "status": "jointreviews passed; coordinator acceptance pending",
+  "authoritative_spec": {
+    "path": "spec/FORMAT.md",
+    "sha256": "1ac724b78d1b61fc289dd68489a181dbd92bd9f8f08d1684c5b27aa8503ff66c"
+  },
+  "manifest": {
+    "path": "fixtures_custom/manifest.json",
+    "sha256": "910ab1b766e79e015a78d4060db31d84b2b59eb265c904d1b7361493a7ddbf7a"
+  },
+  "corpus": {
+    "positive": 13,
+    "negative": 81,
+    "artifacts": 185,
+    "prepared_runs": 13,
+    "sections": 907,
+    "frames": 74,
+    "raw_frames": 44,
+    "zfp_frames": 30,
+    "exact_binary64_values": 236
+  },
+  "cpp_receipt": {
+    "path": "build/g0c-cpp-evidence.json",
+    "sha256": "2e031b7e2ab26241caa9c106cd7b94e37690eff4609723a413be722a9cb7ad21"
+  },
+  "python_receipt": {
+    "path": "C:\\Users\\12650029\\serene-academic\\serene-theory\\validation\\native_output_g0c_python_review.json",
+    "sha256": "25e403bcfc27e5d3db037a792c5174d27f0f4d1317eb2623994058f34aad58ed"
+  },
+  "promotion": {
+    "path": "docs/g0c_promotion.json",
+    "sha256": "2999d14babdd8fbdd10d1fa6e15dfc4b312816754bd5afeefcea49611c726268"
+  },
+  "document_clarification": {
+    "path": "docs/g0c_document_clarification.json",
+    "sha256": "e19b0b5f7444c80e4a40c0e91c4fc5c2e9c9aa0276df11f1a26570ae23d0a91a"
+  },
+  "source_author": {
+    "path": "tools/conformance/custom_author.py",
+    "sha256": "a4a7b15451168fd112b17740db0f6d609107fca46348cb3369b0d349380c9678"
+  },
+  "codec_snapshot_unchanged": {
+    "path": "docs/codec_snapshot.json",
+    "sha256": "821a9c583cc72cbc02a57076c9e7aac9037f1c0678bc1b58bcc9e307f8926911"
+  },
+  "scope": "No production backend migration, custom install, allocation qualification or core integration yet; source-independent fixture/byte-contract gate only."
+}

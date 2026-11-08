@@ -1,0 +1,85 @@
+[
+  {
+    "name": "valid",
+    "binding": {
+      "spool": "v10_original_disabled.serene",
+      "manifest_version": 1,
+      "spool_sha256": "e90c9285ecec81c0bb42070e6b155d70c9d63ae62da59a040cc75aa6e8ea7043",
+      "spool_bytes": 10917,
+      "authored_run_id": "transient/α",
+      "producer_identity": "independent-extensions-draft/candidate-1",
+      "dependency_identity": "public-zfpy1.0.1.post0/pinned-zfp1.0.1",
+      "authored_input_sha256": "eb861c1e8f4c5de53c6c72179f2eff3258304a3f0ad54ce66c865fcca13c8170",
+      "binding_origin": "captured before solve; immutable producer assertion",
+      "without_binding": "unsupported_merge_source",
+      "with_mismatched_spool_hash": "verification_failure"
+    },
+    "expected_error": null
+  },
+  {
+    "name": "missing_presolve_digest",
+    "binding": {
+      "spool": "v10_original_disabled.serene",
+      "manifest_version": 1,
+      "spool_sha256": "e90c9285ecec81c0bb42070e6b155d70c9d63ae62da59a040cc75aa6e8ea7043",
+      "spool_bytes": 10917,
+      "authored_run_id": "transient/α",
+      "producer_identity": "independent-extensions-draft/candidate-1",
+      "dependency_identity": "public-zfpy1.0.1.post0/pinned-zfp1.0.1",
+      "binding_origin": "captured before solve; immutable producer assertion",
+      "without_binding": "unsupported_merge_source",
+      "with_mismatched_spool_hash": "verification_failure"
+    },
+    "expected_error": "unsupported_merge_source"
+  },
+  {
+    "name": "wrong_spool_extent",
+    "binding": {
+      "spool": "v10_original_disabled.serene",
+      "manifest_version": 1,
+      "spool_sha256": "e90c9285ecec81c0bb42070e6b155d70c9d63ae62da59a040cc75aa6e8ea7043",
+      "spool_bytes": 1,
+      "authored_run_id": "transient/α",
+      "producer_identity": "independent-extensions-draft/candidate-1",
+      "dependency_identity": "public-zfpy1.0.1.post0/pinned-zfp1.0.1",
+      "authored_input_sha256": "eb861c1e8f4c5de53c6c72179f2eff3258304a3f0ad54ce66c865fcca13c8170",
+      "binding_origin": "captured before solve; immutable producer assertion",
+      "without_binding": "unsupported_merge_source",
+      "with_mismatched_spool_hash": "verification_failure"
+    },
+    "expected_error": "verification_failure"
+  },
+  {
+    "name": "wrong_spool_digest",
+    "binding": {
+      "spool": "v10_original_disabled.serene",
+      "manifest_version": 1,
+      "spool_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "spool_bytes": 10917,
+      "authored_run_id": "transient/α",
+      "producer_identity": "independent-extensions-draft/candidate-1",
+      "dependency_identity": "public-zfpy1.0.1.post0/pinned-zfp1.0.1",
+      "authored_input_sha256": "eb861c1e8f4c5de53c6c72179f2eff3258304a3f0ad54ce66c865fcca13c8170",
+      "binding_origin": "captured before solve; immutable producer assertion",
+      "without_binding": "unsupported_merge_source",
+      "with_mismatched_spool_hash": "verification_failure"
+    },
+    "expected_error": "verification_failure"
+  },
+  {
+    "name": "missing_producer_identity",
+    "binding": {
+      "spool": "v10_original_disabled.serene",
+      "manifest_version": 1,
+      "spool_sha256": "e90c9285ecec81c0bb42070e6b155d70c9d63ae62da59a040cc75aa6e8ea7043",
+      "spool_bytes": 10917,
+      "authored_run_id": "transient/α",
+      "dependency_identity": "public-zfpy1.0.1.post0/pinned-zfp1.0.1",
+      "authored_input_sha256": "eb861c1e8f4c5de53c6c72179f2eff3258304a3f0ad54ce66c865fcca13c8170",
+      "binding_origin": "captured before solve; immutable producer assertion",
+      "without_binding": "unsupported_merge_source",
+      "with_mismatched_spool_hash": "verification_failure"
+    },
+    "expected_error": "unsupported_merge_source"
+  }
+]

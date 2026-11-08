@@ -1,0 +1,701 @@
+{
+  "status": "draft audit only",
+  "positive": [
+    {
+      "file": "features_d.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "features_p.serene",
+      "sections": 143,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "features_f.serene",
+      "sections": 127,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "features_dp.serene",
+      "sections": 221,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "features_df.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "features_pf.serene",
+      "sections": 143,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "features_dpf.serene",
+      "sections": 221,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "unchanged_1_0.serene",
+      "sections": 127,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "v10_partial_original.serene",
+      "sections": 72,
+      "frames": 4,
+      "passed": true
+    },
+    {
+      "file": "v10_original_disabled.serene",
+      "sections": 64,
+      "frames": 4,
+      "passed": true
+    },
+    {
+      "file": "unavailable_catalog_diagnostics.serene",
+      "sections": 136,
+      "frames": 4,
+      "passed": true
+    },
+    {
+      "file": "fixed_empty_rows.serene",
+      "sections": 127,
+      "frames": 4,
+      "passed": true
+    },
+    {
+      "file": "fixed_all_raw.serene",
+      "sections": 127,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "fixed_exponent_minus_1073.serene",
+      "sections": 127,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "fixed_exponent_843.serene",
+      "sections": 127,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "fixed_nonpower_upper.serene",
+      "sections": 127,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "original_disabled.serene",
+      "sections": 142,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "original_unavailable.serene",
+      "sections": 142,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "diagnostics_empty_complete.serene",
+      "sections": 205,
+      "frames": 6,
+      "passed": true
+    },
+    {
+      "file": "diagnostics_optional_capacity.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "diagnostics_required_capture_failure.serene",
+      "sections": 205,
+      "frames": 6,
+      "passed": true
+    },
+    {
+      "file": "partial_unknown_totals.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "source_unavailable_trace.serene",
+      "sections": 136,
+      "frames": 4,
+      "passed": true
+    },
+    {
+      "file": "alternate_source_dictionaries.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "diagnostic_summaries.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "summary_above_2pow53.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "summary_max_u64.serene",
+      "sections": 205,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "separate_partial_logs.serene",
+      "sections": 143,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "included_empty_log.serene",
+      "sections": 143,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "two_original_partial_logs.serene",
+      "sections": 147,
+      "frames": 8,
+      "passed": true
+    },
+    {
+      "file": "included_empty_and_unavailable_logs.serene",
+      "sections": 144,
+      "frames": 8,
+      "passed": true
+    }
+  ],
+  "negative": [
+    {
+      "file": "summary_above_2pow53_bad_mean.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_0_0",
+      "rule": "rounded mean interval",
+      "passed": true
+    },
+    {
+      "file": "summary_max_u64_bad_mean.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_0_0",
+      "rule": "rounded mean interval",
+      "passed": true
+    },
+    {
+      "file": "empty_log_wrong_unavailable_aggregate.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "aggregate source state",
+      "passed": true
+    },
+    {
+      "file": "declared_unused_diagnostics.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "unused diagnostics feature",
+      "passed": true
+    },
+    {
+      "file": "declared_unused_fixed.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "unused fixed feature",
+      "passed": true
+    },
+    {
+      "file": "v11_no_extension.serene",
+      "error": "invalid_contract",
+      "phase": "open",
+      "rule": "minor/feature agreement",
+      "passed": true
+    },
+    {
+      "file": "v10_extension_token.serene",
+      "error": "unsupported_feature",
+      "phase": "open",
+      "rule": "feature unsupported in version 1.0",
+      "passed": true
+    },
+    {
+      "file": "unknown_feature.serene",
+      "error": "unsupported_feature",
+      "phase": "open",
+      "rule": "unknown feature",
+      "passed": true
+    },
+    {
+      "file": "duplicate_feature.serene",
+      "error": "invalid_contract",
+      "phase": "open",
+      "rule": "duplicate feature",
+      "passed": true
+    },
+    {
+      "file": "unknown_minor.serene",
+      "error": "unsupported_feature",
+      "phase": "open",
+      "rule": "minor",
+      "passed": true
+    },
+    {
+      "file": "missing_diagnostics_token.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "missing diagnostics feature",
+      "passed": true
+    },
+    {
+      "file": "missing_provenance_token.serene",
+      "error": "invalid_contract",
+      "phase": "open",
+      "rule": "missing provenance feature",
+      "passed": true
+    },
+    {
+      "file": "missing_fixed_token.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "missing fixed feature",
+      "passed": true
+    },
+    {
+      "file": "mixed_provenance_layout.serene",
+      "error": "invalid_contract",
+      "phase": "open",
+      "rule": "provenance layout",
+      "passed": true
+    },
+    {
+      "file": "unknown_source_kind.serene",
+      "error": "unsupported_feature",
+      "phase": "open",
+      "rule": "source kind",
+      "passed": true
+    },
+    {
+      "file": "source_metadata_alias.serene",
+      "error": "invalid_contract",
+      "phase": "open",
+      "rule": "source metadata uniqueness",
+      "passed": true
+    },
+    {
+      "file": "source_root_cycle.serene",
+      "error": "invalid_contract",
+      "phase": "open",
+      "rule": "source metadata uniqueness",
+      "passed": true
+    },
+    {
+      "file": "source_identity_mismatch.serene",
+      "error": "invalid_contract",
+      "phase": "read_source",
+      "rule": "source identity",
+      "passed": true
+    },
+    {
+      "file": "original_digest_mismatch.serene",
+      "error": "invalid_contract",
+      "phase": "read_source",
+      "rule": "original digest",
+      "passed": true
+    },
+    {
+      "file": "original_partial.serene",
+      "error": "invalid_contract",
+      "phase": "read_source",
+      "rule": "partial original source",
+      "passed": true
+    },
+    {
+      "file": "reference_duplicate_role.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "reference roles",
+      "passed": true
+    },
+    {
+      "file": "reference_missing_original.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "reference source index",
+      "passed": true
+    },
+    {
+      "file": "reference_wrong_source_kind.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "reference source kind",
+      "passed": true
+    },
+    {
+      "file": "reference_noncontiguous_log_order.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "reference source order",
+      "passed": true
+    },
+    {
+      "file": "aggregate_state_lies.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "aggregate source state",
+      "passed": true
+    },
+    {
+      "file": "orphan_binary_section.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "orphan section",
+      "passed": true
+    },
+    {
+      "file": "source_binary_alias.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "global ownership alias",
+      "passed": true
+    },
+    {
+      "file": "unused_source_descriptor.serene",
+      "error": "invalid_contract",
+      "phase": "verify_all",
+      "rule": "unused source descriptor",
+      "passed": true
+    },
+    {
+      "file": "trace_metadata_alias.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "trace metadata ownership",
+      "passed": true
+    },
+    {
+      "file": "trace_run_index_not_remapped.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "trace identity",
+      "passed": true
+    },
+    {
+      "file": "trace_kind_mismatch.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "trace identity",
+      "passed": true
+    },
+    {
+      "file": "trace_availability_mismatch.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "trace availability",
+      "passed": true
+    },
+    {
+      "file": "trace_complete_missing_rows.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "count evidence",
+      "passed": true
+    },
+    {
+      "file": "trace_unknown_count_placeholder.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "count presence",
+      "passed": true
+    },
+    {
+      "file": "trace_capacity_below_count.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "trace capacity",
+      "passed": true
+    },
+    {
+      "file": "trace_first_missing_on_complete.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "complete count evidence",
+      "passed": true
+    },
+    {
+      "file": "trace_complete_error_count.serene",
+      "error": "invalid_contract",
+      "phase": "select_run_1",
+      "rule": "capture error count",
+      "passed": true
+    },
+    {
+      "file": "accepted_population_disagrees.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "accepted population disagreement",
+      "passed": true
+    },
+    {
+      "file": "trace_duplicate_record_index.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "record ordinals",
+      "passed": true
+    },
+    {
+      "file": "trace_metric_unknown_bit.serene",
+      "error": "unsupported_feature",
+      "phase": "select_trace_1_1",
+      "rule": "unknown metric bit",
+      "passed": true
+    },
+    {
+      "file": "certified_kind1_missing_metric.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "certified metric validity",
+      "passed": true
+    },
+    {
+      "file": "certified_kind2_missing_metric.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_2",
+      "rule": "certified metric validity",
+      "passed": true
+    },
+    {
+      "file": "certified_kind3_missing_metric.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_3",
+      "rule": "certified metric validity",
+      "passed": true
+    },
+    {
+      "file": "invalid_metric_nonzero.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_3",
+      "rule": "metric presence value",
+      "passed": true
+    },
+    {
+      "file": "static_criteria_missing.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "criteria presence",
+      "passed": true
+    },
+    {
+      "file": "transient_criteria_forbidden.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_0_0",
+      "rule": "criteria presence",
+      "passed": true
+    },
+    {
+      "file": "static_negative_limit.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "criteria value",
+      "passed": true
+    },
+    {
+      "file": "trace_summary_empty.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "summary grammar",
+      "passed": true
+    },
+    {
+      "file": "trace_status_index_oob.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "status dictionary",
+      "passed": true
+    },
+    {
+      "file": "trace_status_dictionary_duplicate.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_1",
+      "rule": "status dictionary",
+      "passed": true
+    },
+    {
+      "file": "trace_event_dictionary_duplicate.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_0_4",
+      "rule": "event dictionary",
+      "passed": true
+    },
+    {
+      "file": "trace_event_index_oob.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_0_4",
+      "rule": "event dictionary",
+      "passed": true
+    },
+    {
+      "file": "trace_event_unknown_mask.serene",
+      "error": "unsupported_feature",
+      "phase": "select_trace_0_4",
+      "rule": "event mask",
+      "passed": true
+    },
+    {
+      "file": "trace_event_absent_negative_zero.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_1_4",
+      "rule": "event absent placeholder",
+      "passed": true
+    },
+    {
+      "file": "trace_event_sequence_repeat.serene",
+      "error": "invalid_contract",
+      "phase": "select_trace_0_4",
+      "rule": "event sequence",
+      "passed": true
+    },
+    {
+      "file": "fixed_exponent_reject_minus_1074.serene",
+      "error": "unsupported_profile",
+      "phase": "select_run",
+      "rule": "fixed exponent",
+      "passed": true
+    },
+    {
+      "file": "fixed_exponent_reject_844.serene",
+      "error": "unsupported_profile",
+      "phase": "select_run",
+      "rule": "fixed exponent",
+      "passed": true
+    },
+    {
+      "file": "fixed_exponent_reject_1023.serene",
+      "error": "unsupported_profile",
+      "phase": "select_run",
+      "rule": "fixed exponent",
+      "passed": true
+    },
+    {
+      "file": "fixed_tolerance_zero.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "fixed tolerance presence",
+      "passed": true
+    },
+    {
+      "file": "fixed_mode_code_mismatch.serene",
+      "error": "unsupported_profile",
+      "phase": "select_run",
+      "rule": "fixed canonical profile",
+      "passed": true
+    },
+    {
+      "file": "fixed_effective_mismatch.serene",
+      "error": "unsupported_profile",
+      "phase": "select_run",
+      "rule": "fixed canonical profile",
+      "passed": true
+    },
+    {
+      "file": "fixed_presence_missing.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "fixed tolerance presence",
+      "passed": true
+    },
+    {
+      "file": "fixed_static_forbidden.serene",
+      "error": "unsupported_profile",
+      "phase": "select_run_1",
+      "rule": "static fixed mode",
+      "passed": true
+    },
+    {
+      "file": "fixed_verification_above_tolerance.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "fixed error bound assertion",
+      "passed": true
+    },
+    {
+      "file": "fixed_raw_verification_nonzero.serene",
+      "error": "invalid_contract",
+      "phase": "select_run",
+      "rule": "raw/exact verification",
+      "passed": true
+    },
+    {
+      "file": "fixed_header_mode_mismatch.serene",
+      "error": "codec_failure",
+      "phase": "read_values",
+      "rule": "canonical header code",
+      "passed": true
+    },
+    {
+      "file": "fixed_valid_header_other_profile.serene",
+      "error": "codec_failure",
+      "phase": "read_values",
+      "rule": "canonical header code",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Tiny fixtures loaded eagerly; validation phases are semantic scheduling checks, not measured lazy I/O or memory qualification.",
+    "No production reader/writer or installed package exercised.",
+    "1.0 baseline semantics inherited from accepted corpus; this audit focuses on extension deltas."
+  ],
+  "bundle_binding_cases": [
+    {
+      "name": "valid",
+      "error": null,
+      "passed": true
+    },
+    {
+      "name": "missing_presolve_digest",
+      "error": "unsupported_merge_source",
+      "passed": true
+    },
+    {
+      "name": "wrong_spool_extent",
+      "error": "verification_failure",
+      "passed": true
+    },
+    {
+      "name": "wrong_spool_digest",
+      "error": "verification_failure",
+      "passed": true
+    },
+    {
+      "name": "missing_producer_identity",
+      "error": "unsupported_merge_source",
+      "passed": true
+    }
+  ],
+  "manifest_sha256": "3f74433bb5119a2fb48292483864940d586f95f5da8b0ac289418bc551b59ae7",
+  "counts": {
+    "positive": 31,
+    "negative": 67
+  },
+  "sections": 4936,
+  "frames": 224
+}

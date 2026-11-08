@@ -1,0 +1,38 @@
+{
+  "serene-outputs/spec/FORMAT.md": {
+    "bytes": 42131,
+    "sha256": "1ac724b78d1b61fc289dd68489a181dbd92bd9f8f08d1684c5b27aa8503ff66c"
+  },
+  "serene-outputs/fixtures_custom/manifest.json": {
+    "bytes": 60566,
+    "sha256": "910ab1b766e79e015a78d4060db31d84b2b59eb265c904d1b7361493a7ddbf7a"
+  },
+  "serene-theory/validation/native_format_1_1_proposal.txt": {
+    "bytes": 25203,
+    "sha256": "ac7cd539b9aaa52cfc5ecfba0be0cd44db98b768ace9c7561723dc1d83eb2891"
+  },
+  "serene-theory/validation/native_extension_core_source_decisions.txt": {
+    "bytes": 5659,
+    "sha256": "4c28c3274a35c34089dc8a1ed90b1d01c37f1e2120c5c8516454cef29754594b"
+  },
+  "serene-theory/validation/native_extension_implementation_readiness.txt": {
+    "bytes": 4234,
+    "sha256": "58d33ddb87db98b30a9b66bac1fbb1540747fb63a68b7d1f11d115701a4f25e3"
+  },
+  "serene-theory/validation/native_bundle_cli_planning.txt": {
+    "bytes": 13639,
+    "sha256": "6c3b28c929eeefd408fa678c8fc25a9fd86ba27120013b4ccd655edd26ea5214"
+  },
+  "serene-theory/validation/native_extension_freeze_decisions.txt": {
+    "bytes": 4067,
+    "sha256": "8ff86a0d427b8573a4c58436534f3047b1b9eac8320415cf634604de8776b77b"
+  },
+  "serene-schemas/docs/native_output_extensions_contract_review.md": {
+    "bytes": 20473,
+    "sha256": "fc383f71e4f491e3a4734a1351afb2d4b5394ee4f4a41675840cdda24152403f"
+  },
+  "serene-core/docs/native_extensions_contract_review.md": {
+    "bytes": 18818,
+    "sha256": "ece717bb46b473851e3d281c9fbc2ad2392cb36da31cd1c3484e04cb52b1f843"
+  }
+}

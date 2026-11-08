@@ -1,0 +1,84 @@
+{
+  "schema": "serene-outputs-n04-n15a-owner/1",
+  "utc": "2026-11-08T05:44:21.587093+00:00",
+  "status": "N04 custom writer and C++ N15a checks complete; paired installed reader passes; coordinator G1 acceptance pending",
+  "source_snapshot": {
+    "path": "docs/custom_source_snapshot.json",
+    "sha256": "46b763506c394ac0d3f5cea5471d99b496d3f62bb3466787b7dd5536a9017b46",
+    "content_identity_sha256": "c74e07933f6b5daa0ce1d5f74ba4777cc8e1afe486ed775a76f7ea83221b16fd"
+  },
+  "spec_sha256": "1ac724b78d1b61fc289dd68489a181dbd92bd9f8f08d1684c5b27aa8503ff66c",
+  "corpus_manifest_sha256": "910ab1b766e79e015a78d4060db31d84b2b59eb265c904d1b7361493a7ddbf7a",
+  "shared_codec_snapshot_sha256": "821a9c583cc72cbc02a57076c9e7aac9037f1c0678bc1b58bcc9e307f8926911",
+  "install_prefix": "C:\\Users\\12650029\\serene-academic\\serene-outputs\\build\\install-custom",
+  "receipts": {
+    "build/n04-custom-cmake-evidence.json": "ace822029229eab1e124ff27fb937a764d456425c8308f37b5e73792afcad53a",
+    "build/n04-custom-current-model-codec.json": "aa57a06018fd6660aa933330e19be0cdc06811c1fb28a73a74225b197595197d",
+    "build/n04-custom-capacity-memory-evidence.json": "2e90de45e491547c2507139cff61d9c8d809fc823d7e6049c8f119a94bca889a",
+    "build/n04-custom-independent-inspection.json": "bf29106b7a27522b71d2819591131a8dde1f2f6aacbad12cb3411c8fa2544d4a",
+    "docs/n04_custom_identity_bridge.json": "80e704c33c0b6b4754d63efef685d9557b885ec57f61e02c0861d1fcd02a4073"
+  },
+  "paired_installed_reader": {
+    "path": "C:\\Users\\12650029\\serene-academic\\serene-outputs-python\\build\\custom-n06\\installed_evidence.json",
+    "sha256": "f3a9dea9fd290484ba27f8f2b8fe7259669c2195d275fc721d4c03a87703d211",
+    "result": "Both clean wheel and offline rebuilt-sdist wheel pass18 installed checks and exact11 writer archives plus2MiB document case with verify_all"
+  },
+  "qualification": {
+    "platform": "Windows AMD64 MSVC19.50.35725 CMake4.2.2",
+    "crt": [
+      "Release /MD",
+      "Debug /MDd"
+    ],
+    "components": [
+      "serene::outputs_model",
+      "serene::outputs_codec",
+      "serene::outputs_archive"
+    ],
+    "hdf5_dependency": false,
+    "installed_consumers": "model/codec/archive each configuration passed; final capacity correction reran model/archive and reused unchanged codec closure",
+    "source_and_fault_tests": "model/codec/archive passed; capacity regression, source/codec/write/seek/backfill/physical short write/flush/close/no-clobber race/retry/Unicode pathname exercised",
+    "independent_actual_writer": "12 files,758 sections,54 frames(29raw/25ZFP),171 exact binary64 values and exact axes; C++ public-ZFP inspection plus Python full verification",
+    "immutable_final_output_bridge": "Final-library producer emits byte-identical12 archives and33 sidecars to paired-reader inputs"
+  },
+  "memory": {
+    "C": 3,
+    "B": 4096,
+    "T": [
+      10000,
+      100000,
+      1000000
+    ],
+    "caller_histories_bytes": [
+      400000,
+      4000000,
+      40000000
+    ],
+    "prepared_plan_release_bytes": 1249344,
+    "prepared_plan_debug_bytes": 1249664,
+    "debug_post_gate_allocation_requests_each": 27,
+    "debug_requested_allocation_bytes": "approximately5.7KiB per save; cumulative churn, not live peak",
+    "observed_private_usage_delta_bytes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "limits": "Sampling and heap reuse explain observed zero private increase; not zero allocations or an exact zero OS peak. Instrumented time is not a performance benchmark."
+  },
+  "contracts": [
+    "Prepare all owned metadata and codec/workspace before active simulation; count retained metadata capacities and codec reservation once",
+    "Caller freezes all borrowed histories, axes, info strings and raw input/context/log sources through publication or abandoned retry",
+    "Writer consumes caller-validated included JSON/complete JSONL; copies exact raw evidence in bounded tiles and does not parse original documents while saving",
+    "JSON serialization and section directory use prepared fixed buffers; no whole-history transpose, full index retention or compressed-history accumulation",
+    "Checked temporary-file writes/seek/backfill/flush/close precede OS no-replace publication; no power-loss durability promise"
+  ],
+  "remaining_limits": [
+    "No Linux/macOS qualification or package publication",
+    "Single-run writer only; no bundle orchestration or lossy codec",
+    "No core/application-produced custom file yet; G2 remains separate",
+    "Standalone conformance/fault tests do not prove arbitrary hostile native-codec safety or exact all-OS allocation peaks"
+  ],
+  "no_commits_or_pushes": true
+}

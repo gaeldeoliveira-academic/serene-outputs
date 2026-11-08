@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "candidate complete; awaiting independent reader review and root freeze/release",
+  "artifacts": {
+    "spec/drafts/native-1.1/FORMAT-1.1-candidate.md": {
+      "bytes": 102778,
+      "sha256": "7851213ac7649ee79eaa8487b66750026f11f58eb7a6690e734b79f949ae7228"
+    },
+    "spec/drafts/native-1.1/FORMAT-1.0-baseline.md": {
+      "bytes": 42131,
+      "sha256": "1ac724b78d1b61fc289dd68489a181dbd92bd9f8f08d1684c5b27aa8503ff66c"
+    },
+    "spec/drafts/native-1.1/inputs.json": {
+      "bytes": 1562,
+      "sha256": "810bd8961ccc743ac5a52d18b4136aaa9159ed5015f95e5d18ff9e81e62fda6e"
+    },
+    "fixtures_extensions_draft/manifest.json": {
+      "bytes": 101492,
+      "sha256": "3f74433bb5119a2fb48292483864940d586f95f5da8b0ac289418bc551b59ae7"
+    },
+    "fixtures_extensions_draft/audit.json": {
+      "bytes": 18114,
+      "sha256": "1932185d6f10c867649ec79cb5ce2471b863766126efb9bc9d8fd81a2c43e5d8"
+    },
+    "tools/conformance/extensions_draft/audit.py": {
+      "bytes": 26745,
+      "sha256": "16ca969663b40d32bd44226494cb1d4442c2b5652c155b94a0a690cbe134ca87"
+    },
+    "tools/conformance/extensions_draft/author.py": {
+      "bytes": 35155,
+      "sha256": "5f04294f2a160d1b8383b10719f5c5f9cd80b381b7afc56b76b9ceb8f34ee45d"
+    },
+    "tools/conformance/extensions_draft/seal.py": {
+      "bytes": 3698,
+      "sha256": "99ca0c52e4d2a5c9fd36165355078b64e6147f2e81e074d4b5b60bee399ab940"
+    },
+    "tools/conformance/extensions_draft/write_draft.py": {
+      "bytes": 22958,
+      "sha256": "7bca2e3305eaeb6964588d3a5c6bcc23fa69cad5a8af0295904a13a46af60b83"
+    },
+    "tools/conformance/extensions_draft/README.md": {
+      "bytes": 896,
+      "sha256": "e72fec028f4b5ffc7063e3f70d8739983ee578d3e3048c907f144e8d31119151"
+    }
+  },
+  "counts": {
+    "positive": 31,
+    "negative": 67
+  },
+  "sections": 4936,
+  "frames": 224,
+  "bundle_binding_cases": 5,
+  "preserved": {
+    "accepted_source_files_checked": 31,
+    "accepted_installed_files_checked": 31,
+    "mismatches": [],
+    "format_1_0": "1ac724b78d1b61fc289dd68489a181dbd92bd9f8f08d1684c5b27aa8503ff66c",
+    "fixture_manifest_1_0": "910ab1b766e79e015a78d4060db31d84b2b59eb265c904d1b7361493a7ddbf7a"
+  },
+  "toolchain": {
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:49:16) [MSC v.1929 64 bit (AMD64)]",
+    "executable": "C:\\Users\\12650029\\AppData\\Local\\anaconda3\\envs\\eic12\\python.exe",
+    "numpy": "2.2.6",
+    "zfpy": "1.0.1.post0"
+  },
+  "commands": [
+    "eic12/python.exe tools/conformance/extensions_draft/author.py",
+    "eic12/python.exe tools/conformance/extensions_draft/audit.py",
+    "eic12/python.exe tools/conformance/extensions_draft/write_draft.py",
+    "eic12/python.exe tools/conformance/extensions_draft/seal.py"
+  ],
+  "limitations": [
+    "Independent tiny-corpus tooling only; no production library or installed extension implementation qualification.",
+    "Audit loads tiny artifacts eagerly; phase expectations do not prove measured lazy I/O, hostile input bounds or RSS.",
+    "New CMake/MSVC /MD and /MDd builds and fresh prefixes belong to subsequent implementation release; accepted build/install-custom untouched.",
+    "No commits, pushes, package/site publication or GUI changes."
+  ],
+  "unresolved_wire_questions": [],
+  "implementation_details_for_followup": [
+    "Set exact C++ plan/API type names jointly with core under checked section/workspace/archive bounds.",
+    "Implement and fault-test generation/reference replacement under Windows exclusive ownership; other platforms remain unqualified.",
+    "Qualify real core histories, allocations, failed-publication retry, codec snapshot handoff and fresh installed feature combinations."
+  ]
+}

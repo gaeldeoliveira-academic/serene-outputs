@@ -1,0 +1,55 @@
+{
+  "fixture_revision": "g0c-candidate-1",
+  "format": [
+    1,
+    0
+  ],
+  "author": "independent Python struct/hashlib/json + NumPy/public zfpy; no HDF5 or production helpers",
+  "header_bytes": 128,
+  "directory_record_bytes": 64,
+  "frame_record_bytes": 77,
+  "positive": [
+    {
+      "file": "mixed_timeseries.serene",
+      "expected": "mixed_timeseries.expected.json",
+      "description": "mixed timeseries"
+    }
+  ],
+  "negative": [],
+  "spec_sha256": "f6948d8dc4b474cbf6231d9dd458ac691f6eaba5f372bf2f97aff311b35e7d7e",
+  "author_sha256": "316f7d7f7af97df1922a54bf044bd41d3bcdb8bc96e277e8481dda26703a2e5c",
+  "files": {
+    "mixed_timeseries.expected.json": {
+      "bytes": 3568,
+      "sha256": "d27eba554ff344bf8c494a80c9d60c1be485c048271fd6679342bdaa858ab194"
+    },
+    "mixed_timeseries.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "mixed_timeseries.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "mixed_timeseries.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "mixed_timeseries.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "mixed_timeseries.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "mixed_timeseries.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "mixed_timeseries.serene": {
+      "bytes": 13424,
+      "sha256": "87bd45980e028e3e322e92791f1a01ef7bef626b81e6fa3fde8508179b2c783c"
+    }
+  }
+}

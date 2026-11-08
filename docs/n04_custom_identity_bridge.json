@@ -1,0 +1,74 @@
+{
+  "schema": "serene-outputs-n04-final-producer-bridge/1",
+  "utc": "2026-11-08T05:42:44.043319+00:00",
+  "status": "all final-producer archives and sidecars byte-identical to independently read v1 files",
+  "changes_since_v1": [
+    "archive.cpp shadow parameter rename and formatting; Unicode native pathname test added",
+    "model retained-capacity workspace accounting and regression test; no file content/profile/codec changes"
+  ],
+  "original_producer": {
+    "path": "build/n04-custom-first-evidence.json",
+    "sha256": "9d1d141b49a9dac4f4e603775c2ebda5cf6a9922e656df330e032c95b8365d14"
+  },
+  "final_build_install": {
+    "path": "build/n04-custom-cmake-evidence.json",
+    "sha256": "ace822029229eab1e124ff27fb937a764d456425c8308f37b5e73792afcad53a"
+  },
+  "final_writer_executable": {
+    "path": "build/custom-msvc/Release/write_synthetic.exe",
+    "sha256": "4ee59348eda42c6552a3b0de51994a7d4361b7977f8974fc0b44ede0bea93708"
+  },
+  "commands": [
+    "build/custom-msvc/Release/write_synthetic.exe build/g1-custom-final",
+    "build/custom-msvc/Release/write_synthetic.exe build/g1-custom-large-final --large-only"
+  ],
+  "matched_artifacts": {
+    "build/g1-custom-final/synthetic_empty.axis.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/g1-custom-final/synthetic_empty.expected.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/g1-custom-final/synthetic_empty.serene": "8ffeedee0a322abeab1b05c4b75c2d959218604c86237fa63218c5134e366475",
+    "build/g1-custom-final/synthetic_empty.shape.txt": "043b5ae7334040ef63298adca08912d5287ad37e66f9425316adc50d2c1ab652",
+    "build/g1-custom-final/synthetic_failed_prefix.axis.raw": "2d28f59c665adb90f6627e17dea63b14910d2e74244528936e03940c2175c030",
+    "build/g1-custom-final/synthetic_failed_prefix.expected.raw": "2f62f0cfcf18227ee89fb48305e7b4aa40496b5babb879358409da83a4f6743d",
+    "build/g1-custom-final/synthetic_failed_prefix.serene": "901e6c37e29856c1979afa789cc60037bc60590e24e74a341c41674e9352cafb",
+    "build/g1-custom-final/synthetic_failed_prefix.shape.txt": "4a278735c4d3dae75627894df8145da4fe39f750edb6ed8887e10b105d92a195",
+    "build/g1-custom-final/synthetic_failed_static.axis.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/g1-custom-final/synthetic_failed_static.expected.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/g1-custom-final/synthetic_failed_static.serene": "13a58fbfda711380ff374d1f8c85519395f939572f64fecd11a990189043e48c",
+    "build/g1-custom-final/synthetic_failed_static.shape.txt": "763e62f99db5b20ef532996654d5c46d93be45c5993c12fac1b291699ea738b6",
+    "build/g1-custom-final/synthetic_final_static.axis.raw": "6c3c396ed6b5c36dcae172271f462051b1266b851e92df3deea8ac65478fd712",
+    "build/g1-custom-final/synthetic_final_static.expected.raw": "fc5b008cc7a818eb7d213ab4b8e92aaf598bf69183fbb034545fed1c6b75dfe2",
+    "build/g1-custom-final/synthetic_final_static.serene": "5926d55836c770f34b58f80856ece52eff25afaf73333b1f9c34b97295e31c0a",
+    "build/g1-custom-final/synthetic_final_static.shape.txt": "b3d0ba2bed57dc7e7c622d32e5583ccb058d50a8ff7003af01310037c080b718",
+    "build/g1-custom-final/synthetic_no_samples.axis.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/g1-custom-final/synthetic_no_samples.expected.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/g1-custom-final/synthetic_no_samples.serene": "f0fa9276d8775417bac5e1d8b0476d045e0f67ed520259d41ebb98cf1b208c88",
+    "build/g1-custom-final/synthetic_no_samples.shape.txt": "d1a6d53e118aae7179fa5db01929845223c602958048ea41f770000bac9f7047",
+    "build/g1-custom-final/synthetic_optional_off.axis.raw": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c",
+    "build/g1-custom-final/synthetic_optional_off.expected.raw": "57c76901f79043d01f2290942ea9c7b30a64581539d8f2b84e95a6450f63abe1",
+    "build/g1-custom-final/synthetic_optional_off.serene": "a0dd1b4373d24f16ebb13e312b990d6bc745c372ed7552bb1eef2a62045f1c80",
+    "build/g1-custom-final/synthetic_optional_off.shape.txt": "6746912b4bcbf439976dfa8867dc32f879f5c802b90e42837ddcc5ad47f4919b",
+    "build/g1-custom-final/synthetic_partial_log.axis.raw": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c",
+    "build/g1-custom-final/synthetic_partial_log.expected.raw": "57c76901f79043d01f2290942ea9c7b30a64581539d8f2b84e95a6450f63abe1",
+    "build/g1-custom-final/synthetic_partial_log.serene": "278f56657ccbdeb7b0fead230045516548ffd6976460526ac8af84ce16a61e0d",
+    "build/g1-custom-final/synthetic_partial_log.shape.txt": "6746912b4bcbf439976dfa8867dc32f879f5c802b90e42837ddcc5ad47f4919b",
+    "build/g1-custom-final/synthetic_static.axis.raw": "79eefa853821e579e1cb3a257a43dedb028c59cfcb82bf0cbbd8c398ad268f12",
+    "build/g1-custom-final/synthetic_static.expected.raw": "553f47605db6c05e753544fc5d78997945879d46f02ff83ed17d330f34bc8292",
+    "build/g1-custom-final/synthetic_static.serene": "e3b38e72919163196ac50341e726b51e93fb2ae9ec48781511e194b82d13fa2b",
+    "build/g1-custom-final/synthetic_static.shape.txt": "cb18234ae48c1f9505aeff02c51a2e8f0e30adc177ce3ec32857c8d02973e14f",
+    "build/g1-custom-final/synthetic_timeseries.axis.raw": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c",
+    "build/g1-custom-final/synthetic_timeseries.expected.raw": "57c76901f79043d01f2290942ea9c7b30a64581539d8f2b84e95a6450f63abe1",
+    "build/g1-custom-final/synthetic_timeseries.serene": "6838bf879ef34f22ac51265b7c0847fad29855680089b58c22ba9455ab70073b",
+    "build/g1-custom-final/synthetic_timeseries.shape.txt": "6746912b4bcbf439976dfa8867dc32f879f5c802b90e42837ddcc5ad47f4919b",
+    "build/g1-custom-final/synthetic_unavailable.serene": "61a80ad4295fc8cb92afdc56ad7b3d0dedc0e330f7f716c26cfe87a3514d842b",
+    "build/g1-custom-final/synthetic_unicode_document_nul.axis.raw": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c",
+    "build/g1-custom-final/synthetic_unicode_document_nul.expected.raw": "57c76901f79043d01f2290942ea9c7b30a64581539d8f2b84e95a6450f63abe1",
+    "build/g1-custom-final/synthetic_unicode_document_nul.serene": "b37e10c7d07dca8dd64e9450fc08f3c7898058c36eae9a8804dc45cad5d2a775",
+    "build/g1-custom-final/synthetic_unicode_document_nul.shape.txt": "6746912b4bcbf439976dfa8867dc32f879f5c802b90e42837ddcc5ad47f4919b",
+    "build/g1-custom-large-final/synthetic_large_documents.axis.raw": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c",
+    "build/g1-custom-large-final/synthetic_large_documents.expected.raw": "57c76901f79043d01f2290942ea9c7b30a64581539d8f2b84e95a6450f63abe1",
+    "build/g1-custom-large-final/synthetic_large_documents.serene": "42ec355831a2d9f1caa247471ab516631084752acafffc687b12f241e574f641",
+    "build/g1-custom-large-final/synthetic_large_documents.shape.txt": "6746912b4bcbf439976dfa8867dc32f879f5c802b90e42837ddcc5ad47f4919b"
+  },
+  "new_decode_needed": false,
+  "reason": "All12 archive byte strings and33 expected sidecars are identical; existing independent/installed readbacks bind by exact archive digests."
+}

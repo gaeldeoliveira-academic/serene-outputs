@@ -1,0 +1,72 @@
+{
+  "package": "N01",
+  "state": "candidate_ready_for_joint_G0_acceptance",
+  "recorded_utc": "2026-11-08T04:05:06.104412+00:00",
+  "source_files": {
+    "spec/FORMAT.md": "549d09f058008cd44a24b3402f1637e8ef4165467389ba913fbcd8636d6ae673",
+    "fixtures/manifest.json": "d11891d170bf8eb5cb367cbb54f211e6a67fce053c004e4ece7c8caf0fc450e5",
+    "tools/conformance/author_fixtures.py": "03e5c7aca7fdb0b2221c8b90f5ce38847c02f35dd57f3f155e6aef539854dd6f",
+    "tools/conformance/inspect_records.cpp": "2ea4a67e519cf4c53235355e32c289f74d26470121b5714fd26f27b382425239",
+    "tools/conformance/CMakeLists.txt": "93813d2b8b8d7867b61b6c2c5d592e5b1a74e7a9a6fc92e2eabafd2ae80c9426"
+  },
+  "fixture_count": {
+    "positive": 11,
+    "negative": 28,
+    "manifest_files": 94
+  },
+  "commands": [
+    "python -X utf8 tools/conformance/author_fixtures.py",
+    "call C:/Users/12650029/serene-academic/serene-math/load_compilers.bat; cmake -S tools/conformance -B build/n01 -G \"Visual Studio 18 2026\" -A x64 -DN01_ZFP_INCLUDE_DIR=C:/Users/12650029/CFD/snapshot_compressor/src/cpp/build/_deps/zfp-src/include -DN01_ZFP_LIBRARY=C:/Users/12650029/CFD/snapshot_compressor/src/cpp/build/_deps/zfp-build/lib/Release/zfp.lib",
+    "cmake --build build/n01 --config Release",
+    "ctest --test-dir build/n01 -C Release --output-on-failure",
+    "build/n01/Release/inspect_records.exe fixtures"
+  ],
+  "executed_scope": {
+    "ctest": "1/1 passed before final failed_static addition; final current corpus direct executable run passed as recorded below",
+    "inspector": {
+      "runs": 11,
+      "frames": 56,
+      "raw": 34,
+      "zfp": 22,
+      "values": 176,
+      "canonical_bytes": "pass",
+      "payload_hashes": "pass",
+      "exact_values": "pass",
+      "scope": "trusted tiny independent sidecars; not production HDF5 validation"
+    },
+    "python_authoring": "Every created ZFP frame decoded through public zfpy and compared by bytes; negative long expert fixture independently decoded by public zfpy to original zeros",
+    "independent_python_review": {
+      "receipt": "C:/Users/12650029/serene-academic/serene-theory/validation/native_output_g0_python_review.json",
+      "sha256": "59ff8644c8802eda1155d136144e865a02c7dd4b6e0074fb3ea6b84d9c880513",
+      "result": "94artifact hashes,11positive,28negative checks passed; exact176values/56frames; reviewed earlier spec identity40f6301f; final text clarifications do not alter fixture bytes"
+    }
+  },
+  "environment": {
+    "platform": "Windows AMD64",
+    "compiler": "MSVC19.50.35725.0",
+    "cmake": "4.2.2",
+    "cpp": "23",
+    "runtime": "/MT isolated conformance inspector only",
+    "zfp_revision": "f40868a6a1c190c802e7d8b5987064f044bf7812",
+    "zfp_codec": 5,
+    "zfp_library_sha256": "0b82232c9ae5647ee23c29a5a6a94795c6e30e959579b1396d81afab94a1d6f5",
+    "python": "eic12 CPython3.12.9",
+    "numpy": "2.2.6",
+    "h5py": "3.15.1",
+    "zfpy": "1.0.1.post0"
+  },
+  "inspector_executable_sha256": "2c97f7873d38ac377532e3adf9bd2a7a2127d6929a4f76153d45af569533bc44",
+  "git": "Existing unborn main checkout; no commits or pushes; N01 files uncommitted",
+  "not_qualified": [
+    "Production C++ model/codec/HDF5 writer",
+    "Production Python reader or installed packages",
+    "Active or save memory behavior",
+    "Core integration",
+    "Negative production-decoder rejection (fixtures are inputs for later tests)",
+    "Linux/macOS platforms",
+    "Arbitrary hostile ZFP bitstreams",
+    "Application bundles or static level retention"
+  ],
+  "next_gate": "Root must accept joint specification/fixture/storage reviews before N02/N03/N04/N05 production work.",
+  "final_review": "Core/design/schema agree; final prose aligns no-clobber-only publication, omitted unavailable actual static identities and confined transfer manifest. Fixture bytes unchanged; no rerun needed."
+}

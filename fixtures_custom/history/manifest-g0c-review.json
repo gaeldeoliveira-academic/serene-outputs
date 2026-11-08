@@ -1,0 +1,1472 @@
+{
+  "fixture_revision": "g0c-candidate-1",
+  "format": [
+    1,
+    0
+  ],
+  "author": "independent Python struct/hashlib/json + NumPy/public zfpy; no HDF5 or production helpers",
+  "header_bytes": 128,
+  "directory_record_bytes": 64,
+  "frame_record_bytes": 77,
+  "positive": [
+    {
+      "file": "mixed_timeseries.serene",
+      "expected": "mixed_timeseries.expected.json",
+      "description": "mixed timeseries"
+    },
+    {
+      "file": "static_levels.serene",
+      "expected": "static_levels.expected.json",
+      "description": "static levels"
+    },
+    {
+      "file": "mixed_bundle.serene",
+      "expected": "mixed_bundle.expected.json",
+      "description": "mixed bundle"
+    },
+    {
+      "file": "empty_selection.serene",
+      "expected": "empty_selection.expected.json",
+      "description": "empty selection"
+    },
+    {
+      "file": "failed_prefix.serene",
+      "expected": "failed_prefix.expected.json",
+      "description": "failed prefix"
+    },
+    {
+      "file": "no_committed_samples.serene",
+      "expected": "no_committed_samples.expected.json",
+      "description": "no committed samples"
+    },
+    {
+      "file": "unavailable_catalog.serene",
+      "expected": "unavailable_catalog.expected.json",
+      "description": "unavailable catalog"
+    },
+    {
+      "file": "optional_disabled.serene",
+      "expected": "optional_disabled.expected.json",
+      "description": "optional disabled"
+    },
+    {
+      "file": "optional_unavailable.serene",
+      "expected": "optional_unavailable.expected.json",
+      "description": "optional unavailable"
+    },
+    {
+      "file": "partial_logs.serene",
+      "expected": "partial_logs.expected.json",
+      "description": "partial logs"
+    },
+    {
+      "file": "failed_static.serene",
+      "expected": "failed_static.expected.json",
+      "description": "failed static"
+    },
+    {
+      "file": "large_document.serene",
+      "expected": "large_document.expected.json",
+      "description": "large document"
+    },
+    {
+      "file": "clean_partial_logs.serene",
+      "expected": "clean_partial_logs.expected.json",
+      "description": "clean partial logs"
+    }
+  ],
+  "negative": [
+    {
+      "file": "truncated_bootstrap.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Bootstrap must contain 128 bytes.",
+      "validation_phase": "open",
+      "supporting_repairs": "Deliberately truncated; no hash repair can restore missing bytes."
+    },
+    {
+      "file": "truncated_directory.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Exact actual file extent must include the complete directory.",
+      "validation_phase": "open",
+      "supporting_repairs": "Declared extent retained to expose truncation."
+    },
+    {
+      "file": "trailing_data.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Actual file extent cannot contain an ignored tail.",
+      "validation_phase": "open",
+      "supporting_repairs": "Declared extent retained to expose trailing bytes."
+    },
+    {
+      "file": "bad_magic.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Magic must identify the Serene custom container.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "unknown_major.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Unsupported bootstrap capability: unknown_major",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "unknown_minor.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Unsupported bootstrap capability: unknown_minor",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "unknown_endian.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Unsupported bootstrap capability: unknown_endian",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "unknown_bootstrap_flag.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Unsupported bootstrap capability: unknown_bootstrap_flag",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "unfinished_bootstrap.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Finalized flag must be set.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "bootstrap_size.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Bootstrap byte count is exactly 128.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "directory_record_size.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Directory records contain exactly 64 bytes.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "file_extent_mismatch.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Declared file extent equals the actual extent.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "directory_offset_overflow.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Directory offset/length must be subtraction-safe and within the file.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "directory_count_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Protocol directory count is at most 1048576.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired; limit must be checked before dependent reads/allocation."
+    },
+    {
+      "file": "root_section_out_of_range.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Root ID must identify an existing section.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired."
+    },
+    {
+      "file": "root_section_wrong_kind.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Root metadata must have known JSON kind1.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired; section1 is an existing u8 document section."
+    },
+    {
+      "file": "bad_bootstrap_hash.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "verification_failure",
+      "primary_invariant": "Bootstrap digest covers the first 96 bytes.",
+      "validation_phase": "open",
+      "supporting_repairs": "Only the bootstrap digest byte is corrupted."
+    },
+    {
+      "file": "bad_directory_hash.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "verification_failure",
+      "primary_invariant": "Directory digest covers every directory record.",
+      "validation_phase": "open",
+      "supporting_repairs": "Bootstrap digest repaired; directory digest deliberately incorrect."
+    },
+    {
+      "file": "directory_id_not_dense.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Section IDs equal zero-based directory row ordinals.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired."
+    },
+    {
+      "file": "unknown_section_kind.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Only the eight declared section kinds are supported.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired."
+    },
+    {
+      "file": "unknown_directory_flag.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "All directory flags are zero.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired."
+    },
+    {
+      "file": "section_gap.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Section extents are contiguous from offset128.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired; extent intentionally invalid before section reads."
+    },
+    {
+      "file": "section_overlap.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Sections cannot overlap their predecessor.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired; extent intentionally invalid before section reads."
+    },
+    {
+      "file": "section_extent_overflow.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Section offset+length must be checked before following it.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired; impossible extent intentionally retained."
+    },
+    {
+      "file": "bad_root_hash.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "verification_failure",
+      "primary_invariant": "Root bytes must match their directory digest.",
+      "validation_phase": "open",
+      "supporting_repairs": "Directory/bootstrap digests repaired; root section hash deliberately incorrect."
+    },
+    {
+      "file": "unknown_feature.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_feature",
+      "primary_invariant": "Unknown required features cannot be ignored.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "missing_feature.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "All five mandatory feature tokens must be present.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "duplicate_feature.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Required feature tokens are unique.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "root_version_disagrees.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Root metadata version must agree with accepted bootstrap1.0.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "malformed_metadata.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Metadata parses as a strict complete object.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "duplicate_decoded_key.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Metadata duplicate keys are compared after JSON escape decoding.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_lone_surrogate.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Decoded metadata strings contain Unicode scalar values.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_nul.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Decoded metadata strings cannot contain U+0000.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_nan.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Metadata rejects nonfinite JSON literals.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_negative_integer_zero.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Integer negative-zero tokens are forbidden.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_depth_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Metadata container depth cannot exceed16.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_value_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Metadata syntactic values cannot exceed16384.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_byte_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Metadata section byte length cannot exceed1MiB.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_numeric_token_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "A JSON numeric token cannot exceed128ASCII bytes.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "boolean_integer_flag.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Integer presence flags do not accept JSON booleans.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "floating_integer_field.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Integer fields do not accept integral float tokens.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "negative_unsigned_field.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Unsigned fields reject negative integers.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "wrong_time_dtype.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Time descriptor dtype/kind must be f64.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "wrong_time_rank.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Actual time is rank1.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "shape_extent_mismatch.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Descriptor shape product equals section byte extent.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "bad_reference.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "A descriptor section ID must exist.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "metadata_as_data.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "A run cannot interpret its metadata as numerical data.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "orphan_section.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Every physical section must have exactly one schema owner.",
+      "validation_phase": "verify_all",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "aliased_section.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Even identical data fields cannot share a schema-owned section.",
+      "validation_phase": "verify_all",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "run_metadata_wrong_kind.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Run metadata IDs reference JSON metadata sections.",
+      "validation_phase": "open",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "bad_utf8.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Catalog pool slices must decode as strict UTF8.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "offset_not_zero.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "String offsets start at zero.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "offset_terminal.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Final string offset equals pool bytes.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "duplicate_scalar_id.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Scalar IDs must be unique.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "string_entry_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "One catalog text entry cannot exceed1MiB.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "bad_request_index.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Channel requests reference an existing matching identity row.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "bad_profile_index.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Frame profile is valid and matches its row.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "empty_row_profile_index.serene",
+      "base": "no_committed_samples.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Row profiles remain valid when inner extent is zero.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "coverage_overlap.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Frames partition each logical row without overlap.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "zero_frame_count.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Every indexed frame contains at least one value.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "bad_frame_digest.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "verification_failure",
+      "primary_invariant": "Stored frame digest matches exact frame bytes.",
+      "validation_phase": "read_frame",
+      "supporting_repairs": "Index/section/directory/bootstrap hashes repaired; frame hash deliberately incorrect."
+    },
+    {
+      "file": "bad_index_digest.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "verification_failure",
+      "primary_invariant": "Canonical frame-index section digest must match.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "Directory/bootstrap hashes repaired; index section hash deliberately incorrect."
+    },
+    {
+      "file": "unsupported_profile.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_profile",
+      "primary_invariant": "Only qualified reversible profile rows are accepted.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "dimension_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Logical dimensions cannot exceed2^40.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "header_count_mismatch.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "codec_failure",
+      "primary_invariant": "ZFP header count equals canonical frame count.",
+      "validation_phase": "read_frame",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "raw_length.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Raw byte count is exactly eight times value count.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "nonfinite_raw.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Decoded selected values must be finite (raw).",
+      "validation_phase": "read_frame",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "nonfinite_zfp.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Decoded selected values must be finite (ZFP).",
+      "validation_phase": "read_frame",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "long_expert_header.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "unsupported_profile",
+      "primary_invariant": "Only canonical SHORT reversible mode2176 is accepted.",
+      "validation_phase": "read_frame",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "outcome_inconsistent.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Completed outcome requires a successfully reached numerical target.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "run_identity_mismatch.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Info run_id agrees with root run catalog.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "request_json_nan.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Effective JSON objects reject nonfinite literals.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "request_json_duplicate_key.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Effective JSON objects reject duplicate decoded keys.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "request_json_depth_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Effective request JSON container depth cannot exceed16.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "log_record_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "A complete JSONL record cannot exceed1MiB.",
+      "validation_phase": "verify_all",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "log_record_depth_limit.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "resource_limit",
+      "primary_invariant": "Complete JSONL objects enforce container depth16.",
+      "validation_phase": "verify_all",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "log_record_nan.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Complete JSONL objects reject nonfinite literals.",
+      "validation_phase": "verify_all",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "verification_error_nonzero.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Reversible verification errors must be positive zero.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "verification_negative_zero.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Absent exact-mode error evidence is positive zero.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "time_not_increasing.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Transient actual times are strictly increasing.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    },
+    {
+      "file": "time_nonfinite.serene",
+      "base": "mixed_timeseries.serene",
+      "expected_error": "invalid_contract",
+      "primary_invariant": "Actual times are finite binary64 values.",
+      "validation_phase": "select_run",
+      "supporting_repairs": "All affected section, directory and bootstrap hashes and physical extents rebuilt."
+    }
+  ],
+  "spec_sha256": "a0eae980237707fb296829a7347bff214debb175d7be95f579f44be0705487cb",
+  "author_sha256": "1855c5d94f35694861a0a778ceb3d8a2569a8e83b97374c2710b0635ad985b6a",
+  "files": {
+    "aliased_section.serene": {
+      "bytes": 13288,
+      "sha256": "0d32e35bac414fa7c6122c6f34010e2c4fa235d5419c5a64af5eaeec5c14bba2"
+    },
+    "bad_bootstrap_hash.serene": {
+      "bytes": 13424,
+      "sha256": "5a5d2ab3c36743c582b5734c4d9d68b072a10f9869eb09ed1f11d70965950439"
+    },
+    "bad_directory_hash.serene": {
+      "bytes": 13424,
+      "sha256": "a812fb7de8e6604546bfe1292af245343317f2161f0bcfc1310ba78e903e905e"
+    },
+    "bad_frame_digest.serene": {
+      "bytes": 13424,
+      "sha256": "6b30127c620d03ee8c1e0dbf80c3d8b7919b8d500ecd9954825233aa95137935"
+    },
+    "bad_index_digest.serene": {
+      "bytes": 13424,
+      "sha256": "aeae65aa6882299d58e71c610e5a24c0239f9beb1e830e4205ff11f184e38845"
+    },
+    "bad_magic.serene": {
+      "bytes": 13424,
+      "sha256": "22b3b5e83d75dbd3b48677a653e4ffac25c51dfffc06fba1b088b3042171192f"
+    },
+    "bad_profile_index.serene": {
+      "bytes": 13424,
+      "sha256": "a23a8729ec526617d4d3889022c79edcd283c8a61f48583d6b09af85de8ae884"
+    },
+    "bad_reference.serene": {
+      "bytes": 13424,
+      "sha256": "b57e01a213ba12b676d023851dd7486c2cac90d64c708a5410c09b01c12a959b"
+    },
+    "bad_request_index.serene": {
+      "bytes": 13424,
+      "sha256": "64fc907a2ab03a9c7692f35df118aae7fac5f16c1d308ea7953234b67f07bf7a"
+    },
+    "bad_root_hash.serene": {
+      "bytes": 13424,
+      "sha256": "c5918b89c628f72278e8c44d7d51ca6c2df5edb5161fa43b5284b4c923224ed1"
+    },
+    "bad_utf8.serene": {
+      "bytes": 13424,
+      "sha256": "83e96317ca378881a0ee71dcda3a2dba9dc25af5bbf4634876be3d99ca0c1fe7"
+    },
+    "boolean_integer_flag.serene": {
+      "bytes": 13427,
+      "sha256": "522e4c4de8326b64ca802ca2d56fce014375a99612998ef000f07d80829eeeda"
+    },
+    "bootstrap_size.serene": {
+      "bytes": 13424,
+      "sha256": "dd59679941e5bc4917666fd8f527ac3cc0b6a441656fc763fbd72828744e1a18"
+    },
+    "clean_partial_logs.expected.json": {
+      "bytes": 3572,
+      "sha256": "0cebb0b8227a378347e73af3de47dd26c0e11962d9fd7a56f2a27e6f1f41d468"
+    },
+    "clean_partial_logs.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "clean_partial_logs.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "clean_partial_logs.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "clean_partial_logs.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "clean_partial_logs.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "clean_partial_logs.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "clean_partial_logs.serene": {
+      "bytes": 13462,
+      "sha256": "fa18ae50c9601d3a6d434cfd919b9ad836f5b08c37e9148f8c222ab89f85e2e1"
+    },
+    "coverage_overlap.serene": {
+      "bytes": 13424,
+      "sha256": "b124817530eb9333ae975c501429d597b3803001764a0987a597a39b961e43aa"
+    },
+    "dimension_limit.serene": {
+      "bytes": 13435,
+      "sha256": "03619eedfc6692871889dbcc85102d55bd775ff23d0fed41920828a03e0e6c42"
+    },
+    "directory_count_limit.serene": {
+      "bytes": 13424,
+      "sha256": "51f74a227058f26a5dbd753ad9e371eeb502046ca7d251a74bf9b50e20236147"
+    },
+    "directory_id_not_dense.serene": {
+      "bytes": 13424,
+      "sha256": "871473d7171960351c8115e3aeb91a586e9a6bf234fe773e6345057a77cf5bfa"
+    },
+    "directory_offset_overflow.serene": {
+      "bytes": 13424,
+      "sha256": "87f5f0d9158035bf999ce0ce638acd12f8f944af028b8c8c22eddec5e5b2a516"
+    },
+    "directory_record_size.serene": {
+      "bytes": 13424,
+      "sha256": "c977cc3e961106845b1ffcd6421cb0100b21968711c3cb4f9919abed1d6fb163"
+    },
+    "duplicate_decoded_key.serene": {
+      "bytes": 13453,
+      "sha256": "530ddfe06d17399f8daa7374b74f277bc69e91464751dc4197ac496ad9b8f231"
+    },
+    "duplicate_feature.serene": {
+      "bytes": 13448,
+      "sha256": "bf500e45ee9ddc7fea6460c5facf19639c46cc17efc766a77f10b9e9629b193d"
+    },
+    "duplicate_scalar_id.serene": {
+      "bytes": 13424,
+      "sha256": "22faa2649f103b6319aa75119fe5ef0465eccddef412381798936fdedf20b24d"
+    },
+    "empty_row_profile_index.serene": {
+      "bytes": 12207,
+      "sha256": "1a59f9ed56e571c8d664a1e6241a21fb535d8f76f76de95a4bc73d6534cca20d"
+    },
+    "empty_selection.expected.json": {
+      "bytes": 392,
+      "sha256": "aa2ac8dbefb20f283207a9485a6403860339169c0c5ed32c37b9ad87faf841fa"
+    },
+    "empty_selection.r000000.axis.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "empty_selection.r000000.expected.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "empty_selection.r000000.identity.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "empty_selection.r000000.index.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "empty_selection.r000000.payload.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "empty_selection.r000000.shape.txt": {
+      "bytes": 4,
+      "sha256": "0ccdb5a77ba5bf7687f2565a8ed97dfb9c1af45503c496fb646312239fab5101"
+    },
+    "empty_selection.serene": {
+      "bytes": 11727,
+      "sha256": "932e9930120fdc350f983e501a98c4b2d92f15e81508eea93ae8b1d758351934"
+    },
+    "failed_prefix.expected.json": {
+      "bytes": 1346,
+      "sha256": "d29a29a21b75a96b764c13f503fa0f053191ddc5b2e9aaecae673a6094d67255"
+    },
+    "failed_prefix.r000000.axis.bin": {
+      "bytes": 16,
+      "sha256": "2d28f59c665adb90f6627e17dea63b14910d2e74244528936e03940c2175c030"
+    },
+    "failed_prefix.r000000.expected.bin": {
+      "bytes": 48,
+      "sha256": "5c5fba1edee343fc0d0821bfb6ab802d6e6cdd8ae0371ffb8a62d62fd14ffc97"
+    },
+    "failed_prefix.r000000.identity.bin": {
+      "bytes": 16,
+      "sha256": "f7548c023e431138b11357593f5cceb9dd35eb0b0a2041f0b1560212eeb6f13e"
+    },
+    "failed_prefix.r000000.index.bin": {
+      "bytes": 231,
+      "sha256": "84cb37a1926892683d7e6c046567f8eef764c538ae068bb2e68ede8e827ad160"
+    },
+    "failed_prefix.r000000.payload.bin": {
+      "bytes": 48,
+      "sha256": "5c5fba1edee343fc0d0821bfb6ab802d6e6cdd8ae0371ffb8a62d62fd14ffc97"
+    },
+    "failed_prefix.r000000.shape.txt": {
+      "bytes": 4,
+      "sha256": "ece3d232c1ca9ef8a80b6fdb1585b8f5cf653b9dd023b0521c8da64db859ffac"
+    },
+    "failed_prefix.serene": {
+      "bytes": 12591,
+      "sha256": "88b04dda0ecf0584aff354bd72b118b7879f3f12bacfcbeaa1aa3cddcf52fcee"
+    },
+    "failed_static.expected.json": {
+      "bytes": 391,
+      "sha256": "79dde0a39d39788611dc3ba55f5e07506ec9c8b26b9931c017679a6e7987f688"
+    },
+    "failed_static.r000000.axis.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "failed_static.r000000.expected.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "failed_static.r000000.identity.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "failed_static.r000000.index.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "failed_static.r000000.payload.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "failed_static.r000000.shape.txt": {
+      "bytes": 4,
+      "sha256": "d7c007a0cb9cc72ddef24e95126661302d3b901e6b20ab068f20e6b6da3f58de"
+    },
+    "failed_static.serene": {
+      "bytes": 12388,
+      "sha256": "904b69850358f3a335be82ef4864aea038dc4da93506ab08111ee2737cb484cf"
+    },
+    "file_extent_mismatch.serene": {
+      "bytes": 13424,
+      "sha256": "d80b8994b20c625aa88e209f74c0eb96d613cf2b6fea0b907b25388c9cc009c5"
+    },
+    "floating_integer_field.serene": {
+      "bytes": 13426,
+      "sha256": "d216baf9975813adc5d4055d04b89bad9daa5519042b26cca77f12bae89b956f"
+    },
+    "header_count_mismatch.serene": {
+      "bytes": 13424,
+      "sha256": "c93d2128d9aac9abca105766d366f5d60ba2d5211a55807d7b86f073004091d7"
+    },
+    "large_document.expected.json": {
+      "bytes": 3564,
+      "sha256": "1984e64895768eaec00f782d4369d060f991a837256a7b7031817aac7d5cba26"
+    },
+    "large_document.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "large_document.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "large_document.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "large_document.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "large_document.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "large_document.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "large_document.serene": {
+      "bytes": 144462,
+      "sha256": "268e334333c4ee2559ee051c2adf9b894e19c701476129300fd2bb8a92bd8a3e"
+    },
+    "log_record_depth_limit.serene": {
+      "bytes": 13385,
+      "sha256": "0dd84545aaa3c9ab3fc57034644bbaac25ec0e1e692ffe852a9515068b7e94c8"
+    },
+    "log_record_limit.serene": {
+      "bytes": 1061935,
+      "sha256": "594250c5e40df1598b7a98ce459a523de59766071b58b6c9691cc7fbcd5c9822"
+    },
+    "log_record_nan.serene": {
+      "bytes": 13355,
+      "sha256": "12f0c14d6aeabb371212982d221bcbcb0f4a6e512accf150bd2ca5533bcde82d"
+    },
+    "long_expert_header.serene": {
+      "bytes": 13432,
+      "sha256": "e6e4d1e25fa28bac83d315c43870fb2ec4d3e53f468f219415f6f598b18d1566"
+    },
+    "malformed_metadata.serene": {
+      "bytes": 11629,
+      "sha256": "fc4ce5aa8e4b4984f49806b7b91f5fb2e4bec1fee0f8869fd93b8a3815b8a477"
+    },
+    "metadata_as_data.serene": {
+      "bytes": 13424,
+      "sha256": "1271f88e2ef9aa6f7238e8a9c0a131f5c12a8213d8231cb12af468b34907c657"
+    },
+    "metadata_byte_limit.serene": {
+      "bytes": 1062013,
+      "sha256": "bd62c636f1b75446d441bb7b115469ce068e8f6ea3e6dadde290bffdaa2490b6"
+    },
+    "metadata_depth_limit.serene": {
+      "bytes": 13468,
+      "sha256": "273b7070cb5a8dd36c1fcfcce79ece5750b4894cdd659c0424705fdee2ef9fcc"
+    },
+    "metadata_lone_surrogate.serene": {
+      "bytes": 13443,
+      "sha256": "adedca68f5198dc6d7ce23f751b48ba07fcbc612b69ca0e0a341a58cab6e99d0"
+    },
+    "metadata_nan.serene": {
+      "bytes": 13438,
+      "sha256": "093143dd90343d21e929344950a59178ff6919209ce4f85dbe4d55bd84c8c34e"
+    },
+    "metadata_negative_integer_zero.serene": {
+      "bytes": 13437,
+      "sha256": "a960c2e85f3fbe0a5c8f75a595465d910770989b14407c895311527705379d04"
+    },
+    "metadata_nul.serene": {
+      "bytes": 13443,
+      "sha256": "aaa4499825be7614b931b91c268ff5a238864a071ddfb1ff538808b505785fab"
+    },
+    "metadata_numeric_token_limit.serene": {
+      "bytes": 13564,
+      "sha256": "e12b25831a532640ae4d3f636ae857a6befe33d5360a70eee00339af7d19f2bc"
+    },
+    "metadata_value_limit.serene": {
+      "bytes": 46204,
+      "sha256": "57aefff4ff52d9f7d5dac4a9dbbc04b840cbb3dbcd1a6e57dc6de99873a853b8"
+    },
+    "missing_feature.serene": {
+      "bytes": 13402,
+      "sha256": "000dc305cca676f60bc11af75903158970fe91e882f1f16d1728102855ee715c"
+    },
+    "mixed_bundle.expected.json": {
+      "bytes": 5160,
+      "sha256": "a63ac552184a0ec4d3a4fd88223b5df7ca528117a0343a3b60d23471a119308e"
+    },
+    "mixed_bundle.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "mixed_bundle.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "mixed_bundle.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "mixed_bundle.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "mixed_bundle.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "mixed_bundle.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "mixed_bundle.r000001.axis.bin": {
+      "bytes": 16,
+      "sha256": "79eefa853821e579e1cb3a257a43dedb028c59cfcb82bf0cbbd8c398ad268f12"
+    },
+    "mixed_bundle.r000001.expected.bin": {
+      "bytes": 80,
+      "sha256": "ba1c6d7ab7a59ea263316c4ca9cc385ebe1b645ecd167a2fd924c7171e1faa58"
+    },
+    "mixed_bundle.r000001.identity.bin": {
+      "bytes": 16,
+      "sha256": "761b59d486d929d4d242938b94eeae7ee280c78da753bba0c9af46ad5e4bef4b"
+    },
+    "mixed_bundle.r000001.index.bin": {
+      "bytes": 308,
+      "sha256": "93cbab95ea6aae76b6fbfd325f1dab1a9cea25dd5f7632501cdbbb5fa51c8764"
+    },
+    "mixed_bundle.r000001.payload.bin": {
+      "bytes": 72,
+      "sha256": "ebd63151bd189b9c8dbbee9ceeb77a4357eb1e87dd6e594664aa0ead40ada38b"
+    },
+    "mixed_bundle.r000001.shape.txt": {
+      "bytes": 4,
+      "sha256": "8714f12597585219c60a69651cb2b7981dc7fdd5d1f287a6597826e87ad8c07e"
+    },
+    "mixed_bundle.serene": {
+      "bytes": 22923,
+      "sha256": "8c60a9623fff0cd61e61155787d876d8094150a23b8437c658da013aa81dc54b"
+    },
+    "mixed_timeseries.expected.json": {
+      "bytes": 3568,
+      "sha256": "d27eba554ff344bf8c494a80c9d60c1be485c048271fd6679342bdaa858ab194"
+    },
+    "mixed_timeseries.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "mixed_timeseries.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "mixed_timeseries.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "mixed_timeseries.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "mixed_timeseries.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "mixed_timeseries.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "mixed_timeseries.serene": {
+      "bytes": 13424,
+      "sha256": "87bd45980e028e3e322e92791f1a01ef7bef626b81e6fa3fde8508179b2c783c"
+    },
+    "negative_unsigned_field.serene": {
+      "bytes": 13424,
+      "sha256": "92b6c943d741d18bc49e9c038bd301ab4258e645a90e418594faffcd6ba9a7ce"
+    },
+    "no_committed_samples.expected.json": {
+      "bytes": 448,
+      "sha256": "583f284036c94876fcba984b095923c5ce31820810565fdba50f82d2684f7289"
+    },
+    "no_committed_samples.r000000.axis.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "no_committed_samples.r000000.expected.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "no_committed_samples.r000000.identity.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "no_committed_samples.r000000.index.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "no_committed_samples.r000000.payload.bin": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "no_committed_samples.r000000.shape.txt": {
+      "bytes": 4,
+      "sha256": "f447e635ef60d86f4591ef150e99d027d79600a624955da19c447d2e7f957fc8"
+    },
+    "no_committed_samples.serene": {
+      "bytes": 12207,
+      "sha256": "961a674a68753f1bb00fe0f10cc9798ddbf55042d48110a81c84ec8fbb27bd4e"
+    },
+    "nonfinite_raw.serene": {
+      "bytes": 13424,
+      "sha256": "d75d61279c36d1f39c42cef3ddb6fef09e5e316ce6663f097af848e8d050b7d1"
+    },
+    "nonfinite_zfp.serene": {
+      "bytes": 13432,
+      "sha256": "e2faeceff99b3085264c992cd245c39966c5b71c4d61d2a3b2ab206a975b34a8"
+    },
+    "offset_not_zero.serene": {
+      "bytes": 13424,
+      "sha256": "89e07bc5adf723c508cf995b1274da282e04456b8e12a3e2fe4543faa20e1288"
+    },
+    "offset_terminal.serene": {
+      "bytes": 13424,
+      "sha256": "791124066c16ec3a098cdf29c0758ca22b7de111e256b63e5ac734ce17976609"
+    },
+    "optional_disabled.expected.json": {
+      "bytes": 3569,
+      "sha256": "044728300e31332b1bd6beeb7ebfb93e1bdad417c76691b834a475c4f3b8b577"
+    },
+    "optional_disabled.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "optional_disabled.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "optional_disabled.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "optional_disabled.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "optional_disabled.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "optional_disabled.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "optional_disabled.serene": {
+      "bytes": 11040,
+      "sha256": "27da863d2dd11ffcfcda6e6b5ce2df77d7469b947865d74236bd754f8ad7fdaa"
+    },
+    "optional_unavailable.expected.json": {
+      "bytes": 3575,
+      "sha256": "204d04c6503852d3694d15c083a9d9891224a9d979322e4d6b3c964d0b70c71a"
+    },
+    "optional_unavailable.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "optional_unavailable.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "optional_unavailable.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "optional_unavailable.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "optional_unavailable.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "optional_unavailable.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "optional_unavailable.serene": {
+      "bytes": 11040,
+      "sha256": "77cb149db5717211dd92c59a959219352e032c87a05eb3245748964758e61f6e"
+    },
+    "orphan_section.serene": {
+      "bytes": 13502,
+      "sha256": "1dc62712bf537bf90bf1a8a437416c9d7d3b927421a96d9fbd7adca6c4f4c52f"
+    },
+    "outcome_inconsistent.serene": {
+      "bytes": 13424,
+      "sha256": "2b150f8b072dc6f43e9a456919765021157a18c468833b716604ad8865d3628f"
+    },
+    "partial_logs.expected.json": {
+      "bytes": 3560,
+      "sha256": "7b46dfdb30cf3a55cb7ca8b41d240b4310e8fa4d6714501c4fea8bf01f6b62e6"
+    },
+    "partial_logs.r000000.axis.bin": {
+      "bytes": 80,
+      "sha256": "bb9dd4087d9fefbd46cb77d7d596bf61e5790840b74dc852c3201da3a13d4b6c"
+    },
+    "partial_logs.r000000.expected.bin": {
+      "bytes": 240,
+      "sha256": "0d944e8c0f84756a48fd259d2b95239af7ed14f75e666fc2e3d66b5a774ef9d8"
+    },
+    "partial_logs.r000000.identity.bin": {
+      "bytes": 80,
+      "sha256": "23c379d6c0f22ef64cdef873fd530df1f1419b4a3935e9323d5f1d82ca697b6a"
+    },
+    "partial_logs.r000000.index.bin": {
+      "bytes": 693,
+      "sha256": "8a7f1fa7171aa93f259bc39a0ebe975bdb0d683e06deef0b2fd3cb204423b5b3"
+    },
+    "partial_logs.r000000.payload.bin": {
+      "bytes": 176,
+      "sha256": "179322c642f10b885be0c7f1515f596178e963feb8960f93ab91c3f1ef2d1b0b"
+    },
+    "partial_logs.r000000.shape.txt": {
+      "bytes": 5,
+      "sha256": "27437c969e25c7e713214e322239b131459f0651098e0855fdd15e94464c23e0"
+    },
+    "partial_logs.serene": {
+      "bytes": 13495,
+      "sha256": "ac478634ece3af4740a934b2b7d33cccca009db60f7b514867fa02bfd2058953"
+    },
+    "raw_length.serene": {
+      "bytes": 13425,
+      "sha256": "117e6778327c8341c3313cd64c053470ea1ddd26d6f117009f4fb7075d519f6a"
+    },
+    "request_json_depth_limit.serene": {
+      "bytes": 13403,
+      "sha256": "5e43b6dd845d62a3ae687a23bc723daaf23d08395ff506b9ebe61dfcbd896d1e"
+    },
+    "request_json_duplicate_key.serene": {
+      "bytes": 13382,
+      "sha256": "e7bd39d0a06261adcc68364fa872faafdcd982d266abea49bbf05849cb950a00"
+    },
+    "request_json_nan.serene": {
+      "bytes": 13373,
+      "sha256": "66f6a6b39ebdd9bf44c034a284cb0ec9561819db379c235384dd3101d985749b"
+    },
+    "root_section_out_of_range.serene": {
+      "bytes": 13424,
+      "sha256": "558e61919397d9a0ea1764b94d9751ca138c5076b9511cdd17d7c8d37b94b20e"
+    },
+    "root_section_wrong_kind.serene": {
+      "bytes": 13424,
+      "sha256": "a0bbd946361d95e1e9437fb63fb3ff7790c599cb82a2c3c2ab2a19b2072a926c"
+    },
+    "root_version_disagrees.serene": {
+      "bytes": 13424,
+      "sha256": "7d45d1d6445fe23b488df8e1496432bffed73a7b3cb36bd8ac2ca6574aa944ec"
+    },
+    "run_identity_mismatch.serene": {
+      "bytes": 13431,
+      "sha256": "c818052fb4bfdcf548d8bb09c6ab8d6fb1d044e2f3479986dd1f870b0714b834"
+    },
+    "run_metadata_wrong_kind.serene": {
+      "bytes": 13424,
+      "sha256": "6412bfa356f8a8e5fd5732969772b5378513a93e6b9fb0022e28f69b309ee730"
+    },
+    "section_extent_overflow.serene": {
+      "bytes": 13424,
+      "sha256": "6ef1c93f41526484bff95e65c9276948cb41dd0f335f5b825d957b3e282b8a35"
+    },
+    "section_gap.serene": {
+      "bytes": 13424,
+      "sha256": "3594edf5fc5d8fbb73479ce235ee3a334effd9913a8d0469f9dae9c3639d9395"
+    },
+    "section_overlap.serene": {
+      "bytes": 13424,
+      "sha256": "a273948c030dc6210137069c935c4abe70f5f98f2acc03e3a40fc8cbbdb3306c"
+    },
+    "shape_extent_mismatch.serene": {
+      "bytes": 13423,
+      "sha256": "d4e635af192900655281981961fa69838262e951645ee40895c66505b3b9d5f3"
+    },
+    "static_levels.expected.json": {
+      "bytes": 1659,
+      "sha256": "b33acf52ef9b3c46fae5eae5f77510242cbcfedcab6cac773223756f61954ee2"
+    },
+    "static_levels.r000000.axis.bin": {
+      "bytes": 16,
+      "sha256": "79eefa853821e579e1cb3a257a43dedb028c59cfcb82bf0cbbd8c398ad268f12"
+    },
+    "static_levels.r000000.expected.bin": {
+      "bytes": 80,
+      "sha256": "ba1c6d7ab7a59ea263316c4ca9cc385ebe1b645ecd167a2fd924c7171e1faa58"
+    },
+    "static_levels.r000000.identity.bin": {
+      "bytes": 16,
+      "sha256": "761b59d486d929d4d242938b94eeae7ee280c78da753bba0c9af46ad5e4bef4b"
+    },
+    "static_levels.r000000.index.bin": {
+      "bytes": 308,
+      "sha256": "93cbab95ea6aae76b6fbfd325f1dab1a9cea25dd5f7632501cdbbb5fa51c8764"
+    },
+    "static_levels.r000000.payload.bin": {
+      "bytes": 72,
+      "sha256": "ebd63151bd189b9c8dbbee9ceeb77a4357eb1e87dd6e594664aa0ead40ada38b"
+    },
+    "static_levels.r000000.shape.txt": {
+      "bytes": 4,
+      "sha256": "8714f12597585219c60a69651cb2b7981dc7fdd5d1f287a6597826e87ad8c07e"
+    },
+    "static_levels.serene": {
+      "bytes": 12869,
+      "sha256": "dd235e58bbc727d85438f9b06b434efd9d902edee1877f5de03acb6894acaa53"
+    },
+    "string_entry_limit.serene": {
+      "bytes": 1061968,
+      "sha256": "579c00d27e6b3c31f8adbeb0fc404ee0123133cccc9ff8c24cfdedf81259bf0b"
+    },
+    "time_nonfinite.serene": {
+      "bytes": 13424,
+      "sha256": "ab3ee3243aaf16eab7633140934d22f8776a17a8c2cff0961e3bc8e15b80ca70"
+    },
+    "time_not_increasing.serene": {
+      "bytes": 13424,
+      "sha256": "2b89df9380b9e66ee673ed05ef3d42050631e26152ff2bb061153900090e3a02"
+    },
+    "trailing_data.serene": {
+      "bytes": 13425,
+      "sha256": "8bfc6b73b11e5200a44494a7c6b083080be5c0d5164a242e555c2fcce22633a6"
+    },
+    "truncated_bootstrap.serene": {
+      "bytes": 100,
+      "sha256": "a8c0233c5998bbbeab9b1988ecc8703d9c51fedccdd216f9da706785aa2a58b2"
+    },
+    "truncated_directory.serene": {
+      "bytes": 13423,
+      "sha256": "feacfff275b7e97d0d43585d769fa7b1e6d87614d4f559ff8ff07c565f24e28a"
+    },
+    "unavailable_catalog.expected.json": {
+      "bytes": 192,
+      "sha256": "608e3527cfb9c31c0f386616cfe38140671f4da6b22f58388fb241ef2b63eaa1"
+    },
+    "unavailable_catalog.serene": {
+      "bytes": 2459,
+      "sha256": "7aa6f31a487d0a0a46267aa44e4ceb0c6af9790d2c6652e842a705229f29f14a"
+    },
+    "unfinished_bootstrap.serene": {
+      "bytes": 13424,
+      "sha256": "6ae3542f2193c9dd0c7717d066ea48bcc5dc548d2a907cfde0bffacc906f92a2"
+    },
+    "unknown_bootstrap_flag.serene": {
+      "bytes": 13424,
+      "sha256": "cb88282d719ea6b797204f1aaa8006bf3c99314c0b4d1c69ff0e5d83b1b227b8"
+    },
+    "unknown_directory_flag.serene": {
+      "bytes": 13424,
+      "sha256": "27150c73bce9cff136ce59865c37504f97e444e58d9e79562c42365e6711be6a"
+    },
+    "unknown_endian.serene": {
+      "bytes": 13424,
+      "sha256": "e9474956fa1b63031e45f1e613a795122247ba5089ca409eecb942d174e4cbaf"
+    },
+    "unknown_feature.serene": {
+      "bytes": 13442,
+      "sha256": "e513cb31d5f1c42b651a86009b3e244df5c04bf78dd8213f90807d7b4addcabe"
+    },
+    "unknown_major.serene": {
+      "bytes": 13424,
+      "sha256": "2507766e19decb5bedc9068f4e7d2ae0a5bb0c8f9625f8c9dc66848e60689ad0"
+    },
+    "unknown_minor.serene": {
+      "bytes": 13424,
+      "sha256": "e8570af975351eb288c8e78c4cc184e97a44783a6df27649fab5d1582a090318"
+    },
+    "unknown_section_kind.serene": {
+      "bytes": 13424,
+      "sha256": "3b679f2917c0bbb866c9b7f906e4de9eac45e256f717658d80b26daf0ab91a79"
+    },
+    "unsupported_profile.serene": {
+      "bytes": 13424,
+      "sha256": "2e6b003f6bcdc775aac508170ce088477be87a5f9aec7a58b00feabad2cc0e44"
+    },
+    "verification_error_nonzero.serene": {
+      "bytes": 13424,
+      "sha256": "732e7af3c8a62079927a3c8d5cf74b00a0ab87eba57e6881fc8585432f37505c"
+    },
+    "verification_negative_zero.serene": {
+      "bytes": 13424,
+      "sha256": "d70925359f3392ca4c80300e559e011938b528b63a2893e7d90caae1fbc50d23"
+    },
+    "wrong_time_dtype.serene": {
+      "bytes": 13424,
+      "sha256": "44c744e25ef00d70f2d95078372745be1f406029fd62278f9e5e465644798b72"
+    },
+    "wrong_time_rank.serene": {
+      "bytes": 13425,
+      "sha256": "68ca3c1a43c5fe2ada10f2f201a34f4e26e99ec8713cd36490cd1a507ee89f1b"
+    },
+    "zero_frame_count.serene": {
+      "bytes": 13424,
+      "sha256": "43b1a1dd36bc6085adb1c2c9795abe9732f11e491ee0852595610fe0f5e46fb5"
+    }
+  }
+}

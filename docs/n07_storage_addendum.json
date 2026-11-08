@@ -1,0 +1,14 @@
+{
+  "package": "N07-storage-discriminator-amendment",
+  "recorded_utc": "2026-11-08T04:18:56.204205+00:00",
+  "authority": "Serene main coordinator; actual C++/Python DOM prohibits defaulted tagged discriminators",
+  "previous_g0_spec_sha256": "549d09f058008cd44a24b3402f1637e8ef4165467389ba913fbcd8636d6ae673",
+  "current_spec_sha256": "ea598cdf51a3013417b80bcc4312fc294f72b70aadff66ab59ba8d17520b14ee",
+  "changes": [
+    "storage.kind required explicit, no default",
+    "native_hdf5.codec required explicit reversible, no default"
+  ],
+  "archive_wire_changed": false,
+  "fixtures_changed": false,
+  "reason": "Avoid unrequested shared DOM expansion; preserve explicit future codec alternatives."
+}
