@@ -1,0 +1,88 @@
+{
+  "catalog_version": 1,
+  "recording_id": "independent-asymmetric-fixture",
+  "run_id": "transient-nonzero-start",
+  "preparation_id": "fixture-preparation-17",
+  "world": {
+    "axes": "right_handed_xyz",
+    "length_unit": "m",
+    "orientation": "hamilton_wxyz_local_to_world"
+  },
+  "occurrences": [
+    {
+      "id": 10,
+      "parent_id": null,
+      "path": "/bench",
+      "kind": "assembly"
+    },
+    {
+      "id": 21,
+      "parent_id": 10,
+      "path": "/bench/blade",
+      "kind": "flexible"
+    },
+    {
+      "id": 35,
+      "parent_id": 10,
+      "path": "/bench/foundation",
+      "kind": "anchor"
+    }
+  ],
+  "samples": [
+    {
+      "id": 0,
+      "kind": "structural_node",
+      "occurrence_id": 21,
+      "material_coordinate_m": 0.0,
+      "side": "none"
+    },
+    {
+      "id": 1,
+      "kind": "structural_node",
+      "occurrence_id": 21,
+      "material_coordinate_m": 5.0,
+      "side": "none"
+    },
+    {
+      "id": 2,
+      "kind": "body_port",
+      "occurrence_id": 21,
+      "port_id": "offset_saddle"
+    },
+    {
+      "id": 3,
+      "kind": "anchor_port",
+      "occurrence_id": 35,
+      "port_id": "winch_eye"
+    }
+  ],
+  "segments": [
+    {
+      "id": 0,
+      "occurrence_id": 21,
+      "sample_ids": [
+        0,
+        1
+      ]
+    }
+  ],
+  "port_aliases": [
+    {
+      "scope_id": 10,
+      "alias": "saddle",
+      "sample_id": 2
+    }
+  ],
+  "connections": [
+    {
+      "id": 5,
+      "kind": "distance",
+      "scope_id": 10,
+      "junction_id": "bench_junction_A",
+      "first_endpoint_id": "/bench/blade:offset_saddle",
+      "second_endpoint_id": "/bench/foundation:winch_eye",
+      "first_sample_id": 2,
+      "second_sample_id": 3
+    }
+  ]
+}

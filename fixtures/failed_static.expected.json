@@ -1,0 +1,20 @@
+{
+  "file": "failed_static.serene.h5",
+  "runs": [
+    {
+      "run_id": "static β",
+      "kind": 1,
+      "shape": [
+        0,
+        5
+      ],
+      "axis": [],
+      "identity_axis": [],
+      "bits_hex": [],
+      "sidecar": "failed_static.r000000",
+      "frames": [],
+      "run_outcome": 1,
+      "numerical_status": 3
+    }
+  ]
+}

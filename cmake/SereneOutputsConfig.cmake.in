@@ -1,6 +1,10 @@
+# Installed component loader: resolve targets relative to this prefix without source/build-tree imports.
 @PACKAGE_INIT@
+# Retained relocation root used by generated per-configuration private ZFP archive definitions.
 set(_serene_outputs_prefix "${PACKAGE_PREFIX_DIR}")
+# Configured package release, independent of scientific container/sidecar wire versions.
 set(SereneOutputs_VERSION "@PROJECT_VERSION@")
+# Preserve default selection archive -> codec -> model; pose requires an explicit request.
 if(NOT SereneOutputs_FIND_COMPONENTS)
   if(@SERENE_OUTPUTS_BUILD_ARCHIVE@)
     set(SereneOutputs_FIND_COMPONENTS archive)
@@ -10,13 +14,15 @@ if(NOT SereneOutputs_FIND_COMPONENTS)
     set(SereneOutputs_FIND_COMPONENTS model)
   endif()
 endif()
+# _component is a caller-requested name; reject unknown names before importing any target.
 foreach(_component IN LISTS SereneOutputs_FIND_COMPONENTS)
-  if(NOT _component MATCHES "^(model|codec|archive)$")
+  if(NOT _component MATCHES "^(model|codec|archive|pose_recorder)$")
     set(SereneOutputs_FOUND FALSE)
     set(SereneOutputs_NOT_FOUND_MESSAGE "Unknown SereneOutputs component: ${_component}")
     return()
   endif()
 endforeach()
+# Transitive component requirements; archive needs codec/model, isolated pose does not.
 set(_need_codec FALSE)
 set(_need_archive FALSE)
 if("codec" IN_LIST SereneOutputs_FIND_COMPONENTS OR "archive" IN_LIST SereneOutputs_FIND_COMPONENTS)
@@ -25,10 +31,12 @@ endif()
 if("archive" IN_LIST SereneOutputs_FIND_COMPONENTS)
   set(_need_archive TRUE)
 endif()
-if(NOT TARGET serene::outputs_model)
+# A pose-only import keeps even the model target absent; mixed requests import their shared model.
+if(NOT SereneOutputs_FIND_COMPONENTS STREQUAL "pose_recorder" AND NOT TARGET serene::outputs_model)
   include("${CMAKE_CURRENT_LIST_DIR}/SereneOutputsModelTargets.cmake")
 endif()
 set(SereneOutputs_model_FOUND TRUE)
+# Import private ZFP only for a requested codec closure, honoring built component availability.
 if(_need_codec)
   if(NOT @SERENE_OUTPUTS_BUILD_CODEC@)
     set(SereneOutputs_codec_FOUND FALSE)
@@ -36,10 +44,12 @@ if(_need_codec)
   else()
     if(NOT TARGET serene::outputs_zfp_dependency)
       add_library(serene::outputs_zfp_dependency STATIC IMPORTED)
+      # _configs owns the installed list of configuration records; _config selects one exact archive mapping.
       file(GLOB _configs "${CMAKE_CURRENT_LIST_DIR}/SereneOutputsZfp-*.cmake")
       foreach(_config IN LISTS _configs)
         include("${_config}")
       endforeach()
+      # Upstream static codec math functions require the platform math library on Unix.
       if(UNIX)
         set_property(TARGET serene::outputs_zfp_dependency PROPERTY INTERFACE_LINK_LIBRARIES m)
       endif()
@@ -50,6 +60,7 @@ if(_need_codec)
     set(SereneOutputs_codec_FOUND TRUE)
   endif()
 endif()
+# Archive targets refer to the already imported model/codec closure.
 if(_need_archive)
   if(NOT @SERENE_OUTPUTS_BUILD_ARCHIVE@)
     set(SereneOutputs_archive_FOUND FALSE)
@@ -61,10 +72,23 @@ if(_need_archive)
     set(SereneOutputs_archive_FOUND TRUE)
   endif()
 endif()
+# Pose is independently packaged and reports unavailable when omitted at build time.
+if("pose_recorder" IN_LIST SereneOutputs_FIND_COMPONENTS)
+  if(NOT @SERENE_OUTPUTS_BUILD_POSE_RECORDER@)
+    set(SereneOutputs_pose_recorder_FOUND FALSE)
+    set(SereneOutputs_NOT_FOUND_MESSAGE "This installation was built without the pose recorder")
+  else()
+    if(NOT TARGET serene::outputs_pose_recorder)
+      include("${CMAKE_CURRENT_LIST_DIR}/SereneOutputsPoseRecorderTargets.cmake")
+    endif()
+    set(SereneOutputs_pose_recorder_FOUND TRUE)
+  endif()
+endif()
 # Never silently satisfy Debug (/MDd) with Release (/MD), or vice versa.
 # Multi-config consumers must install both runtime families or restrict their configuration set.
 if(MSVC)
-  foreach(_target outputs_model outputs_codec outputs_archive outputs_zfp_dependency)
+  # _target enumerates installed Serene targets that must never silently cross runtime families.
+  foreach(_target outputs_model outputs_codec outputs_archive outputs_pose_recorder outputs_zfp_dependency)
     if(TARGET serene::${_target})
       set_target_properties(serene::${_target} PROPERTIES
         MAP_IMPORTED_CONFIG_DEBUG Debug
@@ -74,5 +98,6 @@ if(MSVC)
     endif()
   endforeach()
 endif()
+# Propagate per-component availability through standard find_package REQUIRED semantics.
 check_required_components(SereneOutputs)
 unset(_serene_outputs_prefix)

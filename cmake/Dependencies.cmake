@@ -1,5 +1,10 @@
+# Configure only locally supplied pinned dependencies; this file never selects a network fallback.
 include(FetchContent)
+# Configure the optional pinned ZFP target from SERENE_OUTPUTS_ZFP_ARCHIVE and component switches.
+# No arguments/return value: adds dependency targets and scoped upstream build policy.
 function(serene_outputs_dependencies)
+  # Fix static/runtime/options policy, verify the local archive digest, then configure the exact codec profile.
+  # Function scope prevents upstream test/build switches leaking into first-party component configuration.
   set(FETCHCONTENT_TRY_FIND_PACKAGE_MODE NEVER)
   set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
   set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
@@ -13,16 +18,20 @@ function(serene_outputs_dependencies)
     if(NOT EXISTS "${SERENE_OUTPUTS_ZFP_ARCHIVE}")
       message(FATAL_ERROR "Set SERENE_OUTPUTS_ZFP_ARCHIVE to the pinned original upstream tar.gz; no download or moving fallback is performed")
     endif()
+    # _zfp_hash is the actual local tarball identity, checked before extraction/configuration.
     file(SHA256 "${SERENE_OUTPUTS_ZFP_ARCHIVE}" _zfp_hash)
     if(NOT _zfp_hash STREQUAL "599802776f2427df2d3dbd655f4443e146ebeedcf50d06c6a8ce26784263884b")
       message(FATAL_ERROR "Pinned ZFP source archive SHA256 mismatch")
     endif()
+    # Profile-critical options define the qualified64-bit serial, ROUND_NEVER stream contract.
     set(ZFP_BIT_STREAM_WORD_SIZE 64)
     set(ZFP_ROUNDING_MODE ZFP_ROUND_NEVER)
+    # _opt names each upstream feature excluded from the pinned codec build.
     foreach(_opt BUILD_ALL BUILD_CFP BUILD_ZFORP BUILD_ZFPY BUILD_UTILITIES BUILD_EXAMPLES
       BUILD_TESTING_FULL ZFP_WITH_OPENMP ZFP_WITH_CUDA ZFP_WITH_DAZ ZFP_WITH_TIGHT_ERROR ZFP_WITH_BIT_STREAM_STRIDED)
       set(${_opt} OFF)
     endforeach()
+    # FetchContent expands the verified local archive; EXCLUDE_FROM_ALL keeps dependency ownership explicit.
     FetchContent_Declare(serene_outputs_zfp URL "${SERENE_OUTPUTS_ZFP_ARCHIVE}"
       URL_HASH SHA256=599802776f2427df2d3dbd655f4443e146ebeedcf50d06c6a8ce26784263884b
       DOWNLOAD_EXTRACT_TIMESTAMP TRUE EXCLUDE_FROM_ALL)

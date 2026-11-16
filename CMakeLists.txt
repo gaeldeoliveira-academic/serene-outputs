@@ -1,18 +1,24 @@
+# Configure/install the C++23 model, optional codec/archive and independent pose recorder.
+# This first-party build owns target wiring only; pinned dependency sources remain external.
 cmake_minimum_required(VERSION 3.28)
 cmake_policy(SET CMP0091 NEW)
-project(SereneOutputs VERSION 0.2.2 LANGUAGES C CXX)
+project(SereneOutputs VERSION 0.2.3 LANGUAGES C CXX)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 include(CTest)
+# Give single-config builds an explicit default; multi-config generators retain their configuration set.
 if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
+# Component switches are independent except archive -> codec/model. Pose remains separately selectable.
 option(SERENE_OUTPUTS_BUILD_CODEC "Build the pinned ZFP codec component" ON)
+option(SERENE_OUTPUTS_BUILD_POSE_RECORDER "Build the independent raw visualization sidecar recorder" ON)
 option(SERENE_OUTPUTS_BUILD_ARCHIVE "Build the native custom-container writer component" ON)
 option(SERENE_OUTPUTS_DEPENDENCIES_ONLY "Build pinned native dependencies before library sources are ready" OFF)
 if(SERENE_OUTPUTS_BUILD_ARCHIVE AND NOT SERENE_OUTPUTS_BUILD_CODEC)
   message(FATAL_ERROR "The archive writer requires the codec component")
 endif()
+# Cached dependency policy/archive path: only the exact local pinned tarball is admitted.
 set(SERENE_OUTPUTS_DEPENDENCY_MODE "PINNED" CACHE STRING "Dependency mode; initially only PINNED is qualified")
 if(NOT SERENE_OUTPUTS_DEPENDENCY_MODE STREQUAL "PINNED")
   message(FATAL_ERROR "Only explicitly supplied, hash-checked pinned dependency archives are supported")
@@ -20,6 +26,7 @@ endif()
 set(SERENE_OUTPUTS_ZFP_ARCHIVE "" CACHE FILEPATH "Pinned ZFP upstream source archive; required for codec")
 include(cmake/Dependencies.cmake)
 serene_outputs_dependencies()
+# Bootstrap mode builds dependency targets alone, without claiming a usable installed library.
 if(SERENE_OUTPUTS_DEPENDENCIES_ONLY)
   add_custom_target(serene_outputs_dependencies ALL)
   if(TARGET zfp)
@@ -27,7 +34,11 @@ if(SERENE_OUTPUTS_DEPENDENCIES_ONLY)
   endif()
   return()
 endif()
+# Apply common first-party ABI/build policy to existing target; export_name is its installed alias.
+# Effects: public C++23/includes, static-library metadata and matching /MD or /MDd configuration.
 function(serene_outputs_target target export_name)
+  # Establish public language/include requirements, assign export/runtime properties, then warnings.
+  # target/export_name are caller-provided CMake target identifiers, not generated source metadata.
   target_compile_features(${target} PUBLIC cxx_std_23)
   target_include_directories(${target} PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
@@ -35,18 +46,21 @@ function(serene_outputs_target target export_name)
   set_target_properties(${target} PROPERTIES EXPORT_NAME ${export_name}
     POSITION_INDEPENDENT_CODE ON CXX_EXTENSIONS OFF DEBUG_POSTFIX _d
     MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+  # Keep finite-value/error checks meaningful by avoiding fast floating-point transformations.
   if(MSVC)
     target_compile_options(${target} PRIVATE /W4 /permissive- /fp:precise /utf-8)
   else()
     target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -fno-fast-math)
   endif()
 endfunction()
+# Always provide the model/planner and typed diagnostics; JSON remains a private header dependency.
 add_library(serene_outputs_model STATIC src/model.cpp src/diagnostics.cpp)
 add_library(serene::outputs_model ALIAS serene_outputs_model)
 serene_outputs_target(serene_outputs_model outputs_model)
 target_include_directories(serene_outputs_model PRIVATE third_party/nlohmann_json/include)
 install(TARGETS serene_outputs_model EXPORT SereneOutputsModelTargets ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(EXPORT SereneOutputsModelTargets NAMESPACE serene:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SereneOutputs)
+# Codec owns framing/hash implementation and installs a private, relocated pinned ZFP archive.
 if(SERENE_OUTPUTS_BUILD_CODEC)
   add_library(serene_outputs_codec STATIC src/codec.cpp src/sha256.cpp third_party/crypto_algorithms/sha256.c)
   add_library(serene::outputs_codec ALIAS serene_outputs_codec)
@@ -56,12 +70,14 @@ if(SERENE_OUTPUTS_BUILD_CODEC)
   install(TARGETS serene_outputs_codec EXPORT SereneOutputsCodecTargets ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
   install(EXPORT SereneOutputsCodecTargets NAMESPACE serene:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SereneOutputs)
   install(FILES $<TARGET_FILE:zfp> DESTINATION ${CMAKE_INSTALL_LIBDIR}/serene-outputs/$<CONFIG>)
+  # Each configuration gets its exact archive location; generated source content is an installed contract.
   file(GENERATE OUTPUT "${PROJECT_BINARY_DIR}/SereneOutputsZfp-$<CONFIG>.cmake" CONTENT
 "set_property(TARGET serene::outputs_zfp_dependency APPEND PROPERTY IMPORTED_CONFIGURATIONS $<UPPER_CASE:$<CONFIG>>)
 set_target_properties(serene::outputs_zfp_dependency PROPERTIES IMPORTED_LOCATION_$<UPPER_CASE:$<CONFIG>> \"\${_serene_outputs_prefix}/${CMAKE_INSTALL_LIBDIR}/serene-outputs/$<CONFIG>/$<TARGET_FILE_NAME:zfp>\")
 ")
   install(FILES "${PROJECT_BINARY_DIR}/SereneOutputsZfp-$<CONFIG>.cmake" DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SereneOutputs)
 endif()
+# Archive combines the model and codec with section I/O, shared spool validation and bundle assembly.
 if(SERENE_OUTPUTS_BUILD_ARCHIVE)
   add_library(serene_outputs_archive STATIC src/archive.cpp src/bundle.cpp src/spool_reader.cpp)
   add_library(serene::outputs_archive ALIAS serene_outputs_archive)
@@ -71,6 +87,16 @@ if(SERENE_OUTPUTS_BUILD_ARCHIVE)
   install(TARGETS serene_outputs_archive EXPORT SereneOutputsArchiveTargets ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
   install(EXPORT SereneOutputsArchiveTargets NAMESPACE serene:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SereneOutputs)
 endif()
+# Pose recording is independently linkable and intentionally has no codec/model linkage requirement.
+if(SERENE_OUTPUTS_BUILD_POSE_RECORDER)
+  add_library(serene_outputs_pose_recorder STATIC src/pose_recorder.cpp)
+  add_library(serene::outputs_pose_recorder ALIAS serene_outputs_pose_recorder)
+  serene_outputs_target(serene_outputs_pose_recorder outputs_pose_recorder)
+  target_include_directories(serene_outputs_pose_recorder PRIVATE third_party/nlohmann_json/include)
+  install(TARGETS serene_outputs_pose_recorder EXPORT SereneOutputsPoseRecorderTargets ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+  install(EXPORT SereneOutputsPoseRecorderTargets NAMESPACE serene:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SereneOutputs)
+endif()
+# Install public declarations, relocatable component configs, dependency licenses and authoritative specs.
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 configure_package_config_file(cmake/SereneOutputsConfig.cmake.in
   "${PROJECT_BINARY_DIR}/SereneOutputsConfig.cmake"
@@ -82,8 +108,22 @@ install(FILES "${PROJECT_BINARY_DIR}/SereneOutputsConfig.cmake" "${PROJECT_BINAR
 install(FILES third_party/dependencies.json third_party/licenses/ZFP-LICENSE
   third_party/nlohmann_json/LICENSE.MIT third_party/crypto_algorithms/README.md
   DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs/licenses)
-install(FILES spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
+install(FILES spec/POSE_SIDECAR.md spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
+# Register focused tests only for configured components; no configure step generates frozen fixtures.
 if(BUILD_TESTING)
+  if(SERENE_OUTPUTS_BUILD_POSE_RECORDER)
+    add_executable(test_pose_recorder tests/test_pose_recorder.cpp)
+    target_link_libraries(test_pose_recorder PRIVATE serene::outputs_pose_recorder)
+    target_include_directories(test_pose_recorder PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_pose_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Python3 drives independent sidecar-byte checks; absent interpreter means these two tests are unregistered.
+    find_package(Python3 QUIET COMPONENTS Interpreter)
+    if(Python3_Interpreter_FOUND)
+      add_test(NAME serene_outputs_pose_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_pose_recorder.py"
+        --exe "$<TARGET_FILE:test_pose_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/pose-tests/$<CONFIG>")
+      add_test(NAME serene_outputs_pose_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_checker.py")
+    endif()
+  endif()
   if(SERENE_OUTPUTS_BUILD_ARCHIVE AND EXISTS "${PROJECT_SOURCE_DIR}/tests/test_document_preflight.cpp")
     add_executable(test_document_preflight tests/test_document_preflight.cpp)
     target_link_libraries(test_document_preflight PRIVATE serene::outputs_archive)
@@ -101,6 +141,8 @@ if(BUILD_TESTING)
     target_link_libraries(measure_extensions PRIVATE serene::outputs_archive)
     set_target_properties(measure_extensions PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
   endif()
+  # These extension integration registrations consume separately prepared qualification fixtures.
+  # A fresh checkout must prepare the referenced corpus; CMake does not recreate historical receipts.
   if(SERENE_OUTPUTS_BUILD_ARCHIVE AND EXISTS "${PROJECT_SOURCE_DIR}/tests/test_bundle.cpp")
     add_executable(test_bundle tests/test_bundle.cpp)
     target_link_libraries(test_bundle PRIVATE serene::outputs_archive)
@@ -121,6 +163,7 @@ if(BUILD_TESTING)
     set_target_properties(test_extensions PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
     add_test(NAME serene_outputs_extensions COMMAND test_extensions)
   endif()
+  # _part selects one component test and its matching link target; disabled components are skipped.
   foreach(_part model codec archive)
     if(_part STREQUAL "codec" AND NOT SERENE_OUTPUTS_BUILD_CODEC)
       continue()
@@ -142,6 +185,7 @@ if(BUILD_TESTING)
       add_test(NAME serene_outputs_${_part} COMMAND test_${_part} "${PROJECT_SOURCE_DIR}/fixtures")
     endif()
   endforeach()
+  # Standalone measurement/generation programs require fresh caller-selected output paths.
   if(EXISTS "${PROJECT_SOURCE_DIR}/tests/measure_save.cpp" AND SERENE_OUTPUTS_BUILD_ARCHIVE)
     add_executable(measure_save tests/measure_save.cpp)
     target_link_libraries(measure_save PRIVATE serene::outputs_archive)
