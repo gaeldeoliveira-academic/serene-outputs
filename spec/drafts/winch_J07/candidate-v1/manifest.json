@@ -1,0 +1,283 @@
+{
+  "schema": "j07-contract-review-candidate/1",
+  "status": "candidate_ready_for_joint_review",
+  "date": "2026-11-17",
+  "identifiers_frozen": false,
+  "recorder_implementation_released": false,
+  "destination": "C:\\Users\\12650029\\serene-academic\\serene-outputs\\spec\\drafts\\winch_J07\\candidate-v1",
+  "files": [
+    {
+      "path": "API_SKETCH.md",
+      "bytes": 6066,
+      "sha256": "acd08094b962cf6c8dd9d5e6cdda662d697b374309546827e270cd0cfe494a52"
+    },
+    {
+      "path": "author_candidate.py",
+      "bytes": 16706,
+      "sha256": "3ba148e7379a755a6626fc53ca806dc7fc007e6abc0bc3ce9c3a561806e234a7"
+    },
+    {
+      "path": "BUILD_INSTALL_PLAN.md",
+      "bytes": 6891,
+      "sha256": "0fb0126f4c21ee323e682565895ab822a326ad7c99dfc5a820af7687972912e5"
+    },
+    {
+      "path": "compatibility_probe.json",
+      "bytes": 86785,
+      "sha256": "dc7477f06ac351d1f81956e26d3b903cb328eb4b7ade7e361840abf4cad59ae5"
+    },
+    {
+      "path": "CONTRACT_CANDIDATE.md",
+      "bytes": 14551,
+      "sha256": "db4f78ced73d1c0afee2c03a273ae88394a85960c80e740cc8e743907727725b"
+    },
+    {
+      "path": "fixtures/catalog.json",
+      "bytes": 4829,
+      "sha256": "4ae2b74ce3470096d13d4e1115ba12ac3f830b0b6e246263b2cebf449e79cad0"
+    },
+    {
+      "path": "fixtures/corrupt_feature.spose",
+      "bytes": 5570,
+      "sha256": "2d086d5db3863d1e6e70ff2f3035f82abf41308b918b32e7e48015dcfc2ff9cf"
+    },
+    {
+      "path": "fixtures/empty_failed.spose",
+      "bytes": 2850,
+      "sha256": "03a0b25154c34d64e673344086cb2812ceb2f81c70069a48cd27b9ddc217c459"
+    },
+    {
+      "path": "fixtures/expected.json",
+      "bytes": 16130,
+      "sha256": "8bcd5f15748e76d0831f226e131ae88900a8b3e04d1bfe2a7289f14a1550460a"
+    },
+    {
+      "path": "fixtures/mismatched_stamp.spose",
+      "bytes": 5570,
+      "sha256": "d4fb5a600802d2f4dbc3d093b08fa87621b8af8304df6c13e3c216ec8cadb1d4"
+    },
+    {
+      "path": "fixtures/missing_features.spose",
+      "bytes": 4546,
+      "sha256": "c0771733846a95faaf535bab138059d63e6f78ca4a81c6d70df1f198b03f0cf9"
+    },
+    {
+      "path": "fixtures/nonfinite_feature.spose",
+      "bytes": 5570,
+      "sha256": "e7ac3e45c33ee08c4469f42de2710334cefcef134bbf3e7c756217f445ee5448"
+    },
+    {
+      "path": "fixtures/paired_transient.spose",
+      "bytes": 5570,
+      "sha256": "f82e8ea8ce3f640e3dfcc8cfd9073659a6f2991859d2d8a7ddab905878d99e01"
+    },
+    {
+      "path": "fixtures/pending_feature.spose.partial",
+      "bytes": 4690,
+      "sha256": "8d86f34976173ed817fca830aefc47e04f65c7656d979ffe3e3ef331719232d2"
+    },
+    {
+      "path": "fixtures/prepared.spose",
+      "bytes": 3810,
+      "sha256": "a2028a5a26aa9c3fb832350664a9eae40649df671d1a8c67113f4cce053a89c5"
+    },
+    {
+      "path": "fixtures/required_feature.spose",
+      "bytes": 5570,
+      "sha256": "d801fa7536d21b66f1c7d7abb86fb0b5ba905eb18b4d6b65c6855024f458a827"
+    },
+    {
+      "path": "fixtures/static.spose",
+      "bytes": 3810,
+      "sha256": "6792985117912fa83462d175a01a473e67e833700726283f59f36097b46c215b"
+    },
+    {
+      "path": "fixtures/truncated_feature.spose.partial",
+      "bytes": 4419,
+      "sha256": "950007d36b67c9707d6b2fb56562abac1f6c7c7406ac5e4bcef08d05b8cb77e5"
+    },
+    {
+      "path": "fixtures/truncated_pose.spose.partial",
+      "bytes": 4787,
+      "sha256": "d47a4b663e45fcdebedcb4566b96ae9675653b7d65fd33c3e4351f3743441904"
+    },
+    {
+      "path": "fixtures/unknown_geometry_status.spose",
+      "bytes": 5570,
+      "sha256": "f57483e2d79eb04637ef9aead2c983a18dd06510ab9d8d10aa6bbfd3de97e8bf"
+    },
+    {
+      "path": "fixtures/unsupported_minor.spose",
+      "bytes": 5570,
+      "sha256": "6c94b93acfbf9eb5932bbbfe9ccef3a7892431afc8d0d23d15f48f2c5ace8eed"
+    },
+    {
+      "path": "fixtures/wrong_generation.spose",
+      "bytes": 5570,
+      "sha256": "1ff8870c23656c23a541b3a64ccd21bc2d17d92c5e4200cc16d7689848a8aeec"
+    },
+    {
+      "path": "legacy-viewer-harness/catalog.json",
+      "bytes": 4829,
+      "sha256": "4ae2b74ce3470096d13d4e1115ba12ac3f830b0b6e246263b2cebf449e79cad0"
+    },
+    {
+      "path": "legacy-viewer-harness/corrupt_feature.spose",
+      "bytes": 5570,
+      "sha256": "2d086d5db3863d1e6e70ff2f3035f82abf41308b918b32e7e48015dcfc2ff9cf"
+    },
+    {
+      "path": "legacy-viewer-harness/empty_failed.spose",
+      "bytes": 2850,
+      "sha256": "03a0b25154c34d64e673344086cb2812ceb2f81c70069a48cd27b9ddc217c459"
+    },
+    {
+      "path": "legacy-viewer-harness/expected.json",
+      "bytes": 14714,
+      "sha256": "cf31d99f131f2bc9ba1a651e190674dc1657a56a7aeff5b5832a08ebd6ae7bc0"
+    },
+    {
+      "path": "legacy-viewer-harness/mismatched_stamp.spose",
+      "bytes": 5570,
+      "sha256": "d4fb5a600802d2f4dbc3d093b08fa87621b8af8304df6c13e3c216ec8cadb1d4"
+    },
+    {
+      "path": "legacy-viewer-harness/missing_features.spose",
+      "bytes": 4546,
+      "sha256": "c0771733846a95faaf535bab138059d63e6f78ca4a81c6d70df1f198b03f0cf9"
+    },
+    {
+      "path": "legacy-viewer-harness/nonfinite_feature.spose",
+      "bytes": 5570,
+      "sha256": "e7ac3e45c33ee08c4469f42de2710334cefcef134bbf3e7c756217f445ee5448"
+    },
+    {
+      "path": "legacy-viewer-harness/paired_transient.spose",
+      "bytes": 5570,
+      "sha256": "f82e8ea8ce3f640e3dfcc8cfd9073659a6f2991859d2d8a7ddab905878d99e01"
+    },
+    {
+      "path": "legacy-viewer-harness/pending_feature.spose.partial",
+      "bytes": 4690,
+      "sha256": "8d86f34976173ed817fca830aefc47e04f65c7656d979ffe3e3ef331719232d2"
+    },
+    {
+      "path": "legacy-viewer-harness/prepared.spose",
+      "bytes": 3810,
+      "sha256": "a2028a5a26aa9c3fb832350664a9eae40649df671d1a8c67113f4cce053a89c5"
+    },
+    {
+      "path": "legacy-viewer-harness/required_feature.spose",
+      "bytes": 5570,
+      "sha256": "d801fa7536d21b66f1c7d7abb86fb0b5ba905eb18b4d6b65c6855024f458a827"
+    },
+    {
+      "path": "legacy-viewer-harness/static.spose",
+      "bytes": 3810,
+      "sha256": "6792985117912fa83462d175a01a473e67e833700726283f59f36097b46c215b"
+    },
+    {
+      "path": "legacy-viewer-harness/transient.spose",
+      "bytes": 4546,
+      "sha256": "c0771733846a95faaf535bab138059d63e6f78ca4a81c6d70df1f198b03f0cf9"
+    },
+    {
+      "path": "legacy-viewer-harness/truncated_feature.spose.partial",
+      "bytes": 4419,
+      "sha256": "950007d36b67c9707d6b2fb56562abac1f6c7c7406ac5e4bcef08d05b8cb77e5"
+    },
+    {
+      "path": "legacy-viewer-harness/truncated_pose.spose.partial",
+      "bytes": 4787,
+      "sha256": "d47a4b663e45fcdebedcb4566b96ae9675653b7d65fd33c3e4351f3743441904"
+    },
+    {
+      "path": "legacy-viewer-harness/unknown_geometry_status.spose",
+      "bytes": 5570,
+      "sha256": "f57483e2d79eb04637ef9aead2c983a18dd06510ab9d8d10aa6bbfd3de97e8bf"
+    },
+    {
+      "path": "legacy-viewer-harness/unsupported_minor.spose",
+      "bytes": 5570,
+      "sha256": "6c94b93acfbf9eb5932bbbfe9ccef3a7892431afc8d0d23d15f48f2c5ace8eed"
+    },
+    {
+      "path": "legacy-viewer-harness/wrong_generation.spose",
+      "bytes": 5570,
+      "sha256": "1ff8870c23656c23a541b3a64ccd21bc2d17d92c5e4200cc16d7689848a8aeec"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 5579,
+      "sha256": "d0102aae4910b4e7ebb5948846b2a9ce46f127c60c426366768e99f04ae60a7d"
+    }
+  ],
+  "outputs_baseline": {
+    "branch": "main",
+    "head": "2efc8cf9f541dea2a6cb10686e4545aff3b0a056",
+    "tracked_diff_empty": true,
+    "index_empty": true,
+    "untracked_preserved": [
+      "fixtures_extensions_draft/history/",
+      "tools/conformance/history/"
+    ]
+  },
+  "references": [
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-outputs\\CMakeLists.txt",
+      "sha256": "00076189d0ad73afd07c4e228a360324feea0c40dc27ab64c65507cf9f92db86"
+    },
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-outputs\\cmake\\Dependencies.cmake",
+      "sha256": "b6c7020abfd3b126de88d8a44347bba24db0c1d3f222e0eae753f0dc6c454f6e"
+    },
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-outputs\\AGENTS.md",
+      "sha256": "3b91a93c21615fd340735fdf2ad0145ba86b2dea3ae8aa0fa035edef299f72a9"
+    },
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-core\\docs\\winch_J06_handoff.md",
+      "sha256": "e170e8d8202da4db2f5533cb45f37bcea095926994f813415fde60f5a6654c50"
+    },
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-core\\cmake\\verify_outputs_install.cmake",
+      "sha256": "a5f8a34210a0d597dab2b99c1331e0ca37dade5777b0b33a1b8f6339f500c082"
+    },
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-core\\tools\\verify_i06a_pose_selection.py",
+      "sha256": "c9052d022ba3a4cdc1e8738079e3f5d269922702048e928ab2d7f7a9047ea205"
+    }
+  ],
+  "verification": {
+    "legacy_checker_cases": 15,
+    "legacy_viewer_cases": 15,
+    "legacy_viewer_focused_checks": 5,
+    "positive_paired_frames": 5,
+    "positive_xyz_scalars_bitwise": 120,
+    "independent_review": "Reader reviewer independently rechecked all15 identities and120 scalars; Core reviewer checked API/build guards.",
+    "review_findings_addressed": [
+      "Known winch discriminator cannot fall through optional skip.",
+      "Core needs a current J08 source-selection route, not only a new manifest; historical wip.9 tests remain disabled."
+    ],
+    "not_claimed": [
+      "feature-aware production decoder",
+      "recorder implementation",
+      "installed producer readback",
+      "shared-port/signed-zero proof",
+      "new I/O fault qualification",
+      "Core simulation capture",
+      "viewer rendering"
+    ]
+  },
+  "scratch_helpers": [
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-theory\\tmp\\j07_contract_gate_20261117\\author_candidate.py",
+      "sha256": "3ba148e7379a755a6626fc53ca806dc7fc007e6abc0bc3ce9c3a561806e234a7"
+    },
+    {
+      "path": "C:\\Users\\12650029\\serene-academic\\serene-theory\\tmp\\j07_contract_gate_20261117\\probe_candidate.py",
+      "sha256": "15c5f70e720c49e117cc6aa09693da3fa5bf57873289539228b4f67f488857e0"
+    }
+  ],
+  "mutations": "New draft candidate only; no production/spec/old fixture/build/install/instruction/Git publication changes."
+}

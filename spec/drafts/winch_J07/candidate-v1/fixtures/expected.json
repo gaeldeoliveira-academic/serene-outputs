@@ -1,0 +1,834 @@
+{
+  "status": "DRAFT candidate; feature-aware expectations are not implementation results",
+  "geometry_scope": "Literal asymmetric byte oracles, not force-law solutions",
+  "sample_count": 8,
+  "arrangements": 2,
+  "pose_frame_bytes": 512,
+  "feature_frame_bytes": 288,
+  "transient_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 1,
+        "events": 2,
+        "time": 1.25,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 2,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "stamp": {
+        "ordinal": 1,
+        "analysis": 1,
+        "events": 4,
+        "time": 1.29,
+        "state_id": 4,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.125,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.875,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.125,
+              2.5,
+              3.75
+            ],
+            [
+              0.875,
+              2.5,
+              3.75
+            ],
+            [
+              -0.125,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.375,
+              6.75
+            ],
+            [
+              10.25,
+              -1.375,
+              6.75
+            ],
+            [
+              12.5,
+              -2.375,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "stamp": {
+        "ordinal": 2,
+        "analysis": 1,
+        "events": 8,
+        "time": 1.32,
+        "state_id": 7,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.0,
+              2.5,
+              3.75
+            ],
+            [
+              1.0,
+              2.5,
+              3.75
+            ],
+            [
+              0.0,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.25,
+              6.75
+            ],
+            [
+              10.25,
+              -1.25,
+              6.75
+            ],
+            [
+              12.5,
+              -2.25,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "static_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 2,
+        "events": 8,
+        "time": 2.0,
+        "state_id": 9,
+        "load_factor": 1.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 1,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "prepared_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 0,
+        "events": 1,
+        "time": 100.0,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 0,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "cases": {
+    "paired_transient.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 3,
+      "bytes": 5570,
+      "sha256": "f82e8ea8ce3f640e3dfcc8cfd9073659a6f2991859d2d8a7ddab905878d99e01"
+    },
+    "static.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 1,
+      "bytes": 3810,
+      "sha256": "6792985117912fa83462d175a01a473e67e833700726283f59f36097b46c215b"
+    },
+    "prepared.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 1,
+      "run_outcome": 0,
+      "bytes": 3810,
+      "sha256": "a2028a5a26aa9c3fb832350664a9eae40649df671d1a8c67113f4cce053a89c5"
+    },
+    "empty_failed.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 0,
+      "run_outcome": 2,
+      "capture_outcome": 3,
+      "bytes": 2850,
+      "sha256": "03a0b25154c34d64e673344086cb2812ceb2f81c70069a48cd27b9ddc217c459"
+    },
+    "truncated_feature.spose.partial": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": false,
+      "frames": 2,
+      "allow_incomplete": true,
+      "bytes": 4419,
+      "sha256": "950007d36b67c9707d6b2fb56562abac1f6c7c7406ac5e4bcef08d05b8cb77e5"
+    },
+    "truncated_pose.spose.partial": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": false,
+      "frames": 2,
+      "allow_incomplete": true,
+      "bytes": 4787,
+      "sha256": "d47a4b663e45fcdebedcb4566b96ae9675653b7d65fd33c3e4351f3743441904"
+    },
+    "pending_feature.spose.partial": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": false,
+      "frames": 2,
+      "allow_incomplete": true,
+      "bytes": 4690,
+      "sha256": "8d86f34976173ed817fca830aefc47e04f65c7656d979ffe3e3ef331719232d2"
+    },
+    "unsupported_minor.spose": {
+      "legacy_valid": false,
+      "feature_valid_expected": false,
+      "error_contains": "unsupported",
+      "bytes": 5570,
+      "sha256": "6c94b93acfbf9eb5932bbbfe9ccef3a7892431afc8d0d23d15f48f2c5ace8eed"
+    },
+    "required_feature.spose": {
+      "legacy_valid": false,
+      "feature_valid_expected": false,
+      "error_contains": "unsupported",
+      "bytes": 5570,
+      "sha256": "d801fa7536d21b66f1c7d7abb86fb0b5ba905eb18b4d6b65c6855024f458a827"
+    },
+    "corrupt_feature.spose": {
+      "legacy_valid": false,
+      "feature_valid_expected": false,
+      "error_contains": "checksum",
+      "bytes": 5570,
+      "sha256": "2d086d5db3863d1e6e70ff2f3035f82abf41308b918b32e7e48015dcfc2ff9cf"
+    },
+    "mismatched_stamp.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "prospective_rejection": "feature/pose state identity mismatch",
+      "bytes": 5570,
+      "sha256": "d4fb5a600802d2f4dbc3d093b08fa87621b8af8304df6c13e3c216ec8cadb1d4"
+    },
+    "wrong_generation.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "prospective_rejection": "generation is not capture-plan identity",
+      "bytes": 5570,
+      "sha256": "1ff8870c23656c23a541b3a64ccd21bc2d17d92c5e4200cc16d7689848a8aeec"
+    },
+    "nonfinite_feature.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "prospective_rejection": "nonfinite feature coordinate",
+      "bytes": 5570,
+      "sha256": "e7ac3e45c33ee08c4469f42de2710334cefcef134bbf3e7c756217f445ee5448"
+    },
+    "unknown_geometry_status.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "prospective_rejection": "unsupported geometry status",
+      "bytes": 5570,
+      "sha256": "f57483e2d79eb04637ef9aead2c983a18dd06510ab9d8d10aa6bbfd3de97e8bf"
+    },
+    "missing_features.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "prospective_rejection": "declared feature population absent",
+      "bytes": 4546,
+      "sha256": "c0771733846a95faaf535bab138059d63e6f78ca4a81c6d70df1f198b03f0cf9"
+    }
+  }
+}

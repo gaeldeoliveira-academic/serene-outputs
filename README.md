@@ -9,6 +9,8 @@ CMake components and targets:
 - `pose_recorder`: `serene::outputs_pose_recorder` — independent headless `.spose` visualization batches; raw poses and bounded linked-index publication, no codec/core/Chrono/Qt dependency.
 - `archive`: `serene::outputs_archive` â€” typed diagnostics, indexed provenance, bounded section writing, verified spool assembly and checked no-clobber publication.
 
+Package 0.2.4 adds optional four-point winch geometry to the raw sidecar: [wire amendment](spec/POSE_WINCH_GEOMETRY.md) and [J07 implementation handoff](docs/winch_J07_handoff.md). Physical poses and accepted feature coordinates are retained unchanged, with explicit representation-consistency checks and complete-pair publication. Scientific archive semantics remain unchanged.
+
 Package 0.2.3 adds the separate [pose sidecar recorder](docs/pose_recorder_handoff.md), specified in [POSE_SIDECAR.md](spec/POSE_SIDECAR.md). This does not change scientific `.serene` semantics or ArchiveSession.
 
 Package 0.2.2 adds [bounded document preflight](docs/native_document_preflight_handoff.md) and retains [count-only capacity planning](docs/native_capacity_planner_handoff.md) over qualified0.2.0. It implements the unchanged [1.0 contract](spec/FORMAT.md) and accepted [1.1 extension contract](spec/FORMAT-1.1.md). Files without extensions remain 1.0. The separate joint acceptance is `serene-theory/validation/native_output_extensions_contract_acceptance.json`, SHA-256 `84147366e8534197fa1063db769b0060e3966aebfdc4f35757906bf342248c6b`; its frozen candidate and independent corpus remain unchanged. [Publication mapping](docs/native_extensions_spec_publication.json) records the public specification's status-only change.

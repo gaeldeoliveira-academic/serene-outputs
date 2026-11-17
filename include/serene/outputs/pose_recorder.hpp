@@ -1,5 +1,6 @@
 #pragma once
 #include "types.hpp"
+#include <array>
 #include <cstdint>
 #include <expected>
 #include <filesystem>
@@ -21,6 +22,35 @@ struct Stamp {
     std::uint64_t state_id{}; ///< Accepted step/equilibrium identity; zero for prepared.
     double load_factor{};     ///< Static only; zero otherwise, never used as time.
 };
+/// Provenance of finite four-point geometry, not a solver accuracy or tension result.
+enum class WinchGeometryStatus : std::uint32_t {
+    valid_positive_tension = 0, ///< Geometry evaluated with positive effective tension.
+    zero_tension_limit = 1 ///< Deterministic positive-tension limiting position at zero effective tension.
+};
+/// Accepted Core packet lifecycle, deliberately separate from capture-plan identity.
+enum class WinchSourcePhase : std::uint32_t {
+    initialized = 0, ///< Prepared diagnostic geometry, not an equilibrium certificate.
+    static_certified = 1, ///< Complete geometry from a certified static state.
+    transient_initial = 2, ///< Complete initial transient packet at accepted step zero.
+    transient_accepted = 3 ///< Complete positive-step packet; may be the first captured frame.
+};
+/// One caller-owned accepted winch arrangement in immutable catalog order.
+/// Core adapters fill these prepared rows from accepted packets, never a new geometry solve.
+/// All coordinates must be finite world metres; A/B/D retain physical-port provenance.
+/// C is an algebraic position with no orientation, material coordinate or physical sample.
+struct WinchGeometry {
+    std::array<double, 12> world_xyz_m{}; ///< Axyz,Bxyz,Cxyz,Dxyz, unchanged caller binary64 values.
+    WinchGeometryStatus geometry{WinchGeometryStatus::valid_positive_tension}; ///< Positive or zero-limit geometry provenance.
+};
+/// Synchronous borrowed view of every admitted selected prepared winch arrangement.
+/// Core checks each row's exact binding/accepted identity before supplying this common stamp.
+/// The recorder copies complete rows, owns no caller reference and never changes either input population.
+struct WinchFrameView {
+    Stamp stamp; ///< Independently asserted wire stamp; prepared/transient factor is zero.
+    std::uint64_t preparation_generation{}; ///< Exact owning Core generation, not the capture-plan counter.
+    WinchSourcePhase phase{WinchSourcePhase::initialized}; ///< Source lifecycle checked against stamp analysis/events.
+    std::span<const WinchGeometry> geometries; ///< Exactly catalog F rows; borrowed only during append_frame.
+};
 /// Independent external outcomes; file completion does not imply numerical success.
 enum class Outcome : std::uint32_t { not_run = 0, completed = 1, failed = 2, stopped = 3 };
 /// Owned terminal facts supplied by core when closing a visualization capture.
@@ -30,11 +60,11 @@ struct Completion {
     Outcome capture{Outcome::completed}; ///< Source capture outcome, independent of execution.
 };
 /// Owned finite recorder limits supplied at open by core capture or recorder tests.
-/// Effective batch size is min(max_batch_frames, max_batch_bytes/frame_bytes).
+/// Effective batch size divides max_batch_bytes by the complete pose plus optional winch frame bytes.
 /// Capacity must hold at least one complete catalog-sized frame; open rejects impossible limits.
 struct Options {
     std::uint64_t max_batch_frames{32}; ///< Upper bound on frames retained in the pose batch.
-    std::uint64_t max_batch_bytes{4 * 1024 * 1024}; ///< Upper bound on raw pose-batch storage in bytes.
+    std::uint64_t max_batch_bytes{4 * 1024 * 1024}; ///< Upper bound on combined raw pose/feature batch storage in bytes.
     std::uint64_t max_catalog_bytes{4 * 1024 * 1024}; ///< Admission limit for the supplied catalog JSON text.
 };
 /// Narrow deterministic I/O fault seam, also used to qualify optional sink failure.
@@ -54,11 +84,11 @@ enum class State : std::uint8_t { open, published, failed };
 /// progress and requested batch/index workspace, not total allocator/process memory.
 struct Statistics {
     std::uint64_t accepted_frames{};  ///< Validated/copied, including a subsequent flush failure.
-    std::uint64_t persisted_frames{}; ///< In complete chunks with checked stdio flush; not fsync.
+    std::uint64_t persisted_frames{}; ///< Complete pose chunks, with matching feature chunks when enabled; checked stdio flush, not fsync.
     std::uint64_t buffered_frames{}; ///< Accepted frames awaiting the next chunk flush.
     std::uint64_t pose_chunks{}; ///< Complete raw pose chunks written so far.
     std::uint64_t written_bytes{}; ///< Successfully written bytes across all file records.
-    std::uint64_t batch_capacity_bytes{}; ///< Reserved raw pose-batch byte capacity.
+    std::uint64_t batch_capacity_bytes{}; ///< Reserved combined raw batch bytes; excludes setup-derived physical-reference table.
     std::uint64_t effective_batch_frames{}; ///< Frames admitted per batch after byte/count limits.
     std::uint64_t index_workspace_bytes{}; ///< Fixed upper bound for linked-index state/scratch,
                                            ///< excluding general statistics.
@@ -92,8 +122,20 @@ class Recorder {
     /// quaternion rotating sample-local coordinates into world coordinates.
     /// No value is normalized, sign-adjusted, interpolated or retained beyond the bounded batch.
     /// Stamp supplies source identity/events; poses is borrowed only during the call.
+    /// Choose this overload only for feature-free catalogs. Feature-enabled use fails explicitly.
     /// Return failure on invalid state/frame or I/O, retaining the failed partial recording.
     Status append_frame(const Stamp &, std::span<const double> poses) noexcept;
+    /// Validate structural_stamp/poses and every winches row before copying one complete paired frame.
+    /// poses borrows P*7 physical pose scalars; winches borrows F arrangements in catalog order.
+    /// Its translated wire stamp, source generation and phase must match exact catalog/state facts.
+    /// A/B/D are checked against their canonical physical samples with the fixed representation
+    /// consistency bound 64*2^-52*max(1, norm_inf(feature), norm_inf(physical)); signed zeros agree.
+    /// Neither population is overwritten, averaged or normalized. This is not a solver tolerance.
+    /// Choose this overload only for a feature-enabled catalog. Return a latched failure for
+    /// invalid lifecycle, extents, geometry/status/stamps or I/O; accepted counts advance only
+    /// after the entire packet validates. No caller pointer survives this owner-serialized call.
+    Status append_frame(const Stamp &structural_stamp, std::span<const double> poses,
+                        const WinchFrameView &winches) noexcept;
     /// Flush last partial batch, linked seek index, outcomes and footer; checked no-clobber
     /// publish. Completion supplies external outcomes; return Status and never publish on failure.
     Status finalize(Completion = {}) noexcept;

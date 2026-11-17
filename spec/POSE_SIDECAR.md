@@ -177,3 +177,10 @@ independent. No automatic retry or asynchronous queue is implied.
 Future typed optional streams can carry separate populations/cadences/units and layouts.
 Fluid poses, force+moment+application-point records and absolute wind samples must not be
 silently reinterpreted as v1 N/port poses. Compression remains reserved, raw only for v1.
+
+## Optional winch geometry amendment
+
+[POSE_WINCH_GEOMETRY.md](POSE_WINCH_GEOMETRY.md) defines optional kind4/stream2/layout1
+under this unchanged bootstrap1.0. Feature-aware readers validate adjacent feature/pose
+pairs and bounded pending storage; unaware readers retain structural poses only.
+The existing sample population, pose layout, index and completion meanings are unchanged.

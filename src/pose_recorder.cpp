@@ -230,6 +230,123 @@ bool catalog_valid(const Json &j, std::uint64_t &count) {
     count = samples.size();
     return true;
 }
+/// Setup-derived immutable winch binding owned by the recorder after catalog admission.
+/// Keeps only the Core generation and canonical A/B/D sample indices; JSON and strings
+/// remain setup-only. One three-index row is retained per admitted arrangement.
+struct WinchCatalog {
+    std::uint64_t generation{}; ///< Owning Core context generation, distinct from capture preparation_id.
+    std::vector<std::array<std::uint64_t, 3>> ports; ///< Dense arrangement order: physical samples A, B and D.
+};
+/// Validate optional winch topology in already admitted catalog j; assign out only on success.
+/// Throws on malformed JSON accesses; Recorder::open maps those setup failures to invalid_contract.
+bool winch_catalog_valid(const Json &j, WinchCatalog &out) {
+    // Omitted descriptor preserves the feature-free path. Otherwise validate identifiers,
+    // canonical owner/force keys and role/edge topology, then retain only the physical bindings.
+    if (!j.contains("winch_geometry"))
+        return true;
+    /* Borrowed extension descriptor; required fields carry exact integer/string semantics. */ const auto &w = j.at("winch_geometry");
+    if (!w.is_object() || id(w.at("layout_version")) != 1 || id(w.at("kind")) != 4 ||
+        id(w.at("stream_id")) != 2 || w.at("encoding") != "raw_f64_le")
+        return false;
+    /* Setup candidate committed to the caller only after all arrangements validate. */ WinchCatalog candidate;
+    candidate.generation = id(w.at("source_preparation_generation"));
+    /* Borrowed dense arrangement population. */ const auto &arrangements = w.at("arrangements");
+    if (!candidate.generation || !arrangements.is_array() || arrangements.empty() || arrangements.size() > sample_limit)
+        return false;
+    /* Borrowed physical catalog previously validated by catalog_valid. */ const auto &samples = j.at("samples");
+    /* Setup-only exact occurrence-ID map used to resolve owner paths without per-frame strings. */ std::unordered_map<std::uint64_t, const Json *> owners;
+    for (const auto &o /* Existing occurrence under its exact integer ID. */ : j.at("occurrences"))
+        owners.emplace(id(o.at("id")), &o);
+    /* Unique owner/force identities; repeated local force IDs in different occurrences are valid. */ std::set<std::pair<std::uint64_t, std::string>> identities;
+    if (arrangements.size() > candidate.ports.max_size())
+        return false;
+    candidate.ports.reserve(arrangements.size());
+    for (std::size_t ordinal /* Dense immutable payload index. */ = 0; ordinal < arrangements.size(); ++ordinal) {
+        /* Borrowed arrangement descriptor being checked. */ const auto &a = arrangements[ordinal];
+        /* Exact owning assembly occurrence. */ const auto owner = id(a.at("owner_occurrence_id"));
+        /* Setup lookup, never retained after open. */ const auto found = owners.find(owner);
+        if (id(a.at("index")) != ordinal || found == owners.end() || found->second->at("kind") != "assembly" ||
+            a.at("feature_type") != "winch_with_saddle" || !text(a.at("force_id")) || !text(a.at("key")))
+            return false;
+        /* Exact UTF-8 bytes from the already parsed strings; size() is byte count. */ const auto &path = found->second->at("path").get_ref<const std::string &>();
+        /* Local force spelling is not normalized or escaped by the identity encoder. */ const auto &force = a.at("force_id").get_ref<const std::string &>();
+        if (path.find('\0') != std::string::npos || force.find('\0') != std::string::npos ||
+            !identities.emplace(owner, force).second)
+            return false;
+        /* Redundant canonical key, computed only during inactive admission. */ const auto key =
+            "winch_with_saddle.v1.o" + std::to_string(path.size()) + "_" + path + ".f" + std::to_string(force.size()) + "_" + force;
+        if (a.at("key") != key)
+            return false;
+        /* Four fixed roles and three visual edges, separate from structural connections. */ const auto &points = a.at("points");
+        /* Borrowed ordered visual connectivity. */ const auto &edges = a.at("edges");
+        if (!points.is_array() || points.size() != 4 || !edges.is_array() || edges.size() != 3)
+            return false;
+        /* Stable role names and their physical-source positions. */ constexpr std::array<const char *, 4> roles{"A", "B", "C", "D"};
+        /* Exact physical sample references retained in the bounded setup table. */ std::array<std::uint64_t, 3> refs{};
+        for (std::size_t role /* Point-role ordinal, including algebraic C. */ = 0; role < 4; ++role) {
+            /* Current role descriptor; C deliberately has no structural identity. */ const auto &point = points[role];
+            if (point.at("role") != roles[role])
+                return false;
+            if (role == 2) {
+                if (point.size() != 3 || point.at("kind") != "algebraic" || point.at("feature") != "pulley")
+                    return false;
+                continue;
+            }
+            /* Canonical A/B/D source index; this is not a new physical identity. */ const auto sample = id(point.at("sample_id"));
+            if (point.at("kind") != "physical_port" || sample >= samples.size() ||
+                samples[sample].at("kind") != (role == 3 ? "anchor_port" : "body_port"))
+                return false;
+            refs[role == 3 ? 2 : role] = sample;
+        }
+        if (refs[0] == refs[1] || samples[refs[0]].at("occurrence_id") != samples[refs[1]].at("occurrence_id"))
+            return false;
+        /* Exact local point connectivity A-C, C-B and C-D. */ constexpr std::array<std::array<std::uint64_t, 2>, 3> ends{{{0, 2}, {2, 1}, {2, 3}}};
+        for (std::size_t edge /* Ordered edge ordinal and expected visual family. */ = 0; edge < 3; ++edge) {
+            /* Borrowed endpoint indices, never interpreted as structural samples. */ const auto &pair = edges[edge].at("points");
+            if (!pair.is_array() || pair.size() != 2 || id(pair[0]) != ends[edge][0] || id(pair[1]) != ends[edge][1] ||
+                edges[edge].at("kind") != (edge == 2 ? "main_cable" : "bridle"))
+                return false;
+        }
+        candidate.ports.push_back(refs);
+    }
+    out = std::move(candidate);
+    return true;
+}
+/// Compare the exact translated wire stamp fields, preserving binary64 sign/representation.
+bool same_stamp(const Stamp &a, const Stamp &b) noexcept {
+    // Check enum/integer identities directly and time/factor through their exact encoded bits.
+    return a.analysis == b.analysis && a.events == b.events && a.state_id == b.state_id &&
+           std::bit_cast<std::uint64_t>(a.time) == std::bit_cast<std::uint64_t>(b.time) &&
+           std::bit_cast<std::uint64_t>(a.load_factor) == std::bit_cast<std::uint64_t>(b.load_factor);
+}
+/// Return whether source phase maps to translated wire stamp s under the accepted lifecycle.
+bool phase_valid(WinchSourcePhase phase, const Stamp &s) noexcept {
+    // Separate initialized diagnostics, static certification and the two transient packet phases.
+    switch (phase) {
+    case WinchSourcePhase::initialized:
+        return s.analysis == Analysis::prepared && s.events == Event::prepared && s.state_id == 0 && s.load_factor == 0;
+    case WinchSourcePhase::static_certified:
+        return s.analysis == Analysis::static_equilibrium && s.events == Event::target;
+    case WinchSourcePhase::transient_initial:
+        return s.analysis == Analysis::transient && (s.events & Event::initial) && s.state_id == 0 && s.load_factor == 0;
+    case WinchSourcePhase::transient_accepted:
+        return s.analysis == Analysis::transient && !(s.events & Event::initial) && s.state_id > 0 && s.load_factor == 0;
+    }
+    return false;
+}
+/// Check finite point f against finite physical point p without changing either representation.
+/// The fixed 64-epsilon bound is representation consistency, never solver tolerance or an error guarantee.
+bool point_consistent(const double *f, const double *p) noexcept {
+    // Derive a finite infinity-norm scale in metres, then compare each unchanged component.
+    /* Scale has a one-metre floor and cannot overflow for finite components. */ double scale = 1.0;
+    for (std::size_t axis /* Cartesian component used to form the common point scale. */ = 0; axis < 3; ++axis)
+        scale = std::max({scale, std::abs(f[axis]), std::abs(p[axis])});
+    /* 64*2^-52 is exact binary64; multiplication remains finite even at the largest finite coordinate. */ const double bound = 0x1p-46 * scale;
+    for (std::size_t axis /* Cartesian component tested with inclusive consistency semantics. */ = 0; axis < 3; ++axis)
+        if (std::abs(f[axis] - p[axis]) > bound)
+            return false;
+    return true;
+}
 /// Admit candidate Stamp s relative to optional borrowed previous stamp; return false on invalid lifecycle/order.
 /// A prepared snapshot is not accepted dynamics or equilibrium; target terminates further frames.
 bool stamp_valid(const Stamp &s, const Stamp *previous) noexcept {
@@ -260,8 +377,9 @@ bool stamp_valid(const Stamp &s, const Stamp *previous) noexcept {
 }
 } // namespace
 /// Unique pose-recorder state owned by Recorder; used synchronously by core capture adapters.
-/// Owns a FILE, raw batch and path strings, with only constant-size linked-chunk index
-/// state. Catalog parse trees are setup-only. Borrowed fault context must outlive it.
+/// Owns a FILE, bounded raw batches and path strings, with only constant-size linked-chunk index
+/// state. The winch A/B/D reference table is fixed by admitted catalog size; JSON is setup-only.
+/// Borrowed fault context must outlive this owner.
 /// Destruction closes any stream but deliberately retains unsuccessful .partial evidence.
 struct Recorder::Impl {
     std::filesystem::path destination, ///< Owned no-clobber destination path.
@@ -272,8 +390,11 @@ struct Recorder::Impl {
     FaultHook fault{}; ///< Copied fault callbacks borrowing caller-owned context.
     Statistics stats{}; ///< Constant-size accepted/persisted/buffered accounting.
     std::vector<std::byte> batch; ///< Owned fixed-capacity canonical raw frame batch.
+    std::vector<std::byte> feature_batch; ///< Optional fixed-capacity feature batch, charged together with batch.
+    WinchCatalog winches; ///< Immutable Core generation and canonical A/B/D sample references, empty when disabled.
     std::uint64_t samples{}, ///< Fixed catalog sample count per frame.
         frame_bytes{}, ///< Complete raw frame bytes, including 64-byte identity prefix.
+        feature_frame_bytes{}, ///< Optional raw feature frame bytes, zero when the stream is absent.
         first_pose{}, ///< File offset of first pose chunk, or zero before any chunk.
         last_pose{}, ///< File offset of previous pose chunk for backward linkage.
         sequence{}, ///< Consecutive next chunk ordinal, including terminal metadata chunks.
@@ -344,15 +465,19 @@ struct Recorder::Impl {
                std::span<const std::byte> payload, std::uint64_t previous = 0) noexcept {
         // Build the fixed header, CRC payload/header, write both, flush, then advance the chunk ordinal.
 
+        if (sequence > INT64_MAX) {
+            stop(StatusCode::resource_limit, 1);
+            return false;
+        }
         /* Canonical zero-initialized chunk header, including reserved fields. */ std::array<std::byte, 80> h{};
         h[0] = std::byte{'P'};
         h[1] = std::byte{'C'};
         h[2] = std::byte{'H'};
         h[3] = std::byte{'K'};
         u16(h.data() + 4, kind);
-        u16(h.data() + 6, 1);
+        u16(h.data() + 6, kind == 4 ? 0 : 1);
         u32(h.data() + 8, 80);
-        u32(h.data() + 16, kind == 1 ? 1 : 0);
+        u32(h.data() + 16, kind == 4 ? 2 : (kind == 1 ? 1 : 0));
         u32(h.data() + 20, 1);
         u64(h.data() + 24, sequence);
         u64(h.data() + 32, records);
@@ -367,12 +492,19 @@ struct Recorder::Impl {
         ++sequence;
         return true;
     }
-    /// Persist currently buffered frames as one backward-linked raw pose chunk; no-op if empty.
+    /// Persist buffered frames as an optional feature chunk followed by its matching linked pose chunk.
+    /// A failed or truncated pair does not advance persisted_frames; empty buffers are a no-op.
     bool flush_batch() noexcept {
-        // Snapshot the file frontier, write/flush the batch, update first/last links and persisted counters, then empty the batch.
+        // Write the optional feature batch first, then its structural partner. Advance the
+        // unchanged structural index and paired persisted count only after both flushes succeed.
 
         if (!stats.buffered_frames)
             return true;
+        if (feature_frame_bytes &&
+            !chunk(4, stats.buffered_frames, stats.persisted_frames,
+                   std::span<const std::byte>(feature_batch.data(),
+                       static_cast<std::size_t>(stats.buffered_frames * feature_frame_bytes))))
+            return false;
         /* Starting file offset of the next complete pose chunk. */ const auto offset = stats.written_bytes;
         if (!chunk(1, stats.buffered_frames, stats.persisted_frames,
                    std::span<const std::byte>(
@@ -386,6 +518,84 @@ struct Recorder::Impl {
         stats.persisted_frames += stats.buffered_frames;
         stats.buffered_frames = 0;
         return true;
+    }
+    /// Admit one complete borrowed packet, then copy it into the setup-sized batches.
+    /// feature is null only for a feature-free catalog; no caller storage survives this call.
+    Status append(const Stamp &s, std::span<const double> values, const WinchFrameView *feature) noexcept {
+        // Validate lifecycle, full structural population and optional exact source binding.
+        // Check every finite feature/status and A/B/D representation bound before copying either population.
+        // Encode unchanged input bits, advance logical accepted counters, then synchronously flush a full pair.
+        if (state != State::open)
+            return state == State::failed ? result : error(StatusCode::invalid_state, 11);
+        if (bool(feature) != !winches.ports.empty() || values.size() != samples * 7 ||
+            !stamp_valid(s, have_stamp ? &last_stamp : nullptr))
+            return stop(StatusCode::invalid_contract, 11);
+        for (std::size_t i /* Beginning of the current physical position/quaternion block. */ = 0; i < values.size(); i += 7) {
+            for (std::size_t k /* Finite scalar component within this physical pose. */ = 0; k < 7; ++k)
+                if (!std::isfinite(values[i + k]))
+                    return stop(StatusCode::invalid_contract, 11);
+            /* Quaternion norm is validated without changing its supplied bits. */ double norm = 0;
+            for (std::size_t k /* Quaternion component accumulated into squared norm. */ = 3; k < 7; ++k)
+                norm += values[i + k] * values[i + k];
+            if (!std::isfinite(norm) || std::abs(norm - 1) > 1e-6)
+                return stop(StatusCode::invalid_contract, 11);
+        }
+        if (feature) {
+            if (feature->geometries.size() != winches.ports.size() ||
+                feature->preparation_generation != winches.generation || !same_stamp(s, feature->stamp) ||
+                !phase_valid(feature->phase, s))
+                return stop(StatusCode::invalid_contract, 11);
+            for (std::size_t row /* Immutable arrangement ordinal used by the reference table. */ = 0; row < feature->geometries.size(); ++row) {
+                /* Borrowed accepted arrangement, never modified to match physical samples. */ const auto &geometry = feature->geometries[row];
+                if (static_cast<std::uint32_t>(geometry.geometry) > 1)
+                    return stop(StatusCode::invalid_contract, 11);
+                for (const double value /* Accepted feature coordinate required to be finite. */ : geometry.world_xyz_m)
+                    if (!std::isfinite(value))
+                        return stop(StatusCode::invalid_contract, 11);
+                for (std::size_t role /* Retained A/B/D reference-table column. */ = 0; role < 3; ++role) {
+                    /* A/B occupy point0/1; D occupies point3, leaving algebraic C independent. */ const auto point = role == 2 ? 3 : role;
+                    if (!point_consistent(geometry.world_xyz_m.data() + point * 3,
+                                          values.data() + winches.ports[row][role] * 7))
+                        return stop(StatusCode::invalid_contract, 11);
+                }
+            }
+        }
+        if (stats.accepted_frames >= INT64_MAX)
+            return stop(StatusCode::resource_limit, 11);
+        // Serialize only after all packet populations and exact source facts pass admission.
+        /* Next bounded structural slot, including its canonical copied stamp. */ auto *b = batch.data() + stats.buffered_frames * frame_bytes;
+        std::fill_n(b, 64, std::byte{});
+        u64(b, stats.accepted_frames);
+        u32(b + 8, static_cast<std::uint32_t>(s.analysis));
+        u32(b + 12, s.events);
+        f64(b + 16, s.time);
+        u64(b + 24, s.state_id);
+        f64(b + 32, s.load_factor);
+        u64(b + 40, samples);
+        for (std::size_t k /* Physical scalar ordinal encoded without reinterpretation. */ = 0; k < values.size(); ++k)
+            f64(b + 64 + k * 8, values[k]);
+        if (feature) {
+            /* Corresponding bounded feature slot; same stamp, distinct accepted geometry. */ auto *f = feature_batch.data() + stats.buffered_frames * feature_frame_bytes;
+            std::copy_n(b, 64, f);
+            u64(f + 64, feature->preparation_generation);
+            u32(f + 72, static_cast<std::uint32_t>(feature->phase));
+            u32(f + 76, 0);
+            for (std::size_t row /* Dense arrangement ordinal in the raw feature payload. */ = 0; row < feature->geometries.size(); ++row) {
+                /* Borrowed accepted values, copied without averaging or normalizing. */ const auto &geometry = feature->geometries[row];
+                /* Output entry's status/reserved prefix, followed by twelve XYZ scalars. */ auto *entry = f + 80 + row * 104;
+                u32(entry, static_cast<std::uint32_t>(geometry.geometry));
+                u32(entry + 4, 0);
+                for (std::size_t scalar /* Axyz/Bxyz/Cxyz/Dxyz component order. */ = 0; scalar < 12; ++scalar)
+                    f64(entry + 8 + scalar * 8, geometry.world_xyz_m[scalar]);
+            }
+        }
+        ++stats.accepted_frames;
+        ++stats.buffered_frames;
+        last_stamp = s;
+        have_stamp = true;
+        if (stats.buffered_frames == stats.effective_batch_frames && !flush_batch())
+            return result;
+        return {};
     }
 };
 Recorder::Recorder() noexcept = default;
@@ -419,9 +629,28 @@ std::expected<Recorder, Status> Recorder::open(const std::filesystem::path &path
             });
         if (!catalog_valid(j, samples))
             return std::unexpected(error(StatusCode::invalid_contract, 10));
-        /* Complete raw frame size: identity prefix plus seven values per sample. */ const auto frame_bytes = 64 + samples * 56;
-        /* Effective whole-frame batch capacity under both caller limits. */ const auto frames = std::min(opts.max_batch_frames, opts.max_batch_bytes / frame_bytes);
+        /* Setup-derived immutable feature references, empty for the original recorder path. */ WinchCatalog winches;
+        if (!winch_catalog_valid(j, winches))
+            return std::unexpected(error(StatusCode::invalid_contract, 10));
+        /* Arrangement count controls both fixed-width record size and retained reference storage. */ const std::uint64_t feature_count = winches.ports.size();
+        if (samples > (INT64_MAX - 64) / 56 || feature_count > (INT64_MAX - 80) / 104)
+            return std::unexpected(error(StatusCode::resource_limit, 10));
+        /* Complete physical frame: copied identity prefix plus seven values per sample. */ const auto frame_bytes = 64 + samples * 56;
+        /* Optional feature frame: full structural stamp, source binding, then complete arrangements. */ const auto feature_frame_bytes = feature_count ? 80 + feature_count * 104 : 0;
+        if (frame_bytes > INT64_MAX - feature_frame_bytes)
+            return std::unexpected(error(StatusCode::resource_limit, 10));
+        /* Both encoded populations consume one common caller byte budget. */ const auto paired_frame_bytes = frame_bytes + feature_frame_bytes;
+        /* Effective whole-packet capacity under both caller limits; zero rejects before opening a file. */ const auto frames = std::min(opts.max_batch_frames, opts.max_batch_bytes / paired_frame_bytes);
         if (!frames)
+            return std::unexpected(error(StatusCode::resource_limit, 10));
+        // Check both products against wire/chunk/host extents before evaluating or converting them.
+        /* Host vector extents and wire signed extents share this admitted byte ceiling. */ const auto storage_limit = std::min<std::uint64_t>(opts.max_batch_bytes, std::numeric_limits<std::size_t>::max());
+        if (frame_bytes > storage_limit / frames ||
+            (feature_frame_bytes && feature_frame_bytes > storage_limit / frames))
+            return std::unexpected(error(StatusCode::resource_limit, 10));
+        /* Checked structural allocation request, never duration-sized. */ const auto pose_bytes = frames * frame_bytes;
+        /* Checked feature allocation request, zero for feature-free catalogs. */ const auto feature_bytes = frames * feature_frame_bytes;
+        if (pose_bytes > storage_limit - feature_bytes)
             return std::unexpected(error(StatusCode::resource_limit, 10));
         /* Private recorder candidate, released automatically on setup failure. */ Recorder out;
         out.impl_ = std::make_unique<Impl>();
@@ -434,8 +663,13 @@ std::expected<Recorder, Status> Recorder::open(const std::filesystem::path &path
             return std::unexpected(error(StatusCode::publication_failure, 10));
         p.samples = samples;
         p.frame_bytes = frame_bytes;
-        p.batch.resize(static_cast<std::size_t>(frames * frame_bytes));
-        p.stats.batch_capacity_bytes = p.batch.size();
+        p.feature_frame_bytes = feature_frame_bytes;
+        p.winches = std::move(winches);
+        if (pose_bytes > p.batch.max_size() || feature_bytes > p.feature_batch.max_size())
+            return std::unexpected(error(StatusCode::resource_limit, 10));
+        p.batch.resize(static_cast<std::size_t>(pose_bytes));
+        p.feature_batch.resize(static_cast<std::size_t>(feature_bytes));
+        p.stats.batch_capacity_bytes = pose_bytes + feature_bytes;
         p.stats.effective_batch_frames = frames;
         p.stats.index_workspace_bytes = 256;
 #ifdef _WIN32
@@ -471,47 +705,19 @@ std::expected<Recorder, Status> Recorder::open(const std::filesystem::path &path
     }
 }
 Status Recorder::append_frame(const Stamp &s, std::span<const double> values) noexcept {
-    // Require open lifecycle and valid source stamp, check complete finite poses/unit quaternion
-    // norms, encode one raw frame into the batch, advance accepted counters, and flush a full batch.
+    // Reject an empty handle, then admit/copy through the common feature-free packet path.
 
     if (!impl_)
         return error(StatusCode::invalid_state, 11);
-    /* Exclusively borrowed recorder state for this operation. */ auto &p = *impl_;
-    if (p.state != State::open)
-        return p.state == State::failed ? p.result : error(StatusCode::invalid_state, 11);
-    if (values.size() != p.samples * 7 || !stamp_valid(s, p.have_stamp ? &p.last_stamp : nullptr))
-        return p.stop(StatusCode::invalid_contract, 11);
-    for (std::size_t i /* Start of the next seven-value position/quaternion block. */ = 0; i < values.size(); i += 7) {
-        for (std::size_t k /* Component offset checked for finite input. */ = 0; k < 7; ++k)
-            if (!std::isfinite(values[i + k]))
-                return p.stop(StatusCode::invalid_contract, 11);
-        /* Quaternion squared norm accumulated without normalization. */ double norm = 0;
-        for (std::size_t k /* Quaternion component offset accumulated into squared norm. */ = 3; k < 7; ++k)
-            norm += values[i + k] * values[i + k];
-        if (!std::isfinite(norm) || std::abs(norm - 1) > 1e-6)
-            return p.stop(StatusCode::invalid_contract, 11);
-    }
-    if (p.stats.accepted_frames >= INT64_MAX)
-        return p.stop(StatusCode::resource_limit, 11);
-    // Serialize only after the complete frame passes admission; never normalize its values.
-    /* Destination slot for the next complete canonical raw frame. */ auto *b = p.batch.data() + p.stats.buffered_frames * p.frame_bytes;
-    std::fill_n(b, 64, std::byte{});
-    u64(b, p.stats.accepted_frames);
-    u32(b + 8, static_cast<std::uint32_t>(s.analysis));
-    u32(b + 12, s.events);
-    f64(b + 16, s.time);
-    u64(b + 24, s.state_id);
-    f64(b + 32, s.load_factor);
-    u64(b + 40, p.samples);
-    for (std::size_t k /* Frame value ordinal encoded as exact binary64 bits. */ = 0; k < values.size(); ++k)
-        f64(b + 64 + k * 8, values[k]);
-    ++p.stats.accepted_frames;
-    ++p.stats.buffered_frames;
-    p.last_stamp = s;
-    p.have_stamp = true;
-    if (p.stats.buffered_frames == p.stats.effective_batch_frames && !p.flush_batch())
-        return p.result;
-    return {};
+    return impl_->append(s, values, nullptr);
+}
+Status Recorder::append_frame(const Stamp &s, std::span<const double> values,
+                              const WinchFrameView &winches) noexcept {
+    // Reject an empty handle, then validate/copy one complete borrowed structural/feature packet.
+
+    if (!impl_)
+        return error(StatusCode::invalid_state, 11);
+    return impl_->append(s, values, &winches);
 }
 Status Recorder::finalize(Completion result) noexcept {
     // Flush the final batch, emit linked-index summary and external outcomes, write footer,

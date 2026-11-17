@@ -2,7 +2,7 @@
 # This first-party build owns target wiring only; pinned dependency sources remain external.
 cmake_minimum_required(VERSION 3.28)
 cmake_policy(SET CMP0091 NEW)
-project(SereneOutputs VERSION 0.2.3 LANGUAGES C CXX)
+project(SereneOutputs VERSION 0.2.4 LANGUAGES C CXX)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 include(CTest)
@@ -108,7 +108,7 @@ install(FILES "${PROJECT_BINARY_DIR}/SereneOutputsConfig.cmake" "${PROJECT_BINAR
 install(FILES third_party/dependencies.json third_party/licenses/ZFP-LICENSE
   third_party/nlohmann_json/LICENSE.MIT third_party/crypto_algorithms/README.md
   DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs/licenses)
-install(FILES spec/POSE_SIDECAR.md spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
+install(FILES spec/POSE_SIDECAR.md spec/POSE_WINCH_GEOMETRY.md spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
 # Register focused tests only for configured components; no configure step generates frozen fixtures.
 if(BUILD_TESTING)
   if(SERENE_OUTPUTS_BUILD_POSE_RECORDER)
@@ -116,12 +116,20 @@ if(BUILD_TESTING)
     target_link_libraries(test_pose_recorder PRIVATE serene::outputs_pose_recorder)
     target_include_directories(test_pose_recorder PRIVATE third_party/nlohmann_json/include)
     set_target_properties(test_pose_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
-    # Python3 drives independent sidecar-byte checks; absent interpreter means these two tests are unregistered.
+    # J07 paired-feature recorder remains independently linkable and has bounded focused tests.
+    add_executable(test_winch_recorder tests/test_winch_recorder.cpp)
+    target_link_libraries(test_winch_recorder PRIVATE serene::outputs_pose_recorder)
+    target_include_directories(test_winch_recorder PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_winch_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Python3 drives independent sidecar-byte checks; absent interpreter leaves these four pose checks unregistered.
     find_package(Python3 QUIET COMPONENTS Interpreter)
     if(Python3_Interpreter_FOUND)
       add_test(NAME serene_outputs_pose_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_pose_recorder.py"
         --exe "$<TARGET_FILE:test_pose_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/pose-tests/$<CONFIG>")
       add_test(NAME serene_outputs_pose_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_checker.py")
+      add_test(NAME serene_outputs_pose_winch_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_winch_recorder.py"
+        --exe "$<TARGET_FILE:test_winch_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/winch-tests/$<CONFIG>")
+      add_test(NAME serene_outputs_pose_winch_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_winch_checker.py")
     endif()
   endif()
   if(SERENE_OUTPUTS_BUILD_ARCHIVE AND EXISTS "${PROJECT_SOURCE_DIR}/tests/test_document_preflight.cpp")

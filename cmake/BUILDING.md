@@ -1,6 +1,6 @@
 # Building and consuming serene-outputs
 
-CMake 3.28+ and C++23 are required. MSVC is the primary qualification compiler. On Windows, load the existing Serene compiler environment before configuring. Current package version 0.2.3 is independent of native container versions 1.0/1.1 and pose sidecar version1. The production targets have no container-library, Chrono, rendering or logging dependency. Load `C:/Users/12650029/serene-academic/serene-math/load_compilers.bat`, then explicitly select MSVC as the maintained Windows wrappers do. Choose new build/install paths for new work. The checked-in stage wrappers retain their qualification paths; do not rerun them over accepted artifacts. Preserve qualified prefixes including `build/install-custom`, `build/install-extensions`, `build/install-capacity-planner`, `build/install-document-preflight` and the pose-recorder prefixes recorded in its handoff.
+CMake 3.28+ and C++23 are required. MSVC is the primary qualification compiler. On Windows, load the existing Serene compiler environment before configuring. Current package version 0.2.4 is independent of native container versions 1.0/1.1 and pose sidecar version1. The production targets have no container-library, Chrono, rendering or logging dependency. Load `C:/Users/12650029/serene-academic/serene-math/load_compilers.bat`, then explicitly select MSVC as the maintained Windows wrappers do. Choose new build/install paths for new work. The checked-in stage wrappers retain their qualification paths; do not rerun them over accepted artifacts. Preserve qualified prefixes including `build/install-custom`, `build/install-extensions`, `build/install-capacity-planner`, `build/install-document-preflight` and the pose-recorder prefixes recorded in its handoff.
 
 ## Model only
 
@@ -65,3 +65,16 @@ dependency. The wire contract and qualification limits are in `spec/POSE_SIDECAR
 and `docs/pose_recorder_handoff.md`; capture scheduling itself belongs to core.
 
 Documentation-only changes are checked against the starting working tree without rebuilding qualified binaries. Existing source hashes and installed artifacts continue to identify their historical snapshots; see the [documentation handoff](../docs/documentation_coverage_20261116.md).
+
+## J07 combined winch-feature package (0.2.4)
+
+Use `tools/build_winch_recorder.cmd configure`, then `build`, `test` and `install`
+with Release and Debug. This driver owns fresh `build/batch-j/J07/combined-msvc`
+and `combined-install` paths, uses the existing offline ZFP archive and preserves
+all old installed prefixes. Do not rerun it over accepted J07 evidence for later
+work; choose a new stage path instead. The package contains all four components
+in one physical header view. See `docs/winch_J07_handoff.md` for exact qualified
+commands, manifest identity and current Core consumption requirements. Core must
+refresh its own explicit version/manifest and source-selection guards; merely
+selecting a new prefix cannot bypass historical stage pins. No Core changes are
+made by this repository.

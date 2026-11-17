@@ -1,0 +1,1833 @@
+{
+  "status": "Independent approved wire expectations; execution evidence is separate",
+  "geometry_scope": "Literal asymmetric byte oracles, not force-law solutions",
+  "sample_count": 8,
+  "arrangements": 2,
+  "pose_frame_bytes": 512,
+  "feature_frame_bytes": 288,
+  "transient_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 1,
+        "events": 2,
+        "time": 1.25,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 2,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "stamp": {
+        "ordinal": 1,
+        "analysis": 1,
+        "events": 4,
+        "time": 1.29,
+        "state_id": 4,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.125,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.875,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.125,
+              2.5,
+              3.75
+            ],
+            [
+              0.875,
+              2.5,
+              3.75
+            ],
+            [
+              -0.125,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.375,
+              6.75
+            ],
+            [
+              10.25,
+              -1.375,
+              6.75
+            ],
+            [
+              12.5,
+              -2.375,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "stamp": {
+        "ordinal": 2,
+        "analysis": 1,
+        "events": 8,
+        "time": 1.32,
+        "state_id": 7,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.0,
+              2.5,
+              3.75
+            ],
+            [
+              1.0,
+              2.5,
+              3.75
+            ],
+            [
+              0.0,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.25,
+              6.75
+            ],
+            [
+              10.25,
+              -1.25,
+              6.75
+            ],
+            [
+              12.5,
+              -2.25,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "static_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 2,
+        "events": 8,
+        "time": 2.0,
+        "state_id": 9,
+        "load_factor": 1.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 1,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "prepared_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 0,
+        "events": 1,
+        "time": 100.0,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 0,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "initial_disabled_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 1,
+        "events": 4,
+        "time": 1.29,
+        "state_id": 4,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.125,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.875,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.125,
+              2.5,
+              3.75
+            ],
+            [
+              0.875,
+              2.5,
+              3.75
+            ],
+            [
+              -0.125,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.375,
+              6.75
+            ],
+            [
+              10.25,
+              -1.375,
+              6.75
+            ],
+            [
+              12.5,
+              -2.375,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "stamp": {
+        "ordinal": 1,
+        "analysis": 1,
+        "events": 8,
+        "time": 1.32,
+        "state_id": 7,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.0,
+              2.5,
+              3.75
+            ],
+            [
+              1.0,
+              2.5,
+              3.75
+            ],
+            [
+              0.0,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.25,
+              6.75
+            ],
+            [
+              10.25,
+              -1.25,
+              6.75
+            ],
+            [
+              12.5,
+              -2.25,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "representation_boundary_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 1,
+        "events": 2,
+        "time": 1.25,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -0.0,
+          0.0,
+          0.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 2,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              0.0,
+              1.4210854715202004e-14,
+              0.0
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_ports_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 1,
+        "events": 2,
+        "time": 1.25,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 2,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_ports_catalog": {
+    "catalog_version": 1,
+    "recording_id": "j07-independent-candidate-v1",
+    "run_id": "two-occurrences-shared-force-id",
+    "preparation_id": "capture-plan-17",
+    "world": {
+      "axes": "right_handed_xyz",
+      "length_unit": "m",
+      "orientation": "hamilton_wxyz_local_to_world"
+    },
+    "occurrences": [
+      {
+        "id": 10,
+        "parent_id": null,
+        "path": "/bench",
+        "kind": "assembly"
+      },
+      {
+        "id": 20,
+        "parent_id": 10,
+        "path": "/bench/left",
+        "kind": "assembly"
+      },
+      {
+        "id": 21,
+        "parent_id": 20,
+        "path": "/bench/left/blade",
+        "kind": "flexible"
+      },
+      {
+        "id": 22,
+        "parent_id": 20,
+        "path": "/bench/left/ground",
+        "kind": "anchor"
+      },
+      {
+        "id": 30,
+        "parent_id": 10,
+        "path": "/bench/right",
+        "kind": "assembly"
+      },
+      {
+        "id": 31,
+        "parent_id": 30,
+        "path": "/bench/right/blade",
+        "kind": "flexible"
+      },
+      {
+        "id": 32,
+        "parent_id": 30,
+        "path": "/bench/right/ground",
+        "kind": "anchor"
+      }
+    ],
+    "samples": [
+      {
+        "id": 0,
+        "kind": "structural_node",
+        "occurrence_id": 21,
+        "material_coordinate_m": 0.0,
+        "side": "none"
+      },
+      {
+        "id": 1,
+        "kind": "structural_node",
+        "occurrence_id": 21,
+        "material_coordinate_m": 5.0,
+        "side": "none"
+      },
+      {
+        "id": 2,
+        "kind": "body_port",
+        "occurrence_id": 21,
+        "port_id": "pin_A"
+      },
+      {
+        "id": 3,
+        "kind": "anchor_port",
+        "occurrence_id": 22,
+        "port_id": "winch_D"
+      },
+      {
+        "id": 4,
+        "kind": "body_port",
+        "occurrence_id": 21,
+        "port_id": "pin_B"
+      },
+      {
+        "id": 5,
+        "kind": "body_port",
+        "occurrence_id": 31,
+        "port_id": "pin_A"
+      },
+      {
+        "id": 6,
+        "kind": "body_port",
+        "occurrence_id": 31,
+        "port_id": "pin_B"
+      },
+      {
+        "id": 7,
+        "kind": "anchor_port",
+        "occurrence_id": 32,
+        "port_id": "winch_D"
+      }
+    ],
+    "segments": [
+      {
+        "id": 0,
+        "occurrence_id": 21,
+        "sample_ids": [
+          0,
+          1
+        ]
+      }
+    ],
+    "port_aliases": [],
+    "connections": [],
+    "winch_geometry": {
+      "layout_version": 1,
+      "kind": 4,
+      "stream_id": 2,
+      "encoding": "raw_f64_le",
+      "source_preparation_generation": 2,
+      "arrangements": [
+        {
+          "index": 0,
+          "key": "winch_with_saddle.v1.o11_/bench/left.f4_pull",
+          "owner_occurrence_id": 20,
+          "force_id": "pull",
+          "feature_type": "winch_with_saddle",
+          "points": [
+            {
+              "role": "A",
+              "kind": "physical_port",
+              "sample_id": 2
+            },
+            {
+              "role": "B",
+              "kind": "physical_port",
+              "sample_id": 4
+            },
+            {
+              "role": "C",
+              "kind": "algebraic",
+              "feature": "pulley"
+            },
+            {
+              "role": "D",
+              "kind": "physical_port",
+              "sample_id": 3
+            }
+          ],
+          "edges": [
+            {
+              "points": [
+                0,
+                2
+              ],
+              "kind": "bridle"
+            },
+            {
+              "points": [
+                2,
+                1
+              ],
+              "kind": "bridle"
+            },
+            {
+              "points": [
+                2,
+                3
+              ],
+              "kind": "main_cable"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "key": "winch_with_saddle.v1.o11_/bench/left.f11_pull_shared",
+          "owner_occurrence_id": 20,
+          "force_id": "pull_shared",
+          "feature_type": "winch_with_saddle",
+          "points": [
+            {
+              "role": "A",
+              "kind": "physical_port",
+              "sample_id": 2
+            },
+            {
+              "role": "B",
+              "kind": "physical_port",
+              "sample_id": 4
+            },
+            {
+              "role": "C",
+              "kind": "algebraic",
+              "feature": "pulley"
+            },
+            {
+              "role": "D",
+              "kind": "physical_port",
+              "sample_id": 3
+            }
+          ],
+          "edges": [
+            {
+              "points": [
+                0,
+                2
+              ],
+              "kind": "bridle"
+            },
+            {
+              "points": [
+                2,
+                1
+              ],
+              "kind": "bridle"
+            },
+            {
+              "points": [
+                2,
+                3
+              ],
+              "kind": "main_cable"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "cases": {
+    "paired_transient.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 3,
+      "valid": true,
+      "frames_key": "transient_frames",
+      "bytes": 5570,
+      "sha256": "f82e8ea8ce3f640e3dfcc8cfd9073659a6f2991859d2d8a7ddab905878d99e01"
+    },
+    "static.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 1,
+      "valid": true,
+      "frames_key": "static_frames",
+      "bytes": 3810,
+      "sha256": "6792985117912fa83462d175a01a473e67e833700726283f59f36097b46c215b"
+    },
+    "prepared.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 1,
+      "run_outcome": 0,
+      "valid": true,
+      "frames_key": "prepared_frames",
+      "bytes": 3810,
+      "sha256": "a2028a5a26aa9c3fb832350664a9eae40649df671d1a8c67113f4cce053a89c5"
+    },
+    "empty_failed.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 0,
+      "run_outcome": 2,
+      "capture_outcome": 3,
+      "valid": true,
+      "frames_key": "transient_frames",
+      "bytes": 2850,
+      "sha256": "03a0b25154c34d64e673344086cb2812ceb2f81c70069a48cd27b9ddc217c459"
+    },
+    "initial_disabled.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 2,
+      "frames_key": "initial_disabled_frames",
+      "valid": true,
+      "bytes": 4610,
+      "sha256": "df7442ab04da30f984d17ec5313f82153e0b1cf432a24448e5ffc7f26a476e57"
+    },
+    "representation_boundary.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 1,
+      "frames_key": "representation_boundary_frames",
+      "valid": true,
+      "bytes": 3810,
+      "sha256": "14a4d68979c2ec198d103bc5b3187c2e51bbf1f2f2254f6f9c2f20838087b4b2"
+    },
+    "representation_exceeded.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "error_contains": "coordinate consistency",
+      "valid": false,
+      "bytes": 3810,
+      "sha256": "fbe78bd0e358a444cf09216a909d7aee2972f0ae19e7af71014ae315b05d6c24"
+    },
+    "shared_ports.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": true,
+      "frames": 1,
+      "frames_key": "shared_ports_frames",
+      "catalog_key": "shared_ports_catalog",
+      "valid": true,
+      "bytes": 3824,
+      "sha256": "5b0da30cc418c3625a91d7ecb5fe991fcced86036577761c4a39423c322bc835"
+    },
+    "shared_ports_mismatch.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "error_contains": "coordinate consistency",
+      "valid": false,
+      "bytes": 3824,
+      "sha256": "7c6d74323c5ca7ae412122c53dc1feb2b335c486320d65787213e979cf01fd56"
+    },
+    "truncated_feature.spose.partial": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": false,
+      "frames": 2,
+      "allow_incomplete": true,
+      "valid": true,
+      "frames_key": "transient_frames",
+      "bytes": 4419,
+      "sha256": "950007d36b67c9707d6b2fb56562abac1f6c7c7406ac5e4bcef08d05b8cb77e5"
+    },
+    "truncated_pose.spose.partial": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": false,
+      "frames": 2,
+      "allow_incomplete": true,
+      "valid": true,
+      "frames_key": "transient_frames",
+      "bytes": 4787,
+      "sha256": "d47a4b663e45fcdebedcb4566b96ae9675653b7d65fd33c3e4351f3743441904"
+    },
+    "pending_feature.spose.partial": {
+      "legacy_valid": true,
+      "feature_valid_expected": true,
+      "complete": false,
+      "frames": 2,
+      "allow_incomplete": true,
+      "valid": true,
+      "frames_key": "transient_frames",
+      "bytes": 4690,
+      "sha256": "8d86f34976173ed817fca830aefc47e04f65c7656d979ffe3e3ef331719232d2"
+    },
+    "unsupported_minor.spose": {
+      "legacy_valid": false,
+      "feature_valid_expected": false,
+      "error_contains": "unsupported",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "6c94b93acfbf9eb5932bbbfe9ccef3a7892431afc8d0d23d15f48f2c5ace8eed"
+    },
+    "required_feature.spose": {
+      "legacy_valid": false,
+      "feature_valid_expected": false,
+      "error_contains": "unsupported",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "d801fa7536d21b66f1c7d7abb86fb0b5ba905eb18b4d6b65c6855024f458a827"
+    },
+    "corrupt_feature.spose": {
+      "legacy_valid": false,
+      "feature_valid_expected": false,
+      "error_contains": "checksum",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "2d086d5db3863d1e6e70ff2f3035f82abf41308b918b32e7e48015dcfc2ff9cf"
+    },
+    "mismatched_stamp.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "rejection_reason": "feature/pose state identity mismatch",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "d4fb5a600802d2f4dbc3d093b08fa87621b8af8304df6c13e3c216ec8cadb1d4"
+    },
+    "wrong_generation.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "rejection_reason": "generation is not capture-plan identity",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "1ff8870c23656c23a541b3a64ccd21bc2d17d92c5e4200cc16d7689848a8aeec"
+    },
+    "nonfinite_feature.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "rejection_reason": "nonfinite feature coordinate",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "e7ac3e45c33ee08c4469f42de2710334cefcef134bbf3e7c756217f445ee5448"
+    },
+    "unknown_geometry_status.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "rejection_reason": "unsupported geometry status",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "f57483e2d79eb04637ef9aead2c983a18dd06510ab9d8d10aa6bbfd3de97e8bf"
+    },
+    "missing_features.spose": {
+      "legacy_valid": true,
+      "feature_valid_expected": false,
+      "complete": true,
+      "frames": 3,
+      "rejection_reason": "declared feature population absent",
+      "valid": false,
+      "bytes": 4546,
+      "sha256": "c0771733846a95faaf535bab138059d63e6f78ca4a81c6d70df1f198b03f0cf9"
+    },
+    "wrong_kind.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "51945ce38e74a519709ea848b37efd4b12a4314927160161e13ac0b45ba85c88"
+    },
+    "wrong_stream.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "053637f68be26d13b01ac2d9cba68c0f7e071f9e666bf0d90783b9095085f955"
+    },
+    "wrong_layout.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "26d803e12e175da7ba2377bdefc5916cf04a25e8f94f65215a8e7b4bff2bda43"
+    },
+    "wrong_encoding.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "edd91f450e7572f724222cbbb14363ef25e6c22e64ab53f76db724bd72b03b15"
+    },
+    "count_mismatch.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "59982af6441229349b40ad876ea636d05886d2d7483b5035debb509e9727e368"
+    },
+    "count_overflow.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "4c690f3168a8e2a02eeb6272380762bfad7970a0d2d7f46d0f267cc3e6597c2b"
+    },
+    "first_ordinal_mismatch.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "14c054376f74f0e9667664f2ebf167929874f27c9f28f033231e44a5b242ee0c"
+    },
+    "prior_link_nonzero.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "known-family header contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "e9ffc4a065e192f885cf7c9a2593cb146399c6ed5115d4af1867fa82486e38fc"
+    },
+    "source_phase_mismatch.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature record contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "48fe486099237fbd999a368747acbad651045fc4af1e509651332fe9a37e1ad3"
+    },
+    "source_reserved_nonzero.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature record contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "ea43bd6960743498b9661a6a67f23aa3c5c7a1ec2d785912b43933d2d99360a2"
+    },
+    "entry_reserved_nonzero.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature record contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "4902bc9b45f23c9b5f8ca5a3d99794c028453ce1d1703afc01def55bfd31ded4"
+    },
+    "sample_stamp_mismatch.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature record contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "5b30c76d2ead0d9c86f0f7716fe03ed1fd3469b21dc9193718d38dbbc5ff8c20"
+    },
+    "missing_descriptor.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 4497,
+      "sha256": "494f9213a26567a279dfc3d97049c4dcf7dae7e42716d03019275dd5d1647cd7"
+    },
+    "duplicate_role.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "c8e761954613ca511e7e22a43a560f08231db54cd493a9dd3bedf85c5469dba7"
+    },
+    "bad_reference.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 5572,
+      "sha256": "03718db06aed1350b3374710a5481f789ce0642d9de2649e14b434f44b0f6ad4"
+    },
+    "fake_C_sample.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 5584,
+      "sha256": "6c35a016151d6d6ae5b44a69d9e6d6d18a3eb32d0f91499b54066ba81380ae27"
+    },
+    "bad_edge.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "5c5fa11350259577076ade963e39734e9c6b26de65cd2a3a349bd88d13785d32"
+    },
+    "bad_key.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 5535,
+      "sha256": "7b8442692275bf501af23e59727d507d1aa2764c692c9d7e9bd11372fd49c4ff"
+    },
+    "zero_generation.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 5570,
+      "sha256": "9fcce20357656118b89a402f3d584f8519c3f31e7e33e70b35d278ea908f25c6"
+    },
+    "empty_population.spose": {
+      "feature_valid_expected": false,
+      "rejection_reason": "feature catalog contract",
+      "valid": false,
+      "bytes": 4634,
+      "sha256": "78bd9a17a63c7e319aec620ea72f09761ecd43c6fed23ad95e66149ea415a282"
+    }
+  }
+}
