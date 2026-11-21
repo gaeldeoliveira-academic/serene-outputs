@@ -78,3 +78,67 @@ commands, manifest identity and current Core consumption requirements. Core must
 refresh its own explicit version/manifest and source-selection guards; merely
 selecting a new prefix cannot bypass historical stage pins. No Core changes are
 made by this repository.
+
+## Stage00 F combined package (0.2.5)
+
+The maintained `tools/build_visualization_overlays.cmd F configure` driver uses
+fresh `build/visualization_S00/F/combined-msvc` and `combined-install` directories.
+Follow with `F build Release`, `F test Release`, `F install Release`, and the
+matching Debug actions. It loads the existing MSVC toolchain, explicitly uses
+the pinned offline ZFP archive, and limits build parallelism to two jobs.
+Tests cover the changed F recorder/checker, unchanged pose/winch behavior and
+the small archive smoke check; they do not rerun a numerical study.
+
+Consumers request `find_package(SereneOutputs 0.2.5 EXACT CONFIG REQUIRED
+COMPONENTS pose_recorder)` or add `archive` when both are needed. Use matching
+headers/libraries from this one combined prefix, with `/MD` Release and `/MDd`
+Debug. Keep historical prefixes and receipts unchanged. See the Stage00 F
+handoff for tested external consumer and independent readback evidence.
+
+## Stage00 applied-load combined package (0.2.6)
+
+The live bounded driver now accepts `loads configure`, then `loads build Release`,
+`loads test Release`, `loads install Release` and corresponding Debug actions.
+It uses fresh `build/visualization_S00/loads/combined-msvc` and `combined-install`
+paths and refuses actions after the slice's qualification manifest is sealed.
+The preceding F driver and package remain in their immutable source snapshot;
+do not rebuild or reinstall over that qualified prefix.
+
+Request `find_package(SereneOutputs 0.2.6 EXACT CONFIG REQUIRED COMPONENTS
+pose_recorder)`; add `archive` only when needed. Recompile with the matching
+installed header and configuration-specific library, using `/MD` Release and
+`/MDd` Debug. The [load handoff](../docs/visualization_S00_loads_handoff.md)
+distinguishes package qualification from Core and viewer integration.
+
+## Stage00 moment combined package (0.2.7)
+
+The live driver accepts `moments configure`, then `moments build Release`,
+`moments test Release`, `moments install Release` and corresponding Debug actions.
+It uses fresh `build/visualization_S00/moments/combined-msvc` and `combined-install`
+directories and refuses to alter a stage with a sealed qualification manifest.
+Earlier F/load drivers remain in their source snapshots; preserve those prefixes.
+
+Request `find_package(SereneOutputs 0.2.7 EXACT CONFIG REQUIRED COMPONENTS
+pose_recorder)` and add `archive` only when needed. Recompile against this one
+matching header/library installation with `/MD` Release or `/MDd` Debug. The
+[moment handoff](../docs/visualization_S00_moments_handoff.md) records the observed
+test and relocated-consumer evidence; numerical and renderer integration are
+separate owner gates.
+
+## Stage00 plane combined package (0.2.8)
+
+The current `tools/build_visualization_overlays.cmd` accepts `planes configure`,
+then `planes build Release`, `planes test Release`, `planes install Release`
+and corresponding Debug actions. It uses fresh
+`build/visualization_S00/planes/combined-msvc` and `combined-install` paths and
+refuses actions once that slice's qualification manifest exists. The earlier
+F/load/moment commands above describe historical drivers in their preserved
+source snapshots; the live driver does not accept those slice names. Never
+rebuild or reinstall over a qualified prefix.
+
+Consumers use `find_package(SereneOutputs 0.2.8 EXACT CONFIG REQUIRED COMPONENTS
+pose_recorder)`, adding `archive` only when needed. Recompile with the complete
+matching installed header/library set, `/MD` Release or `/MDd` Debug. Keep the
+scientific reader installation unchanged. The
+[plane handoff](../docs/visualization_S00_planes_handoff.md) records actual package
+qualification; it does not establish provider numerics, Core capture or rendering.

@@ -1,0 +1,699 @@
+{
+  "catalog_version": 1,
+  "recording_id": "s00-independent-elastic-moments-layout1",
+  "run_id": "two-fluid-lines",
+  "preparation_id": "capture-plan-29",
+  "world": {
+    "axes": "right_handed_xyz",
+    "length_unit": "m",
+    "orientation": "hamilton_wxyz_local_to_world"
+  },
+  "occurrences": [
+    {
+      "id": 10,
+      "parent_id": null,
+      "path": "/bench",
+      "kind": "assembly"
+    },
+    {
+      "id": 20,
+      "parent_id": 10,
+      "path": "/bench/left",
+      "kind": "assembly"
+    },
+    {
+      "id": 21,
+      "parent_id": 20,
+      "path": "/bench/left/blade",
+      "kind": "flexible"
+    },
+    {
+      "id": 22,
+      "parent_id": 20,
+      "path": "/bench/left/ground",
+      "kind": "anchor"
+    },
+    {
+      "id": 30,
+      "parent_id": 10,
+      "path": "/bench/right",
+      "kind": "assembly"
+    },
+    {
+      "id": 31,
+      "parent_id": 30,
+      "path": "/bench/right/blade",
+      "kind": "flexible"
+    },
+    {
+      "id": 32,
+      "parent_id": 30,
+      "path": "/bench/right/ground",
+      "kind": "anchor"
+    }
+  ],
+  "samples": [
+    {
+      "id": 0,
+      "kind": "structural_node",
+      "occurrence_id": 21,
+      "material_coordinate_m": 0.0,
+      "side": "none"
+    },
+    {
+      "id": 1,
+      "kind": "structural_node",
+      "occurrence_id": 21,
+      "material_coordinate_m": 5.0,
+      "side": "none"
+    },
+    {
+      "id": 2,
+      "kind": "body_port",
+      "occurrence_id": 21,
+      "port_id": "pin_A"
+    },
+    {
+      "id": 3,
+      "kind": "anchor_port",
+      "occurrence_id": 22,
+      "port_id": "winch_D"
+    },
+    {
+      "id": 4,
+      "kind": "body_port",
+      "occurrence_id": 21,
+      "port_id": "pin_B"
+    },
+    {
+      "id": 5,
+      "kind": "body_port",
+      "occurrence_id": 31,
+      "port_id": "pin_A"
+    },
+    {
+      "id": 6,
+      "kind": "body_port",
+      "occurrence_id": 31,
+      "port_id": "pin_B"
+    },
+    {
+      "id": 7,
+      "kind": "anchor_port",
+      "occurrence_id": 32,
+      "port_id": "winch_D"
+    }
+  ],
+  "segments": [
+    {
+      "id": 701,
+      "occurrence_id": 21,
+      "sample_ids": [
+        0,
+        1
+      ]
+    }
+  ],
+  "port_aliases": [],
+  "connections": [],
+  "winch_geometry": {
+    "layout_version": 1,
+    "kind": 4,
+    "stream_id": 2,
+    "encoding": "raw_f64_le",
+    "source_preparation_generation": 2,
+    "arrangements": [
+      {
+        "index": 0,
+        "key": "winch_with_saddle.v1.o11_/bench/left.f4_pull",
+        "owner_occurrence_id": 20,
+        "force_id": "pull",
+        "feature_type": "winch_with_saddle",
+        "points": [
+          {
+            "role": "A",
+            "kind": "physical_port",
+            "sample_id": 2
+          },
+          {
+            "role": "B",
+            "kind": "physical_port",
+            "sample_id": 4
+          },
+          {
+            "role": "C",
+            "kind": "algebraic",
+            "feature": "pulley"
+          },
+          {
+            "role": "D",
+            "kind": "physical_port",
+            "sample_id": 3
+          }
+        ],
+        "edges": [
+          {
+            "points": [
+              0,
+              2
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              1
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              3
+            ],
+            "kind": "main_cable"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "key": "winch_with_saddle.v1.o12_/bench/right.f4_pull",
+        "owner_occurrence_id": 30,
+        "force_id": "pull",
+        "feature_type": "winch_with_saddle",
+        "points": [
+          {
+            "role": "A",
+            "kind": "physical_port",
+            "sample_id": 5
+          },
+          {
+            "role": "B",
+            "kind": "physical_port",
+            "sample_id": 6
+          },
+          {
+            "role": "C",
+            "kind": "algebraic",
+            "feature": "pulley"
+          },
+          {
+            "role": "D",
+            "kind": "physical_port",
+            "sample_id": 7
+          }
+        ],
+        "edges": [
+          {
+            "points": [
+              0,
+              2
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              1
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              3
+            ],
+            "kind": "main_cable"
+          }
+        ]
+      }
+    ]
+  },
+  "fluid_poses": {
+    "kind": 5,
+    "stream_id": 3,
+    "layout_version": 1,
+    "encoding": "raw_f64_le",
+    "source_preparation_generation": 2,
+    "lines": [
+      {
+        "id": 0,
+        "occurrence_id": 21,
+        "spanline_id": "F",
+        "source_geometry_fingerprint": "independent-source-left-17",
+        "effective_geometry_fingerprint": "independent-effective-left-23",
+        "approximation_policy": "preserve_native_boundaries",
+        "native_element_count": 2
+      },
+      {
+        "id": 1,
+        "occurrence_id": 31,
+        "spanline_id": "F",
+        "source_geometry_fingerprint": "independent-source-right-19",
+        "effective_geometry_fingerprint": "independent-effective-right-31",
+        "approximation_policy": "preserve_native_boundaries",
+        "native_element_count": 1
+      }
+    ],
+    "samples": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "material_coordinate_m": 0.0,
+        "side": "right",
+        "native_element": 0
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "material_coordinate_m": 2.0,
+        "side": "left",
+        "native_element": 0
+      },
+      {
+        "id": 2,
+        "line_id": 0,
+        "material_coordinate_m": 2.0,
+        "side": "right",
+        "native_element": 1
+      },
+      {
+        "id": 3,
+        "line_id": 0,
+        "material_coordinate_m": 5.0,
+        "side": "left",
+        "native_element": 1
+      },
+      {
+        "id": 4,
+        "line_id": 1,
+        "material_coordinate_m": 0.0,
+        "side": "right",
+        "native_element": 0
+      },
+      {
+        "id": 5,
+        "line_id": 1,
+        "material_coordinate_m": 3.0,
+        "side": "left",
+        "native_element": 0
+      }
+    ],
+    "segments": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "sample_ids": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "sample_ids": [
+          2,
+          3
+        ]
+      },
+      {
+        "id": 2,
+        "line_id": 1,
+        "sample_ids": [
+          4,
+          5
+        ]
+      }
+    ]
+  },
+  "applied_loads": {
+    "kind": 6,
+    "stream_id": 4,
+    "layout_version": 1,
+    "encoding": "raw_f64_le",
+    "source_preparation_generation": 2,
+    "product": "completed_weak_force_density",
+    "force_unit": "N/m",
+    "position_unit": "m",
+    "vector_frame": "world",
+    "coordinators": [
+      {
+        "id": 0,
+        "scope": {
+          "kind": "run",
+          "run_id": "two-fluid-lines"
+        },
+        "coupling": "fixed_step_weak_held"
+      }
+    ],
+    "models": [
+      {
+        "id": 0,
+        "coordinator_id": 0,
+        "instance": 701,
+        "model_id": "physical-model-alpha",
+        "run_id": "two-fluid-lines",
+        "model_type": "independent_density_alpha",
+        "model_version": "literal-1",
+        "layout_revision": 11,
+        "logical_node_count": 5
+      },
+      {
+        "id": 1,
+        "coordinator_id": 0,
+        "instance": 19,
+        "model_id": "physical-model-beta",
+        "run_id": "two-fluid-lines",
+        "model_type": "independent_density_beta",
+        "model_version": "literal-3",
+        "layout_revision": 7,
+        "logical_node_count": 3
+      }
+    ],
+    "attachments": [
+      {
+        "id": 0,
+        "model_catalog_id": 0,
+        "model_attachment_index": 0,
+        "attachment_id": "spanline",
+        "target_occurrence_id": 21,
+        "spanline_id": "F",
+        "source_geometry_fingerprint": "source-alpha-17",
+        "effective_geometry_fingerprint": "effective-alpha-23",
+        "model_nodes_fingerprint": "nodes-alpha-41",
+        "approximation_policy": "preserve_native_boundaries",
+        "native_element_count": 2,
+        "model_node_begin": 0,
+        "station_count": 5,
+        "station_begin": 0
+      },
+      {
+        "id": 1,
+        "model_catalog_id": 1,
+        "model_attachment_index": 0,
+        "attachment_id": "spanline",
+        "target_occurrence_id": 31,
+        "spanline_id": "F",
+        "source_geometry_fingerprint": "source-beta-19",
+        "effective_geometry_fingerprint": "effective-beta-31",
+        "model_nodes_fingerprint": "nodes-beta-43",
+        "approximation_policy": "preserve_native_boundaries",
+        "native_element_count": 1,
+        "model_node_begin": 0,
+        "station_count": 3,
+        "station_begin": 5
+      }
+    ],
+    "stations": [
+      {
+        "id": 0,
+        "attachment_catalog_id": 0,
+        "logical_node_index": 0,
+        "material_coordinate_m": 0.0,
+        "physical_side": "continuous",
+        "physical_side_token": 101,
+        "native_consumers": [
+          {
+            "consumer_index": 0,
+            "native_element": 0,
+            "limit_side": "right"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "attachment_catalog_id": 0,
+        "logical_node_index": 1,
+        "material_coordinate_m": 1.0,
+        "physical_side": "continuous",
+        "physical_side_token": 102,
+        "native_consumers": [
+          {
+            "consumer_index": 1,
+            "native_element": 0,
+            "limit_side": "left"
+          },
+          {
+            "consumer_index": 2,
+            "native_element": 1,
+            "limit_side": "right"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "attachment_catalog_id": 0,
+        "logical_node_index": 2,
+        "material_coordinate_m": 2.0,
+        "physical_side": "left",
+        "physical_side_token": 201,
+        "native_consumers": [
+          {
+            "consumer_index": 3,
+            "native_element": 1,
+            "limit_side": "left"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "attachment_catalog_id": 0,
+        "logical_node_index": 3,
+        "material_coordinate_m": 2.0,
+        "physical_side": "right",
+        "physical_side_token": 202,
+        "native_consumers": [
+          {
+            "consumer_index": 4,
+            "native_element": 1,
+            "limit_side": "right"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "attachment_catalog_id": 0,
+        "logical_node_index": 4,
+        "material_coordinate_m": 4.0,
+        "physical_side": "continuous",
+        "physical_side_token": 0,
+        "native_consumers": [
+          {
+            "consumer_index": 5,
+            "native_element": 1,
+            "limit_side": "left"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "attachment_catalog_id": 1,
+        "logical_node_index": 0,
+        "material_coordinate_m": 0.0,
+        "physical_side": "continuous",
+        "physical_side_token": 301,
+        "native_consumers": [
+          {
+            "consumer_index": 0,
+            "native_element": 0,
+            "limit_side": "right"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "attachment_catalog_id": 1,
+        "logical_node_index": 1,
+        "material_coordinate_m": 1.5,
+        "physical_side": "continuous",
+        "physical_side_token": 302,
+        "native_consumers": [
+          {
+            "consumer_index": 1,
+            "native_element": 0,
+            "limit_side": "right"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "attachment_catalog_id": 1,
+        "logical_node_index": 2,
+        "material_coordinate_m": 3.0,
+        "physical_side": "continuous",
+        "physical_side_token": 303,
+        "native_consumers": [
+          {
+            "consumer_index": 2,
+            "native_element": 0,
+            "limit_side": "left"
+          }
+        ]
+      }
+    ]
+  },
+  "elastic_moments": {
+    "kind": 7,
+    "stream_id": 5,
+    "layout_version": 1,
+    "encoding": "raw_f64_le",
+    "source_preparation_generation": 2,
+    "quantity": "elastic_section_moment",
+    "components": [
+      "Mx",
+      "My",
+      "Mz"
+    ],
+    "unit": "N.m",
+    "expression_frame": "current_structural_N",
+    "moment_point": "current_structural_N",
+    "action_convention": "positive_span_on_negative_span",
+    "display_interpolation": "linear_scalar_on_declared_base_edge",
+    "lines": [
+      {
+        "id": 0,
+        "occurrence_id": 21,
+        "spanline_id": "N",
+        "native_element_count": 2,
+        "source_geometry_fingerprint": "moment-source-47",
+        "effective_geometry_fingerprint": "moment-effective-61",
+        "approximation_policy": "literal_structural_realization"
+      }
+    ],
+    "provider_addresses": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "native_element": 0,
+        "provider_id": "chrono10_euler_diagonal_elastic_cubic_recovery_v1",
+        "material_begin_m": 0.0,
+        "material_end_m": 3.0
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "native_element": 1,
+        "provider_id": "chrono10_fpm_full_K6_Bx_elastic_native_section_v1",
+        "material_begin_m": 3.0,
+        "material_end_m": 5.0
+      }
+    ],
+    "cuts": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "material_coordinate_m": 0.0,
+        "side": "right",
+        "native_element": 0,
+        "provider_address_id": 0,
+        "native_eta": -1.0
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "material_coordinate_m": 0.37,
+        "side": "right",
+        "native_element": 0,
+        "provider_address_id": 0,
+        "native_eta": -0.7533333333333333
+      },
+      {
+        "id": 2,
+        "line_id": 0,
+        "material_coordinate_m": 2.0,
+        "side": "left",
+        "native_element": 0,
+        "provider_address_id": 0,
+        "native_eta": 0.3333333333333333
+      },
+      {
+        "id": 3,
+        "line_id": 0,
+        "material_coordinate_m": 2.0,
+        "side": "right",
+        "native_element": 0,
+        "provider_address_id": 0,
+        "native_eta": 0.3333333333333333
+      },
+      {
+        "id": 4,
+        "line_id": 0,
+        "material_coordinate_m": 3.0,
+        "side": "left",
+        "native_element": 0,
+        "provider_address_id": 0,
+        "native_eta": 1.0
+      },
+      {
+        "id": 5,
+        "line_id": 0,
+        "material_coordinate_m": 3.0,
+        "side": "right",
+        "native_element": 1,
+        "provider_address_id": 1,
+        "native_eta": -1.0
+      },
+      {
+        "id": 6,
+        "line_id": 0,
+        "material_coordinate_m": 5.0,
+        "side": "left",
+        "native_element": 1,
+        "provider_address_id": 1,
+        "native_eta": 1.0
+      }
+    ],
+    "sided_breaks": [
+      {
+        "left_cut_id": 2,
+        "right_cut_id": 3
+      },
+      {
+        "left_cut_id": 4,
+        "right_cut_id": 5
+      }
+    ],
+    "display_intervals": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "base_segment_id": 701,
+        "edge_index": 0,
+        "cut_ids": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "base_segment_id": 701,
+        "edge_index": 0,
+        "cut_ids": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 2,
+        "line_id": 0,
+        "base_segment_id": 701,
+        "edge_index": 0,
+        "cut_ids": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": 3,
+        "line_id": 0,
+        "base_segment_id": 701,
+        "edge_index": 0,
+        "cut_ids": [
+          5,
+          6
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "Observed authoring attempts; fixed literal case expectations remain unchanged",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "stage": "in-memory case assembly before destination creation",
+      "error_type": "AssertionError",
+      "error": "missing_planes.spose",
+      "cause": "Planned missing batch and missing catalog field shared a filename",
+      "destination_created": false,
+      "source_identity_before_correction": "not separately captured",
+      "correction": "Renamed only planned missing catalog-field cases to missing_catalog_<field>.spose before emitting any fixture files"
+    },
+    {
+      "exit_code": 0,
+      "cases": 223,
+      "binary_bytes": 5069458,
+      "expected_sha256": "79179baa6c597cc46d24b578ac6e8a5fe89a9bbcab05d3482f1c4561c4eb70f0"
+    }
+  ]
+}

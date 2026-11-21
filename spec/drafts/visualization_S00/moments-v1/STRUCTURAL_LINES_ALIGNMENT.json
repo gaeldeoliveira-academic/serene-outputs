@@ -1,0 +1,9 @@
+{
+  "scope": "Main-approved optional structural-line matching predicate; wire kind/layout unchanged",
+  "authority_chat": "01a1acc2-c4a3-71a1-9785-9d3669eacf9f",
+  "approval_date": "2026-11-20",
+  "before_path": "before-structural-lines-clarification.md",
+  "before_sha256": "a1bdd8feacb53ad834a9101dc0450f23179bbacca563d3c71bf3f0c389346227",
+  "after_sha256": "461b8cba73fd8cafd2aca93977c1a561c7b702bd35e34c66dc251abfed9729ac",
+  "frozen_original_and_prior_receipts_unchanged": true
+}

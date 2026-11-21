@@ -1,0 +1,8 @@
+{
+  "status": "wire-frozen",
+  "date": "2026-11-20",
+  "approval": "Final Main/viewer sign-off after Core and Inflow decisions; proceed one qualified slice at a time with immutable prefixes and no commit/push.",
+  "draft_sha256": "723e4472f1dea7de2ff59701c883bea86c2d57b366a894a3e54f616227e38088",
+  "specification": "POSE_INFLOW_PLANES.md",
+  "specification_sha256": "aff93bda3cfb6b817bb7e6c71b17aa678c9929a2aa0bef8e910c0c785ae0f94f"
+}

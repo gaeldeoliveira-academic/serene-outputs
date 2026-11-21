@@ -1,0 +1,329 @@
+{
+  "catalog_version": 1,
+  "recording_id": "s00-independent-fluid-candidate-v1",
+  "run_id": "two-fluid-lines",
+  "preparation_id": "capture-plan-29",
+  "world": {
+    "axes": "right_handed_xyz",
+    "length_unit": "m",
+    "orientation": "hamilton_wxyz_local_to_world"
+  },
+  "occurrences": [
+    {
+      "id": 10,
+      "parent_id": null,
+      "path": "/bench",
+      "kind": "assembly"
+    },
+    {
+      "id": 20,
+      "parent_id": 10,
+      "path": "/bench/left",
+      "kind": "assembly"
+    },
+    {
+      "id": 21,
+      "parent_id": 20,
+      "path": "/bench/left/blade",
+      "kind": "flexible"
+    },
+    {
+      "id": 22,
+      "parent_id": 20,
+      "path": "/bench/left/ground",
+      "kind": "anchor"
+    },
+    {
+      "id": 30,
+      "parent_id": 10,
+      "path": "/bench/right",
+      "kind": "assembly"
+    },
+    {
+      "id": 31,
+      "parent_id": 30,
+      "path": "/bench/right/blade",
+      "kind": "flexible"
+    },
+    {
+      "id": 32,
+      "parent_id": 30,
+      "path": "/bench/right/ground",
+      "kind": "anchor"
+    }
+  ],
+  "samples": [
+    {
+      "id": 0,
+      "kind": "structural_node",
+      "occurrence_id": 21,
+      "material_coordinate_m": 0.0,
+      "side": "none"
+    },
+    {
+      "id": 1,
+      "kind": "structural_node",
+      "occurrence_id": 21,
+      "material_coordinate_m": 5.0,
+      "side": "none"
+    },
+    {
+      "id": 2,
+      "kind": "body_port",
+      "occurrence_id": 21,
+      "port_id": "pin_A"
+    },
+    {
+      "id": 3,
+      "kind": "anchor_port",
+      "occurrence_id": 22,
+      "port_id": "winch_D"
+    },
+    {
+      "id": 4,
+      "kind": "body_port",
+      "occurrence_id": 21,
+      "port_id": "pin_B"
+    },
+    {
+      "id": 5,
+      "kind": "body_port",
+      "occurrence_id": 31,
+      "port_id": "pin_A"
+    },
+    {
+      "id": 6,
+      "kind": "body_port",
+      "occurrence_id": 31,
+      "port_id": "pin_B"
+    },
+    {
+      "id": 7,
+      "kind": "anchor_port",
+      "occurrence_id": 32,
+      "port_id": "winch_D"
+    }
+  ],
+  "segments": [
+    {
+      "id": 0,
+      "occurrence_id": 21,
+      "sample_ids": [
+        0,
+        1
+      ]
+    }
+  ],
+  "port_aliases": [],
+  "connections": [],
+  "winch_geometry": {
+    "layout_version": 1,
+    "kind": 4,
+    "stream_id": 2,
+    "encoding": "raw_f64_le",
+    "source_preparation_generation": 2,
+    "arrangements": [
+      {
+        "index": 0,
+        "key": "winch_with_saddle.v1.o11_/bench/left.f4_pull",
+        "owner_occurrence_id": 20,
+        "force_id": "pull",
+        "feature_type": "winch_with_saddle",
+        "points": [
+          {
+            "role": "A",
+            "kind": "physical_port",
+            "sample_id": 2
+          },
+          {
+            "role": "B",
+            "kind": "physical_port",
+            "sample_id": 4
+          },
+          {
+            "role": "C",
+            "kind": "algebraic",
+            "feature": "pulley"
+          },
+          {
+            "role": "D",
+            "kind": "physical_port",
+            "sample_id": 3
+          }
+        ],
+        "edges": [
+          {
+            "points": [
+              0,
+              2
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              1
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              3
+            ],
+            "kind": "main_cable"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "key": "winch_with_saddle.v1.o12_/bench/right.f4_pull",
+        "owner_occurrence_id": 30,
+        "force_id": "pull",
+        "feature_type": "winch_with_saddle",
+        "points": [
+          {
+            "role": "A",
+            "kind": "physical_port",
+            "sample_id": 5
+          },
+          {
+            "role": "B",
+            "kind": "physical_port",
+            "sample_id": 6
+          },
+          {
+            "role": "C",
+            "kind": "algebraic",
+            "feature": "pulley"
+          },
+          {
+            "role": "D",
+            "kind": "physical_port",
+            "sample_id": 7
+          }
+        ],
+        "edges": [
+          {
+            "points": [
+              0,
+              2
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              1
+            ],
+            "kind": "bridle"
+          },
+          {
+            "points": [
+              2,
+              3
+            ],
+            "kind": "main_cable"
+          }
+        ]
+      }
+    ]
+  },
+  "fluid_poses": {
+    "kind": 5,
+    "stream_id": 3,
+    "layout_version": 1,
+    "encoding": "raw_f64_le",
+    "source_preparation_generation": 2,
+    "lines": [
+      {
+        "id": 0,
+        "occurrence_id": 21,
+        "spanline_id": "F",
+        "source_geometry_fingerprint": "independent-source-left-17",
+        "effective_geometry_fingerprint": "independent-effective-left-23",
+        "approximation_policy": "preserve_native_boundaries",
+        "native_element_count": 2
+      },
+      {
+        "id": 1,
+        "occurrence_id": 31,
+        "spanline_id": "F",
+        "source_geometry_fingerprint": "independent-source-right-19",
+        "effective_geometry_fingerprint": "independent-effective-right-31",
+        "approximation_policy": "preserve_native_boundaries",
+        "native_element_count": 1
+      }
+    ],
+    "samples": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "material_coordinate_m": 0.0,
+        "side": "right",
+        "native_element": 0
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "material_coordinate_m": 2.0,
+        "side": "left",
+        "native_element": 0
+      },
+      {
+        "id": 2,
+        "line_id": 0,
+        "material_coordinate_m": 2.0,
+        "side": "right",
+        "native_element": 1
+      },
+      {
+        "id": 3,
+        "line_id": 0,
+        "material_coordinate_m": 5.0,
+        "side": "left",
+        "native_element": 1
+      },
+      {
+        "id": 4,
+        "line_id": 1,
+        "material_coordinate_m": 0.0,
+        "side": "right",
+        "native_element": 0
+      },
+      {
+        "id": 5,
+        "line_id": 1,
+        "material_coordinate_m": 3.0,
+        "side": "left",
+        "native_element": 0
+      }
+    ],
+    "segments": [
+      {
+        "id": 0,
+        "line_id": 0,
+        "sample_ids": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": 1,
+        "line_id": 0,
+        "sample_ids": [
+          2,
+          3
+        ]
+      },
+      {
+        "id": 2,
+        "line_id": 1,
+        "sample_ids": [
+          4,
+          5
+        ]
+      }
+    ]
+  }
+}

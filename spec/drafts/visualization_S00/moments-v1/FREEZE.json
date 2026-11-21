@@ -1,0 +1,8 @@
+{
+  "status": "wire-frozen",
+  "date": "2026-11-20",
+  "approval": "Final Main/viewer sign-off after Core and Inflow decisions; proceed one qualified slice at a time with immutable prefixes and no commit/push.",
+  "draft_sha256": "4f84efbd50327e5739b1e4c9ac0094d8ea2968b38b321fbdca2bcbbcbb16d25c",
+  "specification": "POSE_ELASTIC_MOMENTS.md",
+  "specification_sha256": "b77e2d1ae93d3a7bd1f7eaa25d0cdf26f36070ae0b2c59ebeee7a05cfd465637"
+}

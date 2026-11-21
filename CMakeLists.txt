@@ -2,7 +2,7 @@
 # This first-party build owns target wiring only; pinned dependency sources remain external.
 cmake_minimum_required(VERSION 3.28)
 cmake_policy(SET CMP0091 NEW)
-project(SereneOutputs VERSION 0.2.4 LANGUAGES C CXX)
+project(SereneOutputs VERSION 0.2.8 LANGUAGES C CXX)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 include(CTest)
@@ -108,7 +108,7 @@ install(FILES "${PROJECT_BINARY_DIR}/SereneOutputsConfig.cmake" "${PROJECT_BINAR
 install(FILES third_party/dependencies.json third_party/licenses/ZFP-LICENSE
   third_party/nlohmann_json/LICENSE.MIT third_party/crypto_algorithms/README.md
   DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs/licenses)
-install(FILES spec/POSE_SIDECAR.md spec/POSE_WINCH_GEOMETRY.md spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
+install(FILES spec/POSE_SIDECAR.md spec/POSE_WINCH_GEOMETRY.md spec/POSE_OPTIONAL_OVERLAYS.md spec/POSE_FLUID_GEOMETRY.md spec/POSE_APPLIED_LOADS.md spec/POSE_ELASTIC_MOMENTS.md spec/POSE_INFLOW_PLANES.md spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
 # Register focused tests only for configured components; no configure step generates frozen fixtures.
 if(BUILD_TESTING)
   if(SERENE_OUTPUTS_BUILD_POSE_RECORDER)
@@ -121,7 +121,27 @@ if(BUILD_TESTING)
     target_link_libraries(test_winch_recorder PRIVATE serene::outputs_pose_recorder)
     target_include_directories(test_winch_recorder PRIVATE third_party/nlohmann_json/include)
     set_target_properties(test_winch_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
-    # Python3 drives independent sidecar-byte checks; absent interpreter leaves these four pose checks unregistered.
+    # F groups share the bounded recorder and are verified against independent literal bytes.
+    add_executable(test_fluid_recorder tests/test_fluid_recorder.cpp)
+    target_link_libraries(test_fluid_recorder PRIVATE serene::outputs_pose_recorder)
+    target_include_directories(test_fluid_recorder PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_fluid_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Applied physical densities retain source points and exact completed-interval provenance.
+    add_executable(test_applied_recorder tests/test_applied_recorder.cpp)
+    target_link_libraries(test_applied_recorder PRIVATE serene::outputs_pose_recorder)
+    target_include_directories(test_applied_recorder PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_applied_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Signed elastic moments retain independent sided cuts and explicit display mappings.
+    add_executable(test_moment_recorder tests/test_moment_recorder.cpp)
+    target_link_libraries(test_moment_recorder PRIVATE serene::outputs_pose_recorder)
+    target_include_directories(test_moment_recorder PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_moment_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Fixed inflow grids preserve world velocities, per-plane validity and source provenance.
+    add_executable(test_plane_recorder tests/test_plane_recorder.cpp)
+    target_link_libraries(test_plane_recorder PRIVATE serene::outputs_pose_recorder)
+    target_include_directories(test_plane_recorder PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_plane_recorder PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Python3 drives independent sidecar-byte checks; absent interpreter leaves them unregistered.
     find_package(Python3 QUIET COMPONENTS Interpreter)
     if(Python3_Interpreter_FOUND)
       add_test(NAME serene_outputs_pose_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_pose_recorder.py"
@@ -130,6 +150,18 @@ if(BUILD_TESTING)
       add_test(NAME serene_outputs_pose_winch_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_winch_recorder.py"
         --exe "$<TARGET_FILE:test_winch_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/winch-tests/$<CONFIG>")
       add_test(NAME serene_outputs_pose_winch_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_winch_checker.py")
+      add_test(NAME serene_outputs_pose_fluid_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_fluid_recorder.py"
+        --exe "$<TARGET_FILE:test_fluid_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/fluid-tests/$<CONFIG>")
+      add_test(NAME serene_outputs_pose_fluid_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_fluid_checker.py")
+      add_test(NAME serene_outputs_pose_applied_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_applied_recorder.py"
+        --exe "$<TARGET_FILE:test_applied_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/applied-tests/$<CONFIG>")
+      add_test(NAME serene_outputs_pose_applied_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_applied_checker.py")
+      add_test(NAME serene_outputs_pose_moment_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_moment_recorder.py"
+        --exe "$<TARGET_FILE:test_moment_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/moment-tests/$<CONFIG>")
+      add_test(NAME serene_outputs_pose_moment_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_moment_checker.py")
+      add_test(NAME serene_outputs_pose_plane_recorder COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tests/test_plane_recorder.py"
+        --exe "$<TARGET_FILE:test_plane_recorder>" --source "${PROJECT_SOURCE_DIR}" --output-root "${PROJECT_BINARY_DIR}/plane-tests/$<CONFIG>")
+      add_test(NAME serene_outputs_pose_plane_checker COMMAND "${Python3_EXECUTABLE}" "${PROJECT_SOURCE_DIR}/tools/pose_sidecar/test_plane_checker.py")
     endif()
   endif()
   if(SERENE_OUTPUTS_BUILD_ARCHIVE AND EXISTS "${PROJECT_SOURCE_DIR}/tests/test_document_preflight.cpp")

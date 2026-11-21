@@ -1,0 +1,2265 @@
+{
+  "scope": "Pinned reader subsets only; these readers do not validate applied-load semantics",
+  "readers": {
+    "base_checker.py": {
+      "sha256": "903bf87a9a6af9901068d32ecd7a05d9f4acecc9e168637f65a44c789a8eb17d",
+      "cases": {
+        "mixed_transient.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "without_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "without_winches.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_only.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_after_5.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_after_6.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "first_positive.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 2
+        },
+        "exact_prior_join.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_time_join.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "equal_source_id_zero_sign.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_end_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "end_time_zero_sign.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "prepared.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "static.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "prepared_then_positive.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "masked.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "all_unavailable.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "signed_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "empty_failed.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 0
+        },
+        "multiple_attachments_one_model.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "permuted_station_ranges.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "large_metadata_domains.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "repeated_consumer_address.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_k9.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "padding_mask_k9.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_loads.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_loads.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_before_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_between_winch_pose.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_between_winch_pose.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_winches.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "early_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 2
+        },
+        "wrong_kind.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_stream.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_encoding.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "required_loads.spose": {
+          "valid": false,
+          "reason": "unsupported required chunk semantics"
+        },
+        "reserved_flag.spose": {
+          "valid": false,
+          "reason": "invalid chunk flags/sequence"
+        },
+        "count_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "count_overflow.spose": {
+          "valid": false,
+          "reason": "chunk integer overflow"
+        },
+        "first_ordinal.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "previous_nonzero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_generation.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_phase.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_reserved.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "copied_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "physical_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "initial_status_completed.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_prefix_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_mask_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_row_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_negative_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_status.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "positive_status_unavailable.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "interval_reserved.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_after_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_equals_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_time_after_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_time_equals_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_id_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_time_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_time_nonfinite.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_publication.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_mechanical.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_state.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_geometry.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_environment.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_sequence.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_packet.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "identity_overflow.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "padding_mask.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "cleared_noncanonical.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "nonfinite_source_position.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "nonfinite_density.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_source_id_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_source_time_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_publication_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_revision_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_sequence_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_packet_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_older_than_previous.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "equal_source_id_wrong_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "larger_source_id_equal_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "larger_source_id_earlier_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "stale_completed_payload.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "failed_candidate_endpoint.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "rollback_attempt_status_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_descriptor.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_kind.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_stream.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_encoding.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_generation.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_generation_float.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_product.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_force_unit.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_vector_frame.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_empty.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_scope.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_run.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_coupling.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_bad_coordinator.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_zero_instance.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_duplicate_instance.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_duplicate_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_wrong_run.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_empty_type.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_zero_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_incomplete_population.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_bad_model.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_boolean_reference.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_wrong_target.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_unknown_target.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_empty_spanline.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_empty_fingerprint.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_overlap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_gap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_zero_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_wrong_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_model_node_range.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_zero_elements.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_owner.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_float_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_logical_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_negative_coordinate.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_boolean_token.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_token_overflow.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_contradictory_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_duplicate_address.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_empty.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_duplicate_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_index_gap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_bad_element.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_unresolved_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_float_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_attachment_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_attachment_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_ranges_overlap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "corrupt_loads.spose": {
+          "valid": false,
+          "reason": "payload checksum mismatch"
+        },
+        "truncated_loads.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_loads.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "truncated_winches.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_winches.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "truncated_pose.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_nonfinite_density.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_wrong_phase.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_wrong_ordinal.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_stale_end.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "unjoined_pending_time.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        }
+      }
+    },
+    "winch_checker.py": {
+      "sha256": "f3a7cfab68aa58305165431aa9aef7f953f86bd092e7af428f7d1be6e4aeb7b6",
+      "cases": {
+        "mixed_transient.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "without_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "without_winches.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_only.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_after_5.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_after_6.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "first_positive.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 2
+        },
+        "exact_prior_join.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_time_join.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "equal_source_id_zero_sign.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_end_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "end_time_zero_sign.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "prepared.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "static.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "prepared_then_positive.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "masked.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "all_unavailable.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "signed_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "empty_failed.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 0
+        },
+        "multiple_attachments_one_model.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "permuted_station_ranges.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "large_metadata_domains.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "repeated_consumer_address.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_k9.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "padding_mask_k9.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_loads.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_loads.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_before_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_between_winch_pose.spose": {
+          "valid": false,
+          "reason": "winch batch must immediately precede required poses"
+        },
+        "unknown_between_winch_pose.spose": {
+          "valid": false,
+          "reason": "winch batch must immediately precede required poses"
+        },
+        "missing_winches.spose": {
+          "valid": false,
+          "reason": "pose batch missing or mismatching winch pair"
+        },
+        "missing_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "early_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 2
+        },
+        "wrong_kind.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_stream.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_encoding.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "required_loads.spose": {
+          "valid": false,
+          "reason": "unsupported required chunk semantics"
+        },
+        "reserved_flag.spose": {
+          "valid": false,
+          "reason": "invalid chunk flags/sequence"
+        },
+        "count_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "count_overflow.spose": {
+          "valid": false,
+          "reason": "chunk integer overflow"
+        },
+        "first_ordinal.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "previous_nonzero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_generation.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_phase.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_reserved.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "copied_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "physical_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "initial_status_completed.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_prefix_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_mask_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_row_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_negative_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_status.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "positive_status_unavailable.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "interval_reserved.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_after_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_equals_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_time_after_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_time_equals_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_id_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_time_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_time_nonfinite.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_publication.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_mechanical.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_state.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_geometry.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_environment.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_sequence.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_packet.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "identity_overflow.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "padding_mask.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "cleared_noncanonical.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "nonfinite_source_position.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "nonfinite_density.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_source_id_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_source_time_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_publication_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_revision_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_sequence_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_packet_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_older_than_previous.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "equal_source_id_wrong_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "larger_source_id_equal_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "larger_source_id_earlier_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "stale_completed_payload.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "failed_candidate_endpoint.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "rollback_attempt_status_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_descriptor.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_kind.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_stream.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_encoding.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_generation.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_generation_float.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_product.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_force_unit.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_vector_frame.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_empty.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_scope.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_run.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_coupling.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_bad_coordinator.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_zero_instance.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_duplicate_instance.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_duplicate_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_wrong_run.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_empty_type.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_zero_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_incomplete_population.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_bad_model.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_boolean_reference.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_wrong_target.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_unknown_target.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_empty_spanline.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_empty_fingerprint.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_overlap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_gap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_zero_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_wrong_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_model_node_range.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_zero_elements.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_owner.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_float_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_logical_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_negative_coordinate.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_boolean_token.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_token_overflow.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_contradictory_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_duplicate_address.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_empty.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_duplicate_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_index_gap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_bad_element.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_unresolved_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_float_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_attachment_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_attachment_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_ranges_overlap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "corrupt_loads.spose": {
+          "valid": false,
+          "reason": "payload checksum mismatch"
+        },
+        "truncated_loads.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_loads.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "truncated_winches.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_winches.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "truncated_pose.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_nonfinite_density.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_wrong_phase.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_wrong_ordinal.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_stale_end.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "unjoined_pending_time.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        }
+      }
+    },
+    "F_checker.py": {
+      "sha256": "9639e6b97a41f5fbed34f2cd927a01a413d6b2641a26354a1c4ff0f95510c4d5",
+      "cases": {
+        "mixed_transient.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "without_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "without_winches.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_only.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_after_5.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_after_6.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "first_positive.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 2
+        },
+        "exact_prior_join.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_time_join.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "equal_source_id_zero_sign.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_end_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "end_time_zero_sign.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "prepared.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "static.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 1
+        },
+        "prepared_then_positive.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "masked.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "all_unavailable.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "signed_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "empty_failed.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 0
+        },
+        "multiple_attachments_one_model.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "permuted_station_ranges.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "large_metadata_domains.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "repeated_consumer_address.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_k9.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "padding_mask_k9.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_loads.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_loads.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_before_fluid.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "loads_between_winch_pose.spose": {
+          "valid": false,
+          "reason": "winch batch must immediately precede required poses"
+        },
+        "unknown_between_winch_pose.spose": {
+          "valid": false,
+          "reason": "winch batch must immediately precede required poses"
+        },
+        "missing_winches.spose": {
+          "valid": false,
+          "reason": "pose batch missing or mismatching winch pair"
+        },
+        "missing_fluid.spose": {
+          "valid": false,
+          "reason": "winch batch missing or mismatching fluid group"
+        },
+        "early_index.spose": {
+          "valid": false,
+          "reason": "metadata inside pending fluid group"
+        },
+        "wrong_kind.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_stream.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_encoding.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "required_loads.spose": {
+          "valid": false,
+          "reason": "unsupported required chunk semantics"
+        },
+        "reserved_flag.spose": {
+          "valid": false,
+          "reason": "invalid chunk flags/sequence"
+        },
+        "count_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "count_overflow.spose": {
+          "valid": false,
+          "reason": "chunk integer overflow"
+        },
+        "first_ordinal.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "previous_nonzero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_generation.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "wrong_phase.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_reserved.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "copied_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "physical_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "initial_status_completed.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_prefix_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_mask_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_row_garbage.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unavailable_negative_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "unknown_status.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "positive_status_unavailable.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "interval_reserved.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_after_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_equals_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_time_after_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_time_equals_end.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_id_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_time_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "end_time_nonfinite.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_publication.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_mechanical.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_state.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_geometry.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_environment.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_sequence.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "zero_packet.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "identity_overflow.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "padding_mask.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "cleared_noncanonical.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "nonfinite_source_position.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "nonfinite_density.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_source_id_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_source_time_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_publication_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_revision_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_sequence_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_packet_mismatch.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "source_older_than_previous.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "equal_source_id_wrong_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "larger_source_id_equal_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "larger_source_id_earlier_time.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "stale_completed_payload.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "failed_candidate_endpoint.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "rollback_attempt_status_zero.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "missing_descriptor.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_kind.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_stream.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_encoding.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_generation.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_generation_float.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_product.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_force_unit.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "catalog_vector_frame.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_empty.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_scope.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_run.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "coordinator_coupling.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_bad_coordinator.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_zero_instance.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_duplicate_instance.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_duplicate_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_wrong_run.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_empty_type.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_zero_layout.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_incomplete_population.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_bad_model.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_boolean_reference.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_wrong_target.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_unknown_target.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_empty_spanline.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_empty_fingerprint.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_overlap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_gap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_zero_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_wrong_count.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_model_node_range.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "attachment_zero_elements.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_owner.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_float_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_logical_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_negative_coordinate.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_wrong_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_boolean_token.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_token_overflow.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_contradictory_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "station_duplicate_address.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_empty.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_duplicate_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_index_gap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_bad_element.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_unresolved_side.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "consumer_float_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_attachment_index.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "duplicate_attachment_id.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "model_ranges_overlap.spose": {
+          "valid": true,
+          "complete": true,
+          "frames": 3
+        },
+        "corrupt_loads.spose": {
+          "valid": false,
+          "reason": "payload checksum mismatch"
+        },
+        "truncated_loads.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_loads.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "truncated_winches.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_winches.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "truncated_pose.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_nonfinite_density.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_wrong_phase.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_wrong_ordinal.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "pending_stale_end.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        },
+        "unjoined_pending_time.spose.partial": {
+          "valid": true,
+          "complete": false,
+          "frames": 2
+        }
+      }
+    }
+  }
+}

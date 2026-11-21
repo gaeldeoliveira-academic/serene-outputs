@@ -15,3 +15,13 @@
 /third_party/crypto_algorithms/README.md -text
 /third_party/licenses/ZFP-LICENSE -text
 /include/serene/outputs/profile.hpp -text
+
+# Preserve the independent Stage00 fixture corpora and their checksum-pinned authors.
+/fixtures_pose_fluid/** -text
+/fixtures_pose_applied/** -text
+/fixtures_pose_moments/** -text
+/fixtures_pose_planes/** -text
+/tools/pose_sidecar/author_fluid_fixtures.py -text
+/tools/pose_sidecar/author_applied_fixtures.py -text
+/tools/pose_sidecar/author_moment_fixtures.py -text
+/tools/pose_sidecar/author_plane_fixtures.py -text

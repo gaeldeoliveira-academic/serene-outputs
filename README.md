@@ -20,3 +20,31 @@ See [cmake/BUILDING.md](cmake/BUILDING.md) for pinned offline builds and [docs/n
 Historical HDF5 work is retained for provenance only. No compatibility reader or HDF5 deployment dependency is implied.
 
 Maintainer ownership, documentation and verification conventions are in [AGENTS.md](AGENTS.md). The [16 November documentation handoff](docs/documentation_coverage_20261116.md) records comment-only coverage relative to the existing pose-recorder working tree; it is not a new binary qualification.
+
+Package 0.2.5 adds optional sided F geometry and bounded complete frame groups to
+the raw sidecar. The [common group contract](spec/POSE_OPTIONAL_OVERLAYS.md) and
+[F layout](spec/POSE_FLUID_GEOMETRY.md) preserve physical N/port and winch meanings.
+F is a separate station population with explicit validity, topology and source
+identity. The [Stage00 F handoff](docs/visualization_S00_F_handoff.md) records the
+actual tested package and compatibility limits. Scientific archive semantics
+and the scientific Python companion remain unchanged.
+
+Package 0.2.6 adds optional applied physical load density, with exact completed
+interval provenance and original source points. See the [load contract](spec/POSE_APPLIED_LOADS.md)
+and [Stage00 load handoff](docs/visualization_S00_loads_handoff.md). It can be
+recorded without the F display population. Scientific archives are unchanged.
+
+Package 0.2.7 adds signed elastic moments at independently addressed sided cuts.
+The [moment contract](spec/POSE_ELASTIC_MOMENTS.md) preserves all three current-N
+components about N, explicit display intervals and sided discontinuities.
+See the [moment handoff](docs/visualization_S00_moments_handoff.md) for the actual
+qualification and separate Core/viewer responsibilities. The earlier qualified
+F and applied-load installations remain immutable.
+
+Package 0.2.8 adds optional fixed inflow planes with per-plane validity masks,
+absolute unperturbed world velocities and preserved provider initialization
+metadata. The [plane contract](spec/POSE_INFLOW_PLANES.md) and
+[plane handoff](docs/visualization_S00_planes_handoff.md) define the typed boundary,
+resource accounting and separate provider/Core/viewer integration gates.
+The previous three Stage00 installations and their qualification evidence remain
+immutable. Scientific archive semantics and the scientific Python reader are unchanged.

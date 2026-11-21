@@ -1,0 +1,8 @@
+{
+  "kind": "editorial-status-alignment-only",
+  "wire_fields_changed": false,
+  "original_frozen_specification_sha256": "9c0e90ca7a10536d61a082fed4ca493c5d73d874cc593f98c5faeda7cf470df0",
+  "maintained_specification": "POSE_APPLIED_LOADS.md",
+  "maintained_specification_sha256": "a97634c57b25affe2a8d5c7220e2b3cf0bbf34d76f5de6b0758ce3be0e462cd5",
+  "approval": "Main/viewer final sign-off already received; remove obsolete pending-freeze language only. Original FREEZE.json and draft remain unchanged."
+}

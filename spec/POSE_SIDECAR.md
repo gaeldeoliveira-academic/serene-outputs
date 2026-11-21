@@ -184,3 +184,48 @@ silently reinterpreted as v1 N/port poses. Compression remains reserved, raw onl
 under this unchanged bootstrap1.0. Feature-aware readers validate adjacent feature/pose
 pairs and bounded pending storage; unaware readers retain structural poses only.
 The existing sample population, pose layout, index and completion meanings are unchanged.
+
+## Optional visualization groups and F geometry
+
+[POSE_OPTIONAL_OVERLAYS.md](POSE_OPTIONAL_OVERLAYS.md) extends the unchanged
+bootstrap with a permanent optional-stream registry, whole-group recovery and
+aggregate memory admission. [POSE_FLUID_GEOMETRY.md](POSE_FLUID_GEOMETRY.md)
+defines kind5/stream3/layout1. Enabled overlays precede the adjacent winch/pose
+suffix; pose is the final group member. A reader implementing F publishes only
+complete understood groups. Unaware readers retain their explicitly narrower
+validation guarantees. Structural backlinks, indexes and completion counts
+still describe structural batches. Future kinds6–8 are reserved; their detailed
+records are not implemented or qualified by the F slice.
+
+## Applied-load slice (package 0.2.6)
+
+[POSE_APPLIED_LOADS.md](POSE_APPLIED_LOADS.md) defines optional kind6/stream4/layout1.
+The current recorder and checker understand F and applied loads, ordered before
+the adjacent optional-winch/structural-pose suffix. This supersedes the earlier
+F-only implementation status above; its frozen qualification remains unchanged.
+Kinds7/8 remain reserved for later slices. The load handoff records current
+qualification and the binary64 material-coordinate equality clarification.
+
+## Elastic moment slice (package 0.2.7)
+
+[POSE_ELASTIC_MOMENTS.md](POSE_ELASTIC_MOMENTS.md) defines optional kind7/stream5/layout1.
+The current recorder/reader understands F, loads and moments in that order,
+followed by the adjacent optional-winch/structural-pose suffix. This updates the
+earlier package-specific implementation status without changing its frozen
+evidence. Kind8 remains reserved for the later plane slice. Moment rows contain
+signed current-N Mx/My/Mz, not reconstructed cut poses or a precomputed norm.
+
+## Inflow plane slice (package 0.2.8)
+
+[POSE_INFLOW_PLANES.md](POSE_INFLOW_PLANES.md) defines optional kind8/stream6/layout1.
+The recorder and checker now understand F, loads, moments and inflow planes in
+that order, followed by the adjacent optional-winch/structural-pose suffix.
+Planes retain fixed realized world geometry, copied provider metadata, separate
+packed validity masks and absolute unperturbed world velocity triples. See the
+[plane handoff](../docs/visualization_S00_planes_handoff.md) for the qualified
+package and the separate Core/Inflow/viewer integration responsibilities.
+
+This publication status paragraph was added on 21 November 2026. It supersedes
+the earlier package-specific reservation statements above; it changes no wire
+contract or implementation. The sealed 0.2.8 source snapshot and qualification
+manifest retain their original bytes and are not rewritten for this summary.

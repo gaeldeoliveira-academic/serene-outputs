@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-20",
+  "status": "common-and-F-frozen",
+  "approval": "Serene Main accepted after qualified Core and viewer review; pending/raw/retained checks must precede allocation and no torn-group frame may be published.",
+  "paths": {
+    "spec/drafts/visualization_S00/candidate-v1/DECISION.md": "37324085e9550f529ea605ba5fc2ede24098cde058f16650bc0e56eff9d4dd2b",
+    "spec/POSE_OPTIONAL_OVERLAYS.md": "689ca870aa260cc13972eac2e981e24ae166e61e0eb4c3421eedc65182bdf12f",
+    "spec/POSE_FLUID_GEOMETRY.md": "e516e87ac56aea6ad779682c39034f993f50d6caf456addc5bce89513a4a51f9"
+  }
+}

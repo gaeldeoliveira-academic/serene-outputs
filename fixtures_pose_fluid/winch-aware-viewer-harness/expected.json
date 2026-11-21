@@ -1,0 +1,1721 @@
+{
+  "transient_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 1,
+        "events": 2,
+        "time": 1.25,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 2,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ],
+      "fluid_poses": {
+        "generation": 2,
+        "phase": 2,
+        "samples": [
+          {
+            "valid": true,
+            "world_pose": [
+              -2.5,
+              0.75,
+              1.125,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.25,
+              2.75,
+              3.125,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.25,
+              2.75,
+              3.125,
+              0.5,
+              -0.5,
+              0.5,
+              -0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              4.5,
+              -1.75,
+              6.125,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              10.25,
+              -4.5,
+              7.75,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              12.5,
+              -2.25,
+              11.875,
+              -0.5,
+              -0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "stamp": {
+        "ordinal": 1,
+        "analysis": 1,
+        "events": 4,
+        "time": 1.29,
+        "state_id": 4,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.125,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.875,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.375,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.125,
+              2.5,
+              3.75
+            ],
+            [
+              0.875,
+              2.5,
+              3.75
+            ],
+            [
+              -0.125,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.375,
+              6.75
+            ],
+            [
+              10.25,
+              -1.375,
+              6.75
+            ],
+            [
+              12.5,
+              -2.375,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ],
+      "fluid_poses": {
+        "generation": 2,
+        "phase": 3,
+        "samples": [
+          {
+            "valid": true,
+            "world_pose": [
+              -2.375,
+              0.75,
+              1.125,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.375,
+              2.75,
+              3.125,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.375,
+              2.75,
+              3.125,
+              0.5,
+              -0.5,
+              0.5,
+              -0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              4.625,
+              -1.75,
+              6.125,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              10.25,
+              -4.375,
+              7.75,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              12.5,
+              -2.125,
+              11.875,
+              -0.5,
+              -0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "stamp": {
+        "ordinal": 2,
+        "analysis": 1,
+        "events": 8,
+        "time": 1.32,
+        "state_id": 7,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1.0,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.25,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 3,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.0,
+              2.5,
+              3.75
+            ],
+            [
+              1.0,
+              2.5,
+              3.75
+            ],
+            [
+              0.0,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.25,
+              6.75
+            ],
+            [
+              10.25,
+              -1.25,
+              6.75
+            ],
+            [
+              12.5,
+              -2.25,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ],
+      "fluid_poses": {
+        "generation": 2,
+        "phase": 3,
+        "samples": [
+          {
+            "valid": true,
+            "world_pose": [
+              -2.25,
+              0.75,
+              1.125,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.5,
+              2.75,
+              3.125,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.5,
+              2.75,
+              3.125,
+              0.5,
+              -0.5,
+              0.5,
+              -0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              4.75,
+              -1.75,
+              6.125,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              10.25,
+              -4.25,
+              7.75,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              12.5,
+              -2.0,
+              11.875,
+              -0.5,
+              -0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "static_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 2,
+        "events": 8,
+        "time": 2.0,
+        "state_id": 9,
+        "load_factor": 0.75
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 1,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ],
+      "fluid_poses": {
+        "generation": 2,
+        "phase": 1,
+        "samples": [
+          {
+            "valid": true,
+            "world_pose": [
+              -2.5,
+              0.75,
+              1.125,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.25,
+              2.75,
+              3.125,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.25,
+              2.75,
+              3.125,
+              0.5,
+              -0.5,
+              0.5,
+              -0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              4.5,
+              -1.75,
+              6.125,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              10.25,
+              -4.5,
+              7.75,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              12.5,
+              -2.25,
+              11.875,
+              -0.5,
+              -0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "prepared_frames": [
+    {
+      "stamp": {
+        "ordinal": 0,
+        "analysis": 0,
+        "events": 1,
+        "time": 100.0,
+        "state_id": 0,
+        "load_factor": 0.0
+      },
+      "poses": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          -1.25,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8.5,
+          14.25,
+          -2.0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0.75,
+          2.5,
+          3.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -3.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10.25,
+          -1.5,
+          6.75,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          -7.5,
+          11.25,
+          9.0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "source_generation": 2,
+      "source_phase": 0,
+      "features": [
+        {
+          "geometry_status": 0,
+          "world_xyz_m": [
+            [
+              -1.25,
+              2.5,
+              3.75
+            ],
+            [
+              0.75,
+              2.5,
+              3.75
+            ],
+            [
+              -0.25,
+              5.0,
+              4.25
+            ],
+            [
+              8.5,
+              14.25,
+              -2.0
+            ]
+          ]
+        },
+        {
+          "geometry_status": 1,
+          "world_xyz_m": [
+            [
+              10.25,
+              -3.5,
+              6.75
+            ],
+            [
+              10.25,
+              -1.5,
+              6.75
+            ],
+            [
+              12.5,
+              -2.5,
+              7.125
+            ],
+            [
+              -7.5,
+              11.25,
+              9.0
+            ]
+          ]
+        }
+      ],
+      "fluid_poses": {
+        "generation": 2,
+        "phase": 0,
+        "samples": [
+          {
+            "valid": true,
+            "world_pose": [
+              -2.5,
+              0.75,
+              1.125,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.25,
+              2.75,
+              3.125,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              0.25,
+              2.75,
+              3.125,
+              0.5,
+              -0.5,
+              0.5,
+              -0.5
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              4.5,
+              -1.75,
+              6.125,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              10.25,
+              -4.5,
+              7.75,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "valid": true,
+            "world_pose": [
+              12.5,
+              -2.25,
+              11.875,
+              -0.5,
+              -0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "cases": {
+    "mixed_transient.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "afe4fc9c872248f4de3de8e088d77252f5dcac705b6014296da9aa4b5c21a1c5"
+    },
+    "without_winches.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6136,
+      "sha256": "a17b9274d4aa0b0cd3e2e26de6805773783af8ceb653e1803229d2d9fea1fc03"
+    },
+    "unknown_gap.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8437,
+      "sha256": "7f9995812edfc04ef4f1e89043da3b96a9cc950f484dcf367e424540312e361b"
+    },
+    "masked.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "535ab7cbad75a668f92da30ea00fba4920fda49899399a8d6153c0a88471156c"
+    },
+    "all_unavailable.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "89d4eaa97e92556905d38f7a9919c27129f467cf745c39673d62a02cd46fea9d"
+    },
+    "static.spose": {
+      "complete": true,
+      "frames": 1,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 5559,
+      "sha256": "aceee7d437bfc263ee8b73397408f74bed339e5c1e4d753dd6b371624bc5abde"
+    },
+    "prepared.spose": {
+      "complete": true,
+      "frames": 1,
+      "run_outcome": 0,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 5559,
+      "sha256": "a069f1c8f4ffa7133281b67606d8d802c47e0b71312d98c3c5bc3d5d8faaefb6"
+    },
+    "empty_failed.spose": {
+      "complete": true,
+      "frames": 0,
+      "run_outcome": 2,
+      "capture_outcome": 3,
+      "valid": true,
+      "bytes": 4102,
+      "sha256": "e3f70da5f8bb6ff56271c227c486d1eeb3d2800348460b10566bf518b19b8689"
+    },
+    "missing_fluid.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6822,
+      "sha256": "8c2e814ae2aa3cd1f171ed905e23d2cbfb586d2e4b3841174329646024e9a66f"
+    },
+    "duplicate_fluid.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 9644,
+      "sha256": "7db60c1c2399e4b2870c468f45d1ff7e1f0ed38e0bcae2babfc6a1e6667190e0"
+    },
+    "wrong_order.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8233,
+      "sha256": "e35849603c79f170b4c34ab389d73973e8547622d6d1d7b0553b0c86c50ccf2f"
+    },
+    "between_winch_pose.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8437,
+      "sha256": "91f233fbe35ff389d0fc5886120efa499e73c64dd6a4c1b7a8b6be642c31c59f"
+    },
+    "missing_winches.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 7209,
+      "sha256": "dde7d41564d378de9c1f041237d795a26332ced288d869b3b11c7004666fc9ff"
+    },
+    "early_index.spose": {
+      "complete": true,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 7273,
+      "sha256": "2ccaaacda486a89ddf066078ae6b675283b3bb98ef02a6018f462f9fbd38aef5"
+    },
+    "wrong_kind.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "11434446f35d7733ee699fe3e3d3176e3eb23b058da4973a66ea8726ea75f4a5"
+    },
+    "wrong_stream.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "b38b6d6ea36828beac72c89d65ed57f319e6977c74f9a77094241e17183102d0"
+    },
+    "wrong_layout.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "c73687b9cec1859472bbff6e02f56d9f48f3ac2bfcefb8547e61ee44a76e212d"
+    },
+    "wrong_encoding.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "2fae04705ebfa3136ff54e6acf5099ce3c8f75b39699c3f25e886744a77b60bf"
+    },
+    "required_fluid.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8233,
+      "sha256": "8067751844ce3635f3611335c6f778cf2dc0bd6f46fb76136b1be426ef4c03f1"
+    },
+    "reserved_flag.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8233,
+      "sha256": "dea0e504ddfa357c3979d91c25fd69c1d1ebd3f887c6825c66ed9e72570406fc"
+    },
+    "count_mismatch.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "2b4304fafdfefc8af689a0eb8f40f340bcd15f5049d161715b697ed0abb8ace9"
+    },
+    "count_overflow.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8233,
+      "sha256": "f5091b6f8178273ce906ab3836a62133b5ec823e951f7750a13697601886fff0"
+    },
+    "first_ordinal.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "bc415fba7287b98958b63ca55711adecac1141ea52d6b5ec1987f481ebd556f8"
+    },
+    "previous_nonzero.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "0e022b5749a8b89743bb334ed5ada9f4560ded8f2842214d25576c377cb47f69"
+    },
+    "wrong_generation.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "59f0d90062810f476b6f857befcd61471d3c0b5d3e04d9c2bd7e3422e39f147c"
+    },
+    "wrong_phase.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "004f20ddf914a270ba8f1f418955241718139e96319b92083f5131b4f492caa0"
+    },
+    "source_reserved.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "f6f5a5e1578535646fedc60ad9a545999599b5ed52789cc9336b9b039b66a5e1"
+    },
+    "copied_time_mismatch.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "f39b42e027ffa69ba773de428d2c80aae1a2711c68c9fff039da98f4c84f1285"
+    },
+    "copied_sample_count.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "be7f7fa0544b0c0aff5fc744feb8ac8484af61cce20a28b5b0b33c67a0a30f39"
+    },
+    "padding_mask.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "4beffea7c4d1537c5fa3e27b4d783b99fec8af4d3e3c982ce62f92afcc7ab247"
+    },
+    "cleared_noncanonical.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "30e23f4e291640af1df046dec1ef9e2394397e097ae27422375f2f3d71b24e6a"
+    },
+    "nonfinite_pose.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "92d42de582124c1320cb642ec6335a60f32265200fbd0dd442754a5d46b29498"
+    },
+    "invalid_quaternion.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "3111e70cb3f42d56db950d83416149f4ab8befdd9d6764fa4d4ff55535c96193"
+    },
+    "unavailable_negative_zero.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "f10fcff3e022297ba672fe11476f9fc545d0ac79abc4943f3b2110a935d36a27"
+    },
+    "second_row_stamp_mismatch.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "ee07fb6cf4923efa489ecab6f66f44d3fdae979d910171c64e14adf6754826d7"
+    },
+    "missing_descriptor.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6971,
+      "sha256": "cb3ff30d6fa7670c8e0130e982aa0895a10440e4a66957f33445fbe11186fd98"
+    },
+    "wrong_owner.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "e21510c83456ea8fb52a8806fbbfc9e5986e38e59516c8ba4499d76ddb636fa3"
+    },
+    "wrong_side.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "043a9768eee5c2c10fea41df1481353765620385cc78af6945669acc58508f38"
+    },
+    "bad_sample_reference.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8234,
+      "sha256": "7e1f5cf7d1400622d1126b45f3c230ae26def1fbec40e3117a70b6d8aff5f8b5"
+    },
+    "wrong_line_reference.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "08303d152889c33ae8f20098537b14cf4267c85a9220507a9673f861773cb6d1"
+    },
+    "reversed_interval.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "c3472dfc30f94b4f79a7f41ec1db995ddf8a78e131b4742ee0d7ef3dadf8bdac"
+    },
+    "boolean_reference.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8237,
+      "sha256": "1ea49008c7a1afe6150b3c112f9447c9fb1ca7e03056008abf650d63fd5c03a0"
+    },
+    "float_reference.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8235,
+      "sha256": "53b94229a23b3ba649687e9421d27e8d6bcca431c341d2e195070d8a5d08950e"
+    },
+    "integer_limit.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8251,
+      "sha256": "8def53026eef2d5d109e5080019ad49a8f069a261be35444952caa6bf56ea328"
+    },
+    "native_element_range.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "148b9b877f26374120225441215159258ecc31fb3ac163e87f7cc7e64b3bd4aa"
+    },
+    "duplicate_address.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8232,
+      "sha256": "7b91963bff498017aca674a55dad1107453673d7ed4f31afe68a946042aa1d37"
+    },
+    "orphan_sample.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8193,
+      "sha256": "8d10945f13e706179a10ff1b131f42e9856f93690d0d0361a4404820cff1b393"
+    },
+    "duplicate_line.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "378946139a84f56dbfa284898278642443f0b006a5240a1f7e73211c62d888e8"
+    },
+    "empty_fingerprint.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8207,
+      "sha256": "add9d5fd5bdd660ece65f56c0dcdf795f98f65d80929a37185ee0ca310c50313"
+    },
+    "catalog_generation_mismatch.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "fa70a180ad8fab23bd1fd7bb2724187af44b6184c44560cd5c5152d9b6aafd4c"
+    },
+    "zero_generation.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8233,
+      "sha256": "b28eb90fdf64a4f50d488fe1c233bc388ca14f53aaad4bd08f7b9bea436c3452"
+    },
+    "empty_population.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 7739,
+      "sha256": "55e07e40d69ab5e560c46fa8ec4ed2e476f631316564c0589f3273d398a36503"
+    },
+    "corrupt_fluid.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8233,
+      "sha256": "eb59c92146dcba822a880009e2281060f1f4dfe2ffbf7f415fc2667d1d3d5a1b"
+    },
+    "unsupported_minor.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": false,
+      "bytes": 8233,
+      "sha256": "f71bd8f7479681fa7a66e9d1f136c36c356d1b93bc97ead7a6ca64c7a5591a6a"
+    },
+    "truncated_fluid.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6581,
+      "sha256": "04bbae6ab28be266cecc5cdc6936a8fa36a159adfd2707e905bef1a9d4fbd373"
+    },
+    "pending_fluid.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6985,
+      "sha256": "30f6ef72fbcd6adc03a3284ccb007f9cdb71fa08bf7f8a9eaefb7df39b407cf8"
+    },
+    "truncated_winches.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 7082,
+      "sha256": "7b8d613590a85b71dba61ca96b7f978a3153d214b666a8a84ecc9caf6d1b7e5b"
+    },
+    "pending_winches.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 7353,
+      "sha256": "2ff95b3fcbf449d1b6d41db7b671da00a0c75ba0e3d9cdd7f3218117febb5e06"
+    },
+    "truncated_pose.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 7458,
+      "sha256": "02749a2ea443b4ca887414a7e8d084a0d8643ca099f244fa0ff5db4faf0cd019"
+    },
+    "contradictory_native_owner.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8232,
+      "sha256": "261f4f647aca77c514e64661eb7122121eede41bdff5a23968934cab8880d29f"
+    },
+    "nonfinite_pending_fluid.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6985,
+      "sha256": "c2d229d755dac480e5ccf8f507158c7608e5814a4033aadecafc3b5568b1d544"
+    },
+    "wrong_ordinal_pending_fluid.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6985,
+      "sha256": "feba45bf1264d9a72da9cf1c3fac9b4d5d9b2a0c2b3b48bb0440a01a5b4d78f8"
+    },
+    "wrong_phase_pending_fluid.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6985,
+      "sha256": "5df1d6bdfed64bd4311fb385eeda72900ad459a0d37bd527bac76d89ecc80e12"
+    },
+    "unjoined_time_pending_fluid.spose.partial": {
+      "complete": false,
+      "frames": 2,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 6985,
+      "sha256": "4c72fa9b27029fad5f27578a2cc5452b58c2f22ec638bf7a56ade6683aca9ec9"
+    },
+    "unresolved_side.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8232,
+      "sha256": "da5e5ac38462e00dbc45c859190f91d9488b66a7e7ae4f196333d76830fc38a0"
+    },
+    "fluid_k7.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8485,
+      "sha256": "5ce9bc56ed486b24c4480a5b206be59dffd22e18f19d580a18f87f54e2e9a73a"
+    },
+    "fluid_k8.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8737,
+      "sha256": "67aafed35904ca1f87f1ef6075af87c1897bfac87d4cea60dde8e7071fae954d"
+    },
+    "fluid_k9.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8992,
+      "sha256": "51d10d1eabdce6545339087ef3cc1a1eebd4646699cfa398bc41411662d124d5"
+    },
+    "padding_mask_k7.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8485,
+      "sha256": "857e9cf5aa58b58cfce55e8fb0e2c59efd16471418938cd366eb205c97e28aed"
+    },
+    "padding_mask_k9.spose": {
+      "complete": true,
+      "frames": 3,
+      "run_outcome": 1,
+      "capture_outcome": 1,
+      "valid": true,
+      "bytes": 8992,
+      "sha256": "7a2d4064aae57589151349b230a3548a98afa51b85eb66418b8a5ea712fa1f3f"
+    }
+  },
+  "status": "Opaque-subset compatibility only; F semantics not checked"
+}

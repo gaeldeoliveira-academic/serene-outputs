@@ -1,0 +1,12 @@
+{
+  "scope": "Main-approved minimum nested provider-manifest admission; payload and kind/layout unchanged",
+  "authority_chat": "01a1acc2-c4a3-71a1-9785-9d3669eacf9f",
+  "approval_date": "2026-11-20",
+  "source_bytes_domain": "exact integer in [0, INT64_MAX]",
+  "future_source_kind_policy": "open descriptive provenance; no executable capability implied",
+  "preservation": "semantic object equality, not JSON text byte identity",
+  "before_path": "before-manifest-admission-clarification.md",
+  "before_sha256": "aff93bda3cfb6b817bb7e6c71b17aa678c9929a2aa0bef8e910c0c785ae0f94f",
+  "after_sha256": "a1ed160b1dcc74ebb63efa83bc14d6e0ec3eb5933bbf6c669d784337b3b5bc9e",
+  "original_freeze_and_receipts_unchanged": true
+}
