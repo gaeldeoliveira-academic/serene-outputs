@@ -25,3 +25,7 @@
 /tools/pose_sidecar/author_applied_fixtures.py -text
 /tools/pose_sidecar/author_moment_fixtures.py -text
 /tools/pose_sidecar/author_plane_fixtures.py -text
+
+# Preserve the independent modal corpus, revisions and hash-bound authors.
+/fixtures_modal_m1/** -text
+/tools/conformance/modal_m1/*.py -text

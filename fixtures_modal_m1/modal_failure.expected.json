@@ -1,0 +1,18 @@
+{
+  "run_id": "manufactured-modal/α",
+  "result_kind": 1,
+  "search_status": 1,
+  "mode_count": 0,
+  "observation_count": 4,
+  "mode_ids": [],
+  "cluster_ids": [],
+  "eigenvalues_per_s2": [],
+  "eigenvalue_bits_hex": [],
+  "classifications": [],
+  "frequency_state": 2,
+  "diagnostic_state": 2,
+  "shape_state": 2,
+  "logical_shape": null,
+  "shape_bits_hex": [],
+  "frames": []
+}

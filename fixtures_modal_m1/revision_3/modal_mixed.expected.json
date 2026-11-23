@@ -1,0 +1,444 @@
+{
+  "run_id": "manufactured-modal/α",
+  "result_kind": 0,
+  "search_status": 0,
+  "mode_count": 4,
+  "observation_count": 4,
+  "mode_ids": [
+    9007199254740993,
+    9007199254740994,
+    9007199254740995,
+    9007199254740996
+  ],
+  "cluster_ids": [
+    9223372036854775808,
+    9223372036854775809,
+    9223372036854775810
+  ],
+  "eigenvalues_per_s2": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0
+  ],
+  "eigenvalue_bits_hex": [
+    "00000000000010c0",
+    "0000000000000000",
+    "0000000000001040",
+    "0000000000001040"
+  ],
+  "classifications": [
+    2,
+    0,
+    3,
+    3
+  ],
+  "frequency_state": 0,
+  "counted_reference_eigenvalues": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0,
+    16.0,
+    36.0
+  ],
+  "ritz_gap_would_split_counted_cluster": false,
+  "oracle_mass_diagonal": [
+    1.0,
+    4.0,
+    16.0,
+    1.0,
+    4.0,
+    16.0
+  ],
+  "oracle_stiffness_diagonal": [
+    -4.0,
+    0.0,
+    64.0,
+    4.0,
+    64.0,
+    576.0
+  ],
+  "oracle_physical_mode_vectors": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.25,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "projected_relative_residual": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "residual_definition": "norm(K*phi-lambda*M*phi)/(norm(K*phi)+abs(lambda)*norm(M*phi)); null zero/zero gives zero",
+  "material_s_present": [
+    0,
+    1,
+    1,
+    0
+  ],
+  "material_s_m": [
+    null,
+    1.0,
+    1.0,
+    null
+  ],
+  "station_sides": [
+    "unspecified",
+    "left",
+    "right",
+    "unspecified"
+  ],
+  "diagnostic_state": 0,
+  "shape_state": 0,
+  "logical_shape": [
+    4,
+    4,
+    6
+  ],
+  "shape_bits_hex": [
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000f03f",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "000000000000f03f",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "000000000000f03f",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000e03f",
+    "0000000000000000",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000e03f",
+    "0000000000000000",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000e03f",
+    "0000000000000000",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000d03f",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000d03f",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000d03f",
+    "0000000000000080",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000f03f",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "000000000000f03f",
+    "0000000000000080",
+    "0000000000000000",
+    "0000000000000000",
+    "0000000000000000",
+    "00000000000000c0",
+    "000000000000f03f",
+    "0000000000000080",
+    "0000000000000000"
+  ],
+  "frames": [
+    {
+      "outer": 0,
+      "begin": 0,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 0,
+      "begin": 4,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 0,
+      "begin": 8,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 24,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 0,
+      "begin": 12,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 0,
+      "begin": 16,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 0,
+      "begin": 20,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 24,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 1,
+      "begin": 0,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 1,
+      "begin": 4,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 1,
+      "begin": 8,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 24,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 1,
+      "begin": 12,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 1,
+      "begin": 16,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 1,
+      "begin": 20,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 24,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 2,
+      "begin": 0,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 2,
+      "begin": 4,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 2,
+      "begin": 8,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 2,
+      "begin": 12,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 2,
+      "begin": 16,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 24,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 2,
+      "begin": 20,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 3,
+      "begin": 0,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 3,
+      "begin": 4,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 3,
+      "begin": 8,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    },
+    {
+      "outer": 3,
+      "begin": 12,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 16,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 3,
+      "begin": 16,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 24,
+      "actual_encoding": 1,
+      "raw_tie": false
+    },
+    {
+      "outer": 3,
+      "begin": 20,
+      "count": 4,
+      "raw_bytes": 32,
+      "zfp_bytes": 48,
+      "actual_encoding": 0,
+      "raw_tie": false
+    }
+  ]
+}

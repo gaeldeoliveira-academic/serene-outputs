@@ -1,0 +1,377 @@
+{
+  "schema": "serene-modal-independent-oracle/1",
+  "scope": "manufactured archive and structural mapping oracle; not blade qualification",
+  "coordinate_order": [
+    "world_tx",
+    "world_ty",
+    "world_tz",
+    "owner_local_rx",
+    "owner_local_ry",
+    "owner_local_rz"
+  ],
+  "mass_diagonal": [
+    1.0,
+    4.0,
+    16.0,
+    1.0,
+    4.0,
+    16.0
+  ],
+  "mass_units": [
+    "kg",
+    "kg",
+    "kg",
+    "kg*m^2",
+    "kg*m^2",
+    "kg*m^2"
+  ],
+  "stiffness_diagonal": [
+    -4.0,
+    0.0,
+    64.0,
+    4.0,
+    64.0,
+    576.0
+  ],
+  "complete_eigenvalues_per_s2": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0,
+    16.0,
+    36.0
+  ],
+  "physical_mode_vectors": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.25,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "normalization": "unit_generalized_mass",
+  "requested_elastic_modes": 1,
+  "found_elastic_modes": 2,
+  "eigenvalues_per_s2": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0
+  ],
+  "classifications": [
+    "adverse_negative",
+    "near_zero_unresolved",
+    "elastic",
+    "elastic"
+  ],
+  "frequency_hz": [
+    null,
+    null,
+    0.3183098861837907,
+    0.3183098861837907
+  ],
+  "cluster_ids": [
+    0,
+    1,
+    2,
+    2
+  ],
+  "cluster_sizes": [
+    1,
+    1,
+    2
+  ],
+  "search_interval_per_s2": [
+    -8.0,
+    64.0
+  ],
+  "certified_lower_per_s2": -8.0,
+  "certified_upper_per_s2": 4.0,
+  "upper_separator_per_s2": 16.0,
+  "dense_counted_eigenvalues": 6,
+  "zero_tolerance_per_s2": 0.125,
+  "negative_tolerance_per_s2": 0.5,
+  "cluster_absolute_tolerance_per_s2": 0.0,
+  "cluster_relative_tolerance": 0.0,
+  "owner_reference_position_world_m": [
+    1.0,
+    2.0,
+    3.0
+  ],
+  "owner_reference_orientation_world_wxyz": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "offset_local_m": [
+    0.0,
+    2.0,
+    0.0
+  ],
+  "offset_world_m": [
+    0.0,
+    -2.0,
+    0.0
+  ],
+  "observations": [
+    {
+      "request_id": "root",
+      "occurrence_id": "blade/fixture",
+      "kind": "port",
+      "port_id": "root",
+      "material_s_m": null,
+      "side": "unspecified",
+      "position_world_m": [
+        1.0,
+        2.0,
+        0.0
+      ],
+      "orientation_world_wxyz": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": "station-left",
+      "occurrence_id": "blade/fixture",
+      "kind": "material",
+      "port_id": "",
+      "material_s_m": 1.0,
+      "side": "left",
+      "position_world_m": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "orientation_world_wxyz": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "request_id": "station-right",
+      "occurrence_id": "blade/fixture",
+      "kind": "material",
+      "port_id": "",
+      "material_s_m": 1.0,
+      "side": "right",
+      "position_world_m": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "orientation_world_wxyz": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "request_id": "offset-port",
+      "occurrence_id": "blade/fixture",
+      "kind": "port",
+      "port_id": "tip-offset",
+      "material_s_m": null,
+      "side": "unspecified",
+      "position_world_m": [
+        1.0,
+        0.0,
+        3.0
+      ],
+      "orientation_world_wxyz": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "shape_component_order": [
+    "tx",
+    "ty",
+    "tz",
+    "rx",
+    "ry",
+    "rz"
+  ],
+  "shape_component_units": [
+    "m/unit_modal_coordinate",
+    "m/unit_modal_coordinate",
+    "m/unit_modal_coordinate",
+    "rad/unit_modal_coordinate",
+    "rad/unit_modal_coordinate",
+    "rad/unit_modal_coordinate"
+  ],
+  "shape_components_frame": "world",
+  "shape_values": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.5,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.5,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.5,
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.25,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.25,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.25,
+        -0.0,
+        -0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        -2.0,
+        1.0,
+        -0.0,
+        0.0
+      ]
+    ]
+  ],
+  "physical_amplitude": "independent modal coordinate; never encoded as a shape scale"
+}

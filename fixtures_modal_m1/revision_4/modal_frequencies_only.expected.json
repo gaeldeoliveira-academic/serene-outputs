@@ -1,0 +1,111 @@
+{
+  "run_id": "manufactured-modal/α",
+  "result_kind": 0,
+  "search_status": 0,
+  "mode_count": 4,
+  "observation_count": 0,
+  "mode_ids": [
+    9007199254740993,
+    9007199254740994,
+    9007199254740995,
+    9007199254740996
+  ],
+  "cluster_ids": [
+    9223372036854775808,
+    9223372036854775809,
+    9223372036854775810
+  ],
+  "eigenvalues_per_s2": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0
+  ],
+  "eigenvalue_bits_hex": [
+    "00000000000010c0",
+    "0000000000000000",
+    "0000000000001040",
+    "0000000000001040"
+  ],
+  "classifications": [
+    2,
+    0,
+    3,
+    3
+  ],
+  "frequency_state": 0,
+  "counted_reference_eigenvalues": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0,
+    16.0,
+    36.0
+  ],
+  "ritz_gap_would_split_counted_cluster": false,
+  "oracle_mass_diagonal": [
+    1.0,
+    4.0,
+    16.0,
+    1.0,
+    4.0,
+    16.0
+  ],
+  "oracle_stiffness_diagonal": [
+    -4.0,
+    0.0,
+    64.0,
+    4.0,
+    64.0,
+    576.0
+  ],
+  "oracle_physical_mode_vectors": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.25,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      -1.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "projected_relative_residual": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "residual_definition": "norm(K*phi-lambda*M*phi)/(norm(K*phi)+abs(lambda)*norm(M*phi)); null zero/zero gives zero",
+  "material_s_present": [],
+  "material_s_m": [],
+  "station_sides": [],
+  "diagnostic_state": 1,
+  "shape_state": 1,
+  "logical_shape": null,
+  "shape_bits_hex": [],
+  "frames": []
+}

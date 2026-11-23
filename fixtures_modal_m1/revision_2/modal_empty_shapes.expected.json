@@ -1,0 +1,46 @@
+{
+  "run_id": "manufactured-modal/α",
+  "result_kind": 0,
+  "search_status": 0,
+  "mode_count": 4,
+  "observation_count": 0,
+  "mode_ids": [
+    9007199254740993,
+    9007199254740994,
+    9007199254740995,
+    9007199254740996
+  ],
+  "cluster_ids": [
+    9223372036854775808,
+    9223372036854775809,
+    9223372036854775810
+  ],
+  "eigenvalues_per_s2": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0
+  ],
+  "eigenvalue_bits_hex": [
+    "00000000000010c0",
+    "0000000000000000",
+    "0000000000001040",
+    "0000000000001040"
+  ],
+  "classifications": [
+    2,
+    0,
+    3,
+    3
+  ],
+  "frequency_state": 0,
+  "diagnostic_state": 0,
+  "shape_state": 0,
+  "logical_shape": [
+    4,
+    0,
+    6
+  ],
+  "shape_bits_hex": [],
+  "frames": []
+}

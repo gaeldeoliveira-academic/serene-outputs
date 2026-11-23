@@ -2,7 +2,7 @@
 # This first-party build owns target wiring only; pinned dependency sources remain external.
 cmake_minimum_required(VERSION 3.28)
 cmake_policy(SET CMP0091 NEW)
-project(SereneOutputs VERSION 0.2.8 LANGUAGES C CXX)
+project(SereneOutputs VERSION 0.3.0 LANGUAGES C CXX)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 include(CTest)
@@ -54,7 +54,7 @@ function(serene_outputs_target target export_name)
   endif()
 endfunction()
 # Always provide the model/planner and typed diagnostics; JSON remains a private header dependency.
-add_library(serene_outputs_model STATIC src/model.cpp src/diagnostics.cpp)
+add_library(serene_outputs_model STATIC src/model.cpp src/diagnostics.cpp src/modal_model.cpp)
 add_library(serene::outputs_model ALIAS serene_outputs_model)
 serene_outputs_target(serene_outputs_model outputs_model)
 target_include_directories(serene_outputs_model PRIVATE third_party/nlohmann_json/include)
@@ -79,7 +79,7 @@ set_target_properties(serene::outputs_zfp_dependency PROPERTIES IMPORTED_LOCATIO
 endif()
 # Archive combines the model and codec with section I/O, shared spool validation and bundle assembly.
 if(SERENE_OUTPUTS_BUILD_ARCHIVE)
-  add_library(serene_outputs_archive STATIC src/archive.cpp src/bundle.cpp src/spool_reader.cpp)
+  add_library(serene_outputs_archive STATIC src/archive.cpp src/bundle.cpp src/spool_reader.cpp src/modal.cpp)
   add_library(serene::outputs_archive ALIAS serene_outputs_archive)
   serene_outputs_target(serene_outputs_archive outputs_archive)
   target_include_directories(serene_outputs_archive PRIVATE third_party/nlohmann_json/include)
@@ -108,9 +108,19 @@ install(FILES "${PROJECT_BINARY_DIR}/SereneOutputsConfig.cmake" "${PROJECT_BINAR
 install(FILES third_party/dependencies.json third_party/licenses/ZFP-LICENSE
   third_party/nlohmann_json/LICENSE.MIT third_party/crypto_algorithms/README.md
   DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs/licenses)
-install(FILES spec/POSE_SIDECAR.md spec/POSE_WINCH_GEOMETRY.md spec/POSE_OPTIONAL_OVERLAYS.md spec/POSE_FLUID_GEOMETRY.md spec/POSE_APPLIED_LOADS.md spec/POSE_ELASTIC_MOMENTS.md spec/POSE_INFLOW_PLANES.md spec/FORMAT.md spec/FORMAT-1.1.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
+install(FILES spec/POSE_SIDECAR.md spec/POSE_WINCH_GEOMETRY.md spec/POSE_OPTIONAL_OVERLAYS.md spec/POSE_FLUID_GEOMETRY.md spec/POSE_APPLIED_LOADS.md spec/POSE_ELASTIC_MOMENTS.md spec/POSE_INFLOW_PLANES.md spec/FORMAT.md spec/FORMAT-1.1.md spec/FORMAT-1.2.md DESTINATION ${CMAKE_INSTALL_DATADIR}/serene-outputs)
 # Register focused tests only for configured components; no configure step generates frozen fixtures.
 if(BUILD_TESTING)
+  if(SERENE_OUTPUTS_BUILD_ARCHIVE)
+    # Modal source writer consumes independent manufactured physical data and retains fresh artifacts.
+    add_executable(test_modal tests/test_modal.cpp)
+    target_link_libraries(test_modal PRIVATE serene::outputs_archive)
+    target_include_directories(test_modal PRIVATE third_party/nlohmann_json/include)
+    set_target_properties(test_modal PROPERTIES MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    add_test(NAME serene_outputs_modal COMMAND test_modal
+      "${PROJECT_SOURCE_DIR}/fixtures_modal_m1/manufactured_packet.json"
+      "${PROJECT_BINARY_DIR}/modal-tests/$<CONFIG>")
+  endif()
   if(SERENE_OUTPUTS_BUILD_POSE_RECORDER)
     add_executable(test_pose_recorder tests/test_pose_recorder.cpp)
     target_link_libraries(test_pose_recorder PRIVATE serene::outputs_pose_recorder)

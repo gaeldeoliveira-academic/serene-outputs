@@ -1,0 +1,64 @@
+{
+  "run_id": "manufactured-modal/α",
+  "result_kind": 1,
+  "search_status": 1,
+  "mode_count": 0,
+  "observation_count": 4,
+  "mode_ids": [],
+  "cluster_ids": [],
+  "eigenvalues_per_s2": [],
+  "eigenvalue_bits_hex": [],
+  "classifications": [],
+  "frequency_state": 2,
+  "counted_reference_eigenvalues": [
+    -4.0,
+    0.0,
+    4.0,
+    4.0,
+    16.0,
+    36.0
+  ],
+  "ritz_gap_would_split_counted_cluster": false,
+  "oracle_mass_diagonal": [
+    1.0,
+    4.0,
+    16.0,
+    1.0,
+    4.0,
+    16.0
+  ],
+  "oracle_stiffness_diagonal": [
+    -4.0,
+    0.0,
+    64.0,
+    4.0,
+    64.0,
+    576.0
+  ],
+  "oracle_physical_mode_vectors": [],
+  "projected_relative_residual": [],
+  "residual_definition": "norm(K*phi-lambda*M*phi)/(norm(K*phi)+abs(lambda)*norm(M*phi)); null zero/zero gives zero",
+  "material_s_present": [
+    0,
+    1,
+    1,
+    0
+  ],
+  "material_s_m": [
+    null,
+    1.0,
+    1.0,
+    null
+  ],
+  "station_sides": [
+    "unspecified",
+    "left",
+    "right",
+    "unspecified"
+  ],
+  "diagnostic_state": 2,
+  "shape_state": 2,
+  "logical_shape": null,
+  "shape_bits_hex": [],
+  "frames": []
+}
